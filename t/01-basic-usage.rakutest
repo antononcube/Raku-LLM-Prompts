@@ -8,10 +8,19 @@ use LLM::Prompts;
 
 plan *;
 
-ok ingest-prompt-records();
+## 1
+ok ingest-prompt-data();
 
-isa-ok get-prompts(), Hash;
+## 2
+isa-ok llm-prompt-data(), Hash;
 
+## 3
+isa-ok llm-prompt-categories(), Positional;
+
+## 4
+isa-ok llm-prompt-topics(), Positional;
+
+## 5
 isa-ok llm-prompt('FTFY'), Callable;
 
 done-testing;
