@@ -37,19 +37,22 @@ use LLM::Functions;
 Show the record of the prompt named "FTFY":
 
 ```perl6
-.say for |get-prompts<FTFY>;
+.say for |llm-prompt-data<FTFY>;
 ```
 ```
-# Title => FTFY
-# Description => Use Fixed That For You to quickly correct spelling and grammar mistakes
-# Topics => {AI Guidance => False, Advisor Bots => False, Character Types => False, Chats => False, Computable Output => False, Content Derived from Text => False, Education => False, Entertainment => False, Fictional Characters => False, For Fun => False, General Text Manipulation => True, Historical Figures => False, Linguistics => False, Output Formatting => False, Personalization => False, Prompt Engineering => False, Purpose Based => False, Real-World Actions => False, Roles => False, Special-Purpose Text Manipulation => False, Text Analysis => False, Text Generation => False, Text Styling => False, Wolfram Language => False, Writers => False, Writing Genres => False}
-# Categories => {Function Prompts => True, Modifier Prompts => False, Personas => False}
+# ContributedBy => Wolfram Staff
+# Arity => 1
 # NamedArguments => []
+# Description => Use Fixed That For You to quickly correct spelling and grammar mistakes
+# Title => FTFY
+# Topics => (General Text Manipulation)
+# URL => https://resources.wolframcloud.com/PromptRepository/resources/FTFY
 # PromptText => -> $a {"Find and correct grammar and spelling mistakes in the following text.
 # Response with the corrected text and nothing else.
 # Provide no context for the corrections, only correct the text.
 # $a"}
 # PositionalArguments => [$a]
+# Categories => (Function Prompts)
 ```
 
 Make an LLM function from the prompt named "FTFY":
@@ -58,7 +61,7 @@ Make an LLM function from the prompt named "FTFY":
 my &f = llm-function(llm-prompt('FTFY'));
 ```
 ```
-# -> **@args, *%args { #`(Block|2767823585240) ... }
+# -> **@args, *%args { #`(Block|5569350220704) ... }
 ```
 
 Use the LLM function to correct the grammar of sentence:

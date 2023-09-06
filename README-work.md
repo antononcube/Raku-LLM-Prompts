@@ -34,7 +34,7 @@ use LLM::Functions;
 Show the record of the prompt named "FTFY":
 
 ```perl6
-.say for |get-prompts<FTFY>;
+.say for |llm-prompt-data<FTFY>;
 ```
 
 Make an LLM function from the prompt named "FTFY":
