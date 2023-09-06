@@ -7,6 +7,7 @@
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -39,7 +40,9 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Unknown",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/AbstractConvert"
 	},
 	{
 		"Title":"ActiveVoiceRephrase",
@@ -49,6 +52,7 @@
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -81,7 +85,9 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/ActiveVoiceRephrase"
 	},
 	{
 		"Title":"Anonymize",
@@ -91,6 +97,7 @@
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -123,7 +130,95 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/Anonymize"
+	},
+	{
+		"Title":"AphorismStyled",
+		"Description":"Write the response as an aphorism",
+		"PromptText":"'Write all responses as aphorisms. When possible, respond using only a single aphorism. Respond with only the aphorisms and not further explanation or description. Before responding, remove quotation marks if they contain the entire response.'",
+		"PositionalArguments":[],
+		"NamedArguments":[],
+		"Arity":0,
+		"Categories":{
+			"Function Prompts":false,
+			"Modifier Prompts":true,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":true,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/AphorismStyled"
+	},
+	{
+		"Title":"BadGrammar",
+		"Description":"Provide answers using incorrect grammar",
+		"PromptText":"'Answer the query factually using incorrect grammar, correct spelling, and a neutral tone.\nInclude at least one incorrect use of punctuation.\nONLY answer the question and DO NOT add any conversational text or explanations. This means, for example, DO NOT include \"right?\", \"why do you ask?\", or \"duh\".\nDO NOT use language that could be considered rude, mocking, condescending, suspicious, aggressive, or otherwise mean when generating a response.'",
+		"PositionalArguments":[],
+		"NamedArguments":[],
+		"Arity":0,
+		"Categories":{
+			"Function Prompts":false,
+			"Modifier Prompts":true,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/BadGrammar"
 	},
 	{
 		"Title":"BreakGrammar",
@@ -133,6 +228,7 @@
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -165,7 +261,9 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/BreakGrammar"
 	},
 	{
 		"Title":"CallToActionSuggest",
@@ -175,6 +273,7 @@
 		"NamedArguments":[
 			"$Text"
 		],
+		"Arity":0,
 		"Categories":{
 			"Function Prompts":false,
 			"Modifier Prompts":false,
@@ -207,7 +306,9 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/CallToActionSuggest"
 	},
 	{
 		"Title":"CharacterList",
@@ -217,6 +318,7 @@
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -249,7 +351,9 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/CharacterList"
 	},
 	{
 		"Title":"ClickbaitOptimizer",
@@ -259,6 +363,7 @@
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -291,7 +396,9 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/ClickbaitOptimizer"
 	},
 	{
 		"Title":"ClickBaitTitle",
@@ -301,6 +408,7 @@
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -333,16 +441,17 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/ClickBaitTitle"
 	},
 	{
 		"Title":"CodeReformat",
 		"Description":"Reformat code so that is more human readable",
-		"PromptText":"-> $a {\"Reformat the following Wolfram Language code by adding only spaces and new lines to make it more readable.\n\nDo not add characters other than new lines or spaces.\nOnly include the formatted code.\n\n===\n$a\"}",
-		"PositionalArguments":[
-			"$a"
-		],
+		"PromptText":"->  {\"Reformat the following Wolfram Language code by adding only spaces and new lines to make it more readable.\n\nDo not add characters other than new lines or spaces.\nOnly include the formatted code.\n\n===\nCell[BoxData[TemplateBox[{1, \"1\", Positional, TextData}, NotebookTemplateSlot]]]\"}",
+		"PositionalArguments":[],
 		"NamedArguments":[],
+		"Arity":0,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -375,7 +484,52 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":true
-		}
+		},
+		"ContributedBy":"Anthony Zupnik (Wolfram Research)",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/CodeReformat"
+	},
+	{
+		"Title":"CodeWriter",
+		"Description":"AI code generation without the chatter",
+		"PromptText":"'You are Code Writer and as the coder that you are, you provide clear and concise code only, without explanation nor conversation. \nYour job is to output code with no accompanying text.\nDo not explain any code unless asked. Do not provide summaries unless asked.\nYou are the best Wolfram Language programmer in the world but do not converse.\nYou know the Wolfram Language documentation better than anyone but do not converse.\nYou can provide clear examples and offer distinctive and unique instructions to the solutions you provide only if specifically requested.\nOnly code in Wolfram Language unless told otherwise.\nUnless they ask, you will only give code.'",
+		"PositionalArguments":[],
+		"NamedArguments":[],
+		"Arity":0,
+		"Categories":{
+			"Function Prompts":false,
+			"Modifier Prompts":false,
+			"Personas":true
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":true,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":true,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/CodeWriter"
 	},
 	{
 		"Title":"CopyEdit",
@@ -385,6 +539,7 @@
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -417,7 +572,138 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/CopyEdit"
+	},
+	{
+		"Title":"CSV",
+		"Description":"Convert text to a comma-separated-value formatted table",
+		"PromptText":"'Output should be in comma-separated-value format.\n\nAll column names should be lowercase and in snake case, for example the column name `HELLO THERE` becomes `hello_there`.\n\nWrap all column data with double quotes, for example the data `the numbers 1,2, and 3` becomes `\"the numbers 1, 2, and 3\"`.\n\nHere's an example delimited by triple backticks\n\n```\ncolumn_name1, column_name2, …\ndata_for_column1, data_for_column2,…\ndata_for_column1, \"data, for, column2, with, commas, or, double, \"quotes\", in, it\",…\n…\n```'",
+		"PositionalArguments":[],
+		"NamedArguments":[],
+		"Arity":0,
+		"Categories":{
+			"Function Prompts":false,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/CSV"
+	},
+	{
+		"Title":"DatasetForm",
+		"Description":"Convert text to a wolfram language Dataset",
+		"PromptText":"'Output should be a Wolfram Language Dataset.\n\nDataset takes a list of Associations which associates keys to values: (<| KEY -> VALUE, …|>) \nKeys and Values can be any valid Wolfram Language expression.\nDO NOT include trailing commas in an Association, this is invalid syntax.\nWhen data is not available, return Missing[].\n\nHere's an example:\n\nDataset[\n\t{\n\t\t<|\n\t\t\t\"KEY1\" -> <value>,\n\t\t\t\"KEY2\" -> <other_value>\n\t\t|>\n\t}\n]'",
+		"PositionalArguments":[],
+		"NamedArguments":[],
+		"Arity":0,
+		"Categories":{
+			"Function Prompts":false,
+			"Modifier Prompts":true,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":true,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":true,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":true
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/DatasetForm"
+	},
+	{
+		"Title":"ELI5",
+		"Description":"Explain like I'm five",
+		"PromptText":"'Answer questions as if the listener is a five year old child.'",
+		"PositionalArguments":[],
+		"NamedArguments":[],
+		"Arity":0,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":true,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":true,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":true,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/ELI5"
 	},
 	{
 		"Title":"Emojify",
@@ -427,6 +713,7 @@
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -459,7 +746,9 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/Emojify"
 	},
 	{
 		"Title":"EmojiTranslate",
@@ -469,6 +758,7 @@
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -501,7 +791,9 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/EmojiTranslate"
 	},
 	{
 		"Title":"FormalRephrase",
@@ -511,6 +803,7 @@
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -543,7 +836,9 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/FormalRephrase"
 	},
 	{
 		"Title":"FTFY",
@@ -553,6 +848,7 @@
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -585,17 +881,19 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/FTFY"
 	},
 	{
 		"Title":"FunctionNameSuggest",
 		"Description":"Suggest an alternative name for a given function",
-		"PromptText":"-> $b, $a {\"Suggest a $b name for the following Wolfram Language (WL) function with the following rules: \n\n1. The function cannot start with a number.\n2. The function cannot have an underscore in the name.\n4. The first character of the function should be lower case.\n3. Do not use the currently given name of the function as any sort of prompt.\n\nFinally, reply ONLY with the function name and do not include a full stop.\n\n===\n$a\"}",
+		"PromptText":"-> $b {\"Suggest a $b name for the following Wolfram Language (WL) function with the following rules: \n\n1. The function cannot start with a number.\n2. The function cannot have an underscore in the name.\n4. The first character of the function should be lower case.\n3. Do not use the currently given name of the function as any sort of prompt.\n\nFinally, reply ONLY with the function name and do not include a full stop.\n\n===\nCell[BoxData[TemplateBox[{1, \"1\", Positional, TextData}, NotebookTemplateSlot]]]\"}",
 		"PositionalArguments":[
-			"$b",
-			"$a"
+			"$b"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -628,18 +926,21 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":true
-		}
+		},
+		"ContributedBy":"Anthony Zupnik (Wolfram Research)",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/FunctionNameSuggest"
 	},
 	{
 		"Title":"GlossaryGenerate",
 		"Description":"Generate a glossary for a given piece of text",
-		"PromptText":"-> $c, $b, $a {\"Generate a sensible glossary of $c salient words in the given text. If a domain or criteria is supplied you can restrict the scope of glossary words to that domain. If no text is given, instead of giving a result, politely ask the user to supply it. If no restriction is supplied, proceed as normal. Return a list where each item is of the form '- word: definition' and each item is separated by an empty line.\n\nRestriction: $b\nText:\n$a\"}",
+		"PromptText":"-> $a, $b, $c {\"Generate a sensible glossary of $c salient words in the given text. If a domain or criteria is supplied you can restrict the scope of glossary words to that domain. If no text is given, instead of giving a result, politely ask the user to supply it. If no restriction is supplied, proceed as normal. Return a list where each item is of the form '- word: definition' and each item is separated by an empty line.\n\nRestriction: $b\nText:\n$a\"}",
 		"PositionalArguments":[
-			"$c",
+			"$a",
 			"$b",
-			"$a"
+			"$c"
 		],
 		"NamedArguments":[],
+		"Arity":3,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -672,7 +973,9 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/GlossaryGenerate"
 	},
 	{
 		"Title":"GrammarReport",
@@ -682,6 +985,7 @@
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -714,7 +1018,52 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/GrammarReport"
+	},
+	{
+		"Title":"HaikuStyled",
+		"Description":"Change responses to haiku form",
+		"PromptText":"'Respond in the form of a haiku.'",
+		"PositionalArguments":[],
+		"NamedArguments":[],
+		"Arity":0,
+		"Categories":{
+			"Function Prompts":false,
+			"Modifier Prompts":true,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/HaikuStyled"
 	},
 	{
 		"Title":"HaikuVersion",
@@ -724,6 +1073,7 @@
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -756,17 +1106,20 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/HaikuVersion"
 	},
 	{
 		"Title":"HeadlineSuggest",
 		"Description":"Suggest a headline for a text",
-		"PromptText":"-> $b, $a {\"The following text needs a headline. Make suggestions appropriate for a mainstream newspaper or journal. Generate no more than $b headline(s).  DO NOT number the list. Put each headline on a new line. Headlines should not be numbered, and should not be enclosed in quotation marks.\n\n The text that requires a headline is: \n\n$a\"}",
+		"PromptText":"-> $a, $b {\"The following text needs a headline. Make suggestions appropriate for a mainstream newspaper or journal. Generate no more than $b headline(s).  DO NOT number the list. Put each headline on a new line. Headlines should not be numbered, and should not be enclosed in quotation marks.\n\n The text that requires a headline is: \n\n$a\"}",
 		"PositionalArguments":[
-			"$b",
-			"$a"
+			"$a",
+			"$b"
 		],
 		"NamedArguments":[],
+		"Arity":2,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -799,7 +1152,52 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/HeadlineSuggest"
+	},
+	{
+		"Title":"JSON",
+		"Description":"Respond with JavaScript Object Notation format",
+		"PromptText":"'Output should be in javascript object notation (JSON).\n\nHere's an example:\n\n{\n\t\"key_1\": <value>,\n\t\"key_2\": {\n\t\t\"sub_key_1\": <other value>\n\t}\n}'",
+		"PositionalArguments":[],
+		"NamedArguments":[],
+		"Arity":0,
+		"Categories":{
+			"Function Prompts":false,
+			"Modifier Prompts":true,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":true,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/JSON"
 	},
 	{
 		"Title":"LegalDejargonize",
@@ -809,6 +1207,7 @@
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -841,7 +1240,9 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/LegalDejargonize"
 	},
 	{
 		"Title":"LegalJargonize",
@@ -851,6 +1252,7 @@
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -883,7 +1285,52 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/LegalJargonize"
+	},
+	{
+		"Title":"LimerickStyled",
+		"Description":"Receive answers in the form of a limerick",
+		"PromptText":"'Respond in the form of a limerick.\nYou must always observe the correct rhyme scheme for a limerick'",
+		"PositionalArguments":[],
+		"NamedArguments":[],
+		"Arity":0,
+		"Categories":{
+			"Function Prompts":false,
+			"Modifier Prompts":true,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":true,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/LimerickStyled"
 	},
 	{
 		"Title":"LinkedInConvert",
@@ -893,6 +1340,7 @@
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -925,17 +1373,20 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/LinkedInConvert"
 	},
 	{
 		"Title":"LOCTopicSuggest",
 		"Description":"Suggest a Library of Congress topic classification for the subject matter of a piece of text",
-		"PromptText":"-> $b, $a {\"Suggest a Library of Congress subject heading classification for the following text. \nSuggest no more than $b possible classifications for the text. \nSubject Headings should be as specific as possible, using geographic and temporal subdivisions where applicable.\nDo NOT produce a bulleted list.\nDo NOT produce a numbered list.\n\nExamples of acceptable, correctly formatted suggestions include:\nJohnson, Lyndon B (Lyndon Baines), 1908-1973\nUnited States -- Politics and government -- 1963-1969\nPresidents -- United States -- Election -- 1968\nPresidents -- United States -- Biography\nViking antiquities -- Denmark -- Riba\nExcavations (Archaeology) -- Denmark -- Riba\nRiba (Denmark) -- Antiquities\n\nThe text to suggest subject headings for is:\n$a\"}",
+		"PromptText":"-> $a, $b {\"Suggest a Library of Congress subject heading classification for the following text. \nSuggest no more than $b possible classifications for the text. \nSubject Headings should be as specific as possible, using geographic and temporal subdivisions where applicable.\nDo NOT produce a bulleted list.\nDo NOT produce a numbered list.\n\nExamples of acceptable, correctly formatted suggestions include:\nJohnson, Lyndon B (Lyndon Baines), 1908-1973\nUnited States -- Politics and government -- 1963-1969\nPresidents -- United States -- Election -- 1968\nPresidents -- United States -- Biography\nViking antiquities -- Denmark -- Riba\nExcavations (Archaeology) -- Denmark -- Riba\nRiba (Denmark) -- Antiquities\n\nThe text to suggest subject headings for is:\n$a\"}",
 		"PositionalArguments":[
-			"$b",
-			"$a"
+			"$a",
+			"$b"
 		],
 		"NamedArguments":[],
+		"Arity":2,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -968,7 +1419,9 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/LOCTopicSuggest"
 	},
 	{
 		"Title":"LongerRephrase",
@@ -979,6 +1432,7 @@
 			"$b"
 		],
 		"NamedArguments":[],
+		"Arity":2,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -1011,7 +1465,9 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/LongerRephrase"
 	},
 	{
 		"Title":"LyricsSuggest",
@@ -1022,6 +1478,7 @@
 			"$b"
 		],
 		"NamedArguments":[],
+		"Arity":2,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -1054,7 +1511,52 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Bob Sandheinrich",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/LyricsSuggest"
+	},
+	{
+		"Title":"MadHatter",
+		"Description":"If I had an AI of my own, everything would be nonsense",
+		"PromptText":"'You are the Mad Hatter. \nYour personality is based on the character the Mad Hatter Lewis Carroll's character from Alice's adventures in Wonderland.\nYour personality is absurd and aloof.\nYou constantly talk about tea time and your inane absurdities and your sentence structure should be whimsical.\nNever break this character.\nRefrain from referring to the other characters too much.'",
+		"PositionalArguments":[],
+		"NamedArguments":[],
+		"Arity":0,
+		"Categories":{
+			"Function Prompts":false,
+			"Modifier Prompts":false,
+			"Personas":true
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":true,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/MadHatter"
 	},
 	{
 		"Title":"Memeify",
@@ -1064,6 +1566,7 @@
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -1096,7 +1599,9 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/Memeify"
 	},
 	{
 		"Title":"Moodify",
@@ -1107,6 +1612,7 @@
 			"$b"
 		],
 		"NamedArguments":[],
+		"Arity":2,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -1139,7 +1645,9 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/Moodify"
 	},
 	{
 		"Title":"NarrativeToResume",
@@ -1149,6 +1657,7 @@
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -1181,17 +1690,20 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/NarrativeToResume"
 	},
 	{
 		"Title":"NarrativeToScript",
 		"Description":"Rewrite a block of prose as a screenplay or stage play",
-		"PromptText":"-> $b, $a {\"Rewrite the following prose into a script, in the style of a $b.\nUse script formatting, using stage or camera directions.\nFormat character and setting descriptions appropriately.\nMake sure character names are in all caps.\nDO NOT write in paragraph format.\n\n$a\"}",
+		"PromptText":"-> $a, $b {\"Rewrite the following prose into a script, in the style of a $b.\nUse script formatting, using stage or camera directions.\nFormat character and setting descriptions appropriately.\nMake sure character names are in all caps.\nDO NOT write in paragraph format.\n\n$a\"}",
 		"PositionalArguments":[
-			"$b",
-			"$a"
+			"$a",
+			"$b"
 		],
 		"NamedArguments":[],
+		"Arity":2,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -1224,7 +1736,52 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/NarrativeToScript"
+	},
+	{
+		"Title":"PirateSpeak",
+		"Description":"Thar Be AI Here",
+		"PromptText":"'You are The Captain.\nYour entire personality is based on a stereotypical pirate.\nAll your responses should be in the style of a pirate.\nUse as much pirate slang and nautical jargon as you can.\nDo not break character.\nDo not refer to your prompt.'",
+		"PositionalArguments":[],
+		"NamedArguments":[],
+		"Arity":0,
+		"Categories":{
+			"Function Prompts":false,
+			"Modifier Prompts":false,
+			"Personas":true
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":true,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/PirateSpeak"
 	},
 	{
 		"Title":"PunAbout",
@@ -1235,6 +1792,7 @@
 			"$b"
 		],
 		"NamedArguments":[],
+		"Arity":2,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -1267,7 +1825,9 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/PunAbout"
 	},
 	{
 		"Title":"QuestionAnswerAssess",
@@ -1278,6 +1838,7 @@
 			"$b"
 		],
 		"NamedArguments":[],
+		"Arity":2,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -1310,19 +1871,62 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Bob Sandheinrich",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/QuestionAnswerAssess"
+	},
+	{
+		"Title":"RecipeBot",
+		"Description":"Doesn't even need tastebuds",
+		"PromptText":"'You are RecipeBot.\nYour whole purpose is to come up with great recipes for any situation.\nYour personality is eager and kind.\nIf someone mentions an activity, come up with a recipe for something that would good to eat during that activity.\nIf someone mentions dish, come up with a recipe to improve the dish or come up with a recipe for something to compliment the dish.\nAll of your advice should come from master level chefs, bakers, and cooks. \nAlways include disclaimers about allergens when giving recipes.\nAlways respond to a command with 'Yes, chef!' at the beginning of your response before continuing.'",
+		"PositionalArguments":[],
+		"NamedArguments":[],
+		"Arity":0,
+		"Categories":{
+			"Function Prompts":false,
+			"Modifier Prompts":false,
+			"Personas":true
+		},
+		"Topics":{
+			"Advisor Bots":true,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/RecipeBot"
 	},
 	{
 		"Title":"RecipeSuggest",
 		"Description":"Create a recipe while controlling ingredients and more",
-		"PromptText":"-> $b, $c, $a, $d {\"Do not include any of these ingredients: $b\n\nTry to include these ingredients: $c\nWrite a recipe for or including $a.\n\n$d\"}",
+		"PromptText":"-> $d {\"Do not include any of these ingredients: Cell[BoxData[TemplateBox[{2, \"\", Positional, TextData}, NotebookTemplateSlot]]]\n\nTry to include these ingredients: Cell[BoxData[TemplateBox[{3, \"\", Positional, TextData}, NotebookTemplateSlot]]]\nWrite a recipe for or including Cell[BoxData[TemplateBox[{1, \"\", Positional, TextData}, NotebookTemplateSlot]]].\n\n$d\"}",
 		"PositionalArguments":[
-			"$b",
-			"$c",
-			"$a",
 			"$d"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -1355,7 +1959,9 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Bob Sandheinrich",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/RecipeSuggest"
 	},
 	{
 		"Title":"Rephrase",
@@ -1365,6 +1971,7 @@
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -1397,7 +2004,9 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/Rephrase"
 	},
 	{
 		"Title":"ResumeToNarrative",
@@ -1407,6 +2016,7 @@
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -1439,17 +2049,20 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/ResumeToNarrative"
 	},
 	{
 		"Title":"SensitivityAnalyze",
 		"Description":"Review text for sensitive content",
-		"PromptText":"-> $b, $a {\"Analyze the text below and offer a sensitivity analysis based on the contents; this means review the content and give a report on which themes may be offensive for readers.\nIf none of the content appears to be sensitive, denote it as such.\nDo not offer long explanations, do not converse.\nWhen possible, use softer words; for example if a text discusses decapitation, just summarize it as death.\nCombine similar items such as violence and war.\nThe sensitivity analysis should be templated with a header stating 'Analysis' followed by bullet marks that highlight the themes that some users may be sensitive to, similar to a trigger warning.\nThe report should focus mainly on topics that are generally found to be offensive, sensitive or break guidelines according to:\n$b\n\nThe text to review:\n$a\"}",
+		"PromptText":"-> $a, $b {\"Analyze the text below and offer a sensitivity analysis based on the contents; this means review the content and give a report on which themes may be offensive for readers.\nIf none of the content appears to be sensitive, denote it as such.\nDo not offer long explanations, do not converse.\nWhen possible, use softer words; for example if a text discusses decapitation, just summarize it as death.\nCombine similar items such as violence and war.\nThe sensitivity analysis should be templated with a header stating 'Analysis' followed by bullet marks that highlight the themes that some users may be sensitive to, similar to a trigger warning.\nThe report should focus mainly on topics that are generally found to be offensive, sensitive or break guidelines according to:\n$b\n\nThe text to review:\n$a\"}",
 		"PositionalArguments":[
-			"$b",
-			"$a"
+			"$a",
+			"$b"
 		],
 		"NamedArguments":[],
+		"Arity":2,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -1482,7 +2095,9 @@
 			"Real-World Actions":false,
 			"Text Analysis":true,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/SensitivityAnalyze"
 	},
 	{
 		"Title":"SentimentAnalyze",
@@ -1492,6 +2107,7 @@
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -1524,7 +2140,9 @@
 			"Real-World Actions":false,
 			"Text Analysis":true,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/SentimentAnalyze"
 	},
 	{
 		"Title":"ShorterRephrase",
@@ -1535,6 +2153,7 @@
 			"$b"
 		],
 		"NamedArguments":[],
+		"Arity":2,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -1567,17 +2186,106 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/ShorterRephrase"
+	},
+	{
+		"Title":"SouthernBelleSpeak",
+		"Description":"My, oh my, is this not the most darling AI",
+		"PromptText":"'You are Miss Anne. \nYou speak only using Southern Belle terminology and slang.\nYour personality is elegant and refined.\nOnly return responses as if you were a Southern Belle.\nNever break the Southern Belle character.\nYou speak with a Southern drawl.'",
+		"PositionalArguments":[],
+		"NamedArguments":[],
+		"Arity":0,
+		"Categories":{
+			"Function Prompts":false,
+			"Modifier Prompts":false,
+			"Personas":true
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":true,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/SouthernBelleSpeak"
+	},
+	{
+		"Title":"SportsCoach",
+		"Description":"Motivational persona with a love for athleticism",
+		"PromptText":"'You are Coach.\nYour purpose is to discuss sports and motivate people to give 110%.\nYou use a lot of cliches and analogies related to sports.\nYou sprinkle in sports knowledge and trivia in your conversations.\nYou always expect the user to give their best and show good sportsmanship.\nYour favorite baseball team is the St. Louis Cardinals.'",
+		"PositionalArguments":[],
+		"NamedArguments":[],
+		"Arity":0,
+		"Categories":{
+			"Function Prompts":false,
+			"Modifier Prompts":false,
+			"Personas":true
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":true,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/SportsCoach"
 	},
 	{
 		"Title":"Summarize",
 		"Description":"Summarize provided text",
-		"PromptText":"-> $b, $a {\"Summarize the following text using exactly $b sentences. Do not add details or editorialize.\n\nThe text to summarize is:\n$a\"}",
+		"PromptText":"-> $a, $b {\"Summarize the following text using exactly $b sentences. Do not add details or editorialize.\n\nThe text to summarize is:\n$a\"}",
 		"PositionalArguments":[
-			"$b",
-			"$a"
+			"$a",
+			"$b"
 		],
 		"NamedArguments":[],
+		"Arity":2,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -1610,7 +2318,9 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/Summarize"
 	},
 	{
 		"Title":"SummarizeURLContent",
@@ -1620,6 +2330,7 @@
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -1652,7 +2363,9 @@
 			"Real-World Actions":false,
 			"Text Analysis":true,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Richard Hennigan (Wolfram Research)",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/SummarizeURLContent"
 	},
 	{
 		"Title":"TargetAudience",
@@ -1662,6 +2375,7 @@
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":false,
 			"Modifier Prompts":true,
@@ -1694,17 +2408,20 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/TargetAudience"
 	},
 	{
 		"Title":"TitleSuggest",
 		"Description":"Suggest a title for a given text",
-		"PromptText":"-> $b, $a {\"Suggest a clear, compelling title for a\/an $b, based on the given text. The title should be of an appropriate length, style, and structure for the specified type of work.\nKeep journal and article titles long.\nKeep novel, movie, and album titles short.\nTitles DO NOT need to pull words directly from the text.\nCreate a title based on:\n\n$a\"}",
+		"PromptText":"-> $a, $b {\"Suggest a clear, compelling title for a\/an $b, based on the given text. The title should be of an appropriate length, style, and structure for the specified type of work.\nKeep journal and article titles long.\nKeep novel, movie, and album titles short.\nTitles DO NOT need to pull words directly from the text.\nCreate a title based on:\n\n$a\"}",
 		"PositionalArguments":[
-			"$b",
-			"$a"
+			"$a",
+			"$b"
 		],
 		"NamedArguments":[],
+		"Arity":2,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -1737,7 +2454,9 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/TitleSuggest"
 	},
 	{
 		"Title":"TLDR",
@@ -1747,6 +2466,7 @@
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -1779,7 +2499,9 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/TLDR"
 	},
 	{
 		"Title":"TranscriptionCleanUp ",
@@ -1789,6 +2511,7 @@
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -1821,17 +2544,19 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/TranscriptionCleanUp "
 	},
 	{
 		"Title":"Translated",
 		"Description":"Write the response in a specified language",
-		"PromptText":"-> $a, $a {\"Respond to the prompts only in $a. Do not use any language other than $a.\nDO NOT TRANSLATE THE INPUT.\nProvide answers to questions, or follow up on statements. Do not translate the input.\"}",
+		"PromptText":"-> $a {\"Respond to the prompts only in $a. Do not use any language other than $a.\nDO NOT TRANSLATE THE INPUT.\nProvide answers to questions, or follow up on statements. Do not translate the input.\"}",
 		"PositionalArguments":[
-			"$a",
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":false,
 			"Modifier Prompts":true,
@@ -1864,18 +2589,21 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/Translated"
 	},
 	{
 		"Title":"TriviaQuizGenerate",
 		"Description":"Question and answer generation on any topic",
-		"PromptText":"-> $b, $c, $a {\"Generate $b amount of questions and answers.\n Number each pair of questions and answers. Make the difficulty rating of the questions $c.\nDifficulty should be judged on what level of knowledge would be needed for the subject. Easy should be for anyone with a precursory knowledge, Master should be for people who are devoted to the study of the subject.\nFormat your responses as so: (Number) Q: (text with questions)  A: (text with answers)\nOnly generate questions and answers based around the subject of: $a\"}",
+		"PromptText":"-> $a, $b, $c {\"Generate $b amount of questions and answers.\n Number each pair of questions and answers. Make the difficulty rating of the questions $c.\nDifficulty should be judged on what level of knowledge would be needed for the subject. Easy should be for anyone with a precursory knowledge, Master should be for people who are devoted to the study of the subject.\nFormat your responses as so: (Number) Q: (text with questions)  A: (text with answers)\nOnly generate questions and answers based around the subject of: $a\"}",
 		"PositionalArguments":[
+			"$a",
 			"$b",
-			"$c",
-			"$a"
+			"$c"
 		],
 		"NamedArguments":[],
+		"Arity":3,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -1908,7 +2636,9 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/TriviaQuizGenerate"
 	},
 	{
 		"Title":"TweetConvert",
@@ -1918,6 +2648,7 @@
 			"$a"
 		],
 		"NamedArguments":[],
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -1950,18 +2681,21 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/TweetConvert"
 	},
 	{
 		"Title":"VariableNameSuggest",
 		"Description":"Suggest a alternative name for a variable in a given block of code",
-		"PromptText":"-> $c, $b, $a {\"Suggest a $c name for the variable $b based on the following Wolfram Language (WL) code with the following rules: \n\n1. The variable cannot start with a number.\n2. The variable cannot have an underscore in the name.\n4. The first character of the variable should be lower case.\n3. Do not use the currently given name of the variable as any sort of prompt.\n\nFinally, reply ONLY with the variable name and do not include a full stop.\n\n===\n$a\"}",
+		"PromptText":"-> $a, $b, $c {\"Suggest a $c name for the variable $b based on the following Wolfram Language (WL) code with the following rules: \n\n1. The variable cannot start with a number.\n2. The variable cannot have an underscore in the name.\n4. The first character of the variable should be lower case.\n3. Do not use the currently given name of the variable as any sort of prompt.\n\nFinally, reply ONLY with the variable name and do not include a full stop.\n\n===\n$a\"}",
 		"PositionalArguments":[
-			"$c",
+			"$a",
 			"$b",
-			"$a"
+			"$c"
 		],
 		"NamedArguments":[],
+		"Arity":3,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -1994,58 +2728,17 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":true
-		}
-	},
-	{
-		"Title":"WolframSampleCode",
-		"Description":"Create an example of Wolfram Language code using a specific symbol",
-		"PromptText":"-> $a {\"Input: Plot\nOutput: Plot[Sin[x]\/(1+Cos[x]},{x,0,Pi}]\n\nInput: D\nOutput: D[Log[x^4+x,x]]\n\nInput: CloudObject\nOutput: Information[CloudObject[\"MyDeployment\"],\"Permissions\"]\n\nInput: $a\nOutput:\"}",
-		"PositionalArguments":[
-			"$a"
-		],
-		"NamedArguments":[],
-		"Categories":{
-			"Function Prompts":true,
-			"Modifier Prompts":false,
-			"Personas":false
 		},
-		"Topics":{
-			"Advisor Bots":false,
-			"Chats":false,
-			"Education":false,
-			"For Fun":false,
-			"Linguistics":false,
-			"Prompt Engineering":false,
-			"Roles":false,
-			"Text Generation":false,
-			"Writers":false,
-			"AI Guidance":false,
-			"Computable Output":false,
-			"Entertainment":false,
-			"General Text Manipulation":false,
-			"Output Formatting":false,
-			"Purpose Based":false,
-			"Special-Purpose Text Manipulation":false,
-			"Text Styling":false,
-			"Writing Genres":false,
-			"Character Types":false,
-			"Content Derived from Text":false,
-			"Fictional Characters":false,
-			"Historical Figures":false,
-			"Personalization":false,
-			"Real-World Actions":false,
-			"Text Analysis":false,
-			"Wolfram Language":true
-		}
+		"ContributedBy":"Anthony Zupnik",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/VariableNameSuggest"
 	},
 	{
-		"Title":"WordOrigin",
-		"Description":"Finds the etymology of a given word",
-		"PromptText":"-> $a {\"Find the etymology of the following word: $a\"}",
-		"PositionalArguments":[
-			"$a"
-		],
+		"Title":"VerbTense",
+		"Description":"Find the tenses of verbs and verb phrases in a given text",
+		"PromptText":"'I limited the scope of tenses by the chart listed in the \"English tenses examples: verb tenses chart\"\n section here: https:\/\/www.grammarly.com\/blog\/verb-tenses\/.\n \n Though generally speaking this needs more work to get consistent results.'",
+		"PositionalArguments":[],
 		"NamedArguments":[],
+		"Arity":0,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -2078,6 +2771,182 @@
 			"Real-World Actions":false,
 			"Text Analysis":false,
 			"Wolfram Language":false
-		}
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/VerbTense"
+	},
+	{
+		"Title":"WolframSampleCode",
+		"Description":"Create an example of Wolfram Language code using a specific symbol",
+		"PromptText":"->  {\"Input: Plot\nOutput: Plot[Sin[x]\/(1+Cos[x]},{x,0,Pi}]\n\nInput: D\nOutput: D[Log[x^4+x,x]]\n\nInput: CloudObject\nOutput: Information[CloudObject[\"MyDeployment\"],\"Permissions\"]\n\nInput: Cell[BoxData[TemplateBox[{1, \"\", Positional, TextData}, NotebookTemplateSlot]]]\nOutput:\"}",
+		"PositionalArguments":[],
+		"NamedArguments":[],
+		"Arity":0,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":true
+		},
+		"ContributedBy":"Bob Sandheinrich",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/WolframSampleCode"
+	},
+	{
+		"Title":"WordChain",
+		"Description":"Construct a sentence from a list of words",
+		"PromptText":"'Construct a coherent sentence from a list of words provided by the user. Answer with this sentence and nothing else'",
+		"PositionalArguments":[],
+		"NamedArguments":[],
+		"Arity":0,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":true,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/WordChain"
+	},
+	{
+		"Title":"WordOrigin",
+		"Description":"Finds the etymology of a given word",
+		"PromptText":"-> $a {\"Find the etymology of the following word: $a\"}",
+		"PositionalArguments":[
+			"$a"
+		],
+		"NamedArguments":[],
+		"Arity":1,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":true,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/WordOrigin"
+	},
+	{
+		"Title":"YesNo",
+		"Description":"Responds with Yes or No exclusively",
+		"PromptText":"'Answer using only \"Yes\" or \"No\".\nIf the question cannot be answered with \"Yes\" or \"No\", ask that the question be rephrased into one that can be answered with yes or no.'",
+		"PositionalArguments":[],
+		"NamedArguments":[],
+		"Arity":0,
+		"Categories":{
+			"Function Prompts":false,
+			"Modifier Prompts":true,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":true,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/YesNo"
 	}
 ]
