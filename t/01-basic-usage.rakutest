@@ -1,0 +1,17 @@
+use v6.d;
+use Test;
+
+use lib '.';
+use lib './lib';
+
+use LLM::Prompts;
+
+plan *;
+
+ok ingest-prompt-records();
+
+isa-ok get-prompts(), Hash;
+
+isa-ok llm-prompt('FTFY'), Callable;
+
+done-testing;

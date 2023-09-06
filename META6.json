@@ -1,0 +1,32 @@
+{
+  "name": "LLM::Prompts",
+  "description": "Facilitating the creation, storage, retrieval, and curation of LLM prompts.",
+  "version": "0.1.0",
+  "perl": "6.d",
+  "authors": [
+    "Anton Antonov"
+  ],
+  "auth": "zef:antononcube",
+  "depends": [],
+  "build-depends": [],
+  "test-depends": [],
+  "provides": {
+    "LLM::Prompts": "lib/LLM/Prompts.rakumod"
+  },
+  "resources": [
+    "prompts.json"
+  ],
+  "license": "Artistic-2.0",
+  "tags": [
+    "chatgpt",
+    "database",
+    "large language model",
+    "llm",
+    "openai",
+    "palm",
+    "prompt",
+    "repository"
+  ],
+  "api": "1",
+  "source-url": "https://github.com/antononcube/Raku-LLM-Prompts.git"
+}
