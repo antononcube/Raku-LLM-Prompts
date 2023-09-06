@@ -1,0 +1,25 @@
+use v6.d;
+use Test;
+
+use lib '.';
+use lib './lib';
+
+use LLM::Functions;
+use LLM::Prompts;
+
+plan *;
+
+## 1
+my $p1 = llm-prompt('FTFY');
+my $q1 = 'Where does he works now?';
+my $res1 = 'Where does he work now?';
+
+ok llm-function($p1);
+
+## 2
+is llm-function($p1)($q1).trim, $res1.trim;
+
+## 3
+is llm-function($p1, e => 'PaLM')($q1).trim, $res1.trim;
+
+done-testing;
