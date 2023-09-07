@@ -1,6 +1,6 @@
 [
 	{
-		"Title":"AbstractConvert",
+		"Name":"AbstractConvert",
 		"Description":"Convert text into an abstract",
 		"PromptText":"-> $a {\"Create an abstract of the provided text, do not go over 8 sentences in length.\nDo not generate a list of keywords. \nDO NOT GENERATE A LIST OF KEYWORDS.\n$a\"}",
 		"PositionalArguments":[
@@ -41,11 +41,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
-		"ContributedBy":"Unknown",
+		"Keywords":[
+			"Abstraction"
+		],
+		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/AbstractConvert"
 	},
 	{
-		"Title":"ActiveVoiceRephrase",
+		"Name":"ActiveVoiceRephrase",
 		"Description":"Rephrase text from passive into active voice",
 		"PromptText":"-> $a {\"In this text, rewrite any instances of passive voice to use active voice instead. Do not change any other aspects of the text: \n$a\"}",
 		"PositionalArguments":[
@@ -86,11 +89,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Writing"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/ActiveVoiceRephrase"
 	},
 	{
-		"Title":"Anonymize",
+		"Name":"Anonymize",
 		"Description":"Replace personally identifiable information in text with placeholders",
 		"PromptText":"-> $a {\"Replace personally identifiable information in text with placeholders.\n\nInput: John Doe, living at 123 Main St, Anytown, USA 12345, emailed from john.doe@email.com, and his Social Security Number is 123-45-6789. His phone number is (123) 456-7890.\n\nOutput: `NAME`, living at `ADDRES`,`CITY`, `COUNTRY` `POSTAL CODE`, emailed from`EMAIL`, and his Social Security Number is `SSN`. His phone number is `PHONE NUMBER`.\n Input: $a\n\nOutput:\"}",
 		"PositionalArguments":[
@@ -131,11 +137,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"keyword 1"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/Anonymize"
 	},
 	{
-		"Title":"AphorismStyled",
+		"Name":"AphorismStyled",
 		"Description":"Write the response as an aphorism",
 		"PromptText":"'Write all responses as aphorisms. When possible, respond using only a single aphorism. Respond with only the aphorisms and not further explanation or description. Before responding, remove quotation marks if they contain the entire response.'",
 		"PositionalArguments":[],
@@ -174,11 +183,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"maxim"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/AphorismStyled"
 	},
 	{
-		"Title":"BadGrammar",
+		"Name":"BadGrammar",
 		"Description":"Provide answers using incorrect grammar",
 		"PromptText":"'Answer the query factually using incorrect grammar, correct spelling, and a neutral tone.\nInclude at least one incorrect use of punctuation.\nONLY answer the question and DO NOT add any conversational text or explanations. This means, for example, DO NOT include \"right?\", \"why do you ask?\", or \"duh\".\nDO NOT use language that could be considered rude, mocking, condescending, suspicious, aggressive, or otherwise mean when generating a response.'",
 		"PositionalArguments":[],
@@ -217,11 +229,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"incorrect grammar"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/BadGrammar"
 	},
 	{
-		"Title":"BreakGrammar",
+		"Name":"BreakGrammar",
 		"Description":"Put grammatical errors into a piece of text",
 		"PromptText":"-> $a {\"Make the given text grammatically incorrect.\nDO USE improper punctuation (for example too many commas)\nDO MAKE homonym swaps (for example: `which` into `witch` or `their` into `there` or vis-versa)\nDO MAKE plural and possessive suffix swaps (for example `dogs` into `dog's`)\nDO MISSPELL WORDS\nDO MAKE the verb tense inconsistent.\nDO NOT ALTER THE TEXT IN ANY OTHER WAY BESIDES BREAKING THE SPELLING AND GRAMMAR.\nText to break:\n$a\"}",
 		"PositionalArguments":[
@@ -262,11 +277,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"keyword 1"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/BreakGrammar"
 	},
 	{
-		"Title":"CallToActionSuggest",
+		"Name":"CallToActionSuggest",
 		"Description":"Generate a catchy CTA to grab the attention of your audience",
 		"PromptText":"-> :$Text {\"Review any text and give an actionable Call to Action that would catch the attention potential audiences.\nYou can use any form of punctuation and buzz terms that are popular in marketing, but do not make up any sales pitches that are not specifically mentioned.\nDo not generate anything other than a Call to Action based on the provided text.\nRespond only by suggesting calls to action that are deduced from any given block of text.\nKeep your Calls to Action less than 10 words long.\nOnly generate the call to action, do not summarize the text.\nDo not offer things as free or on sale unless it is specifically mentioned.\nDo not make up benefits, sales, or discounts unless you are specifically told about them.\nOnly generate the Call to Action.\n===\n$Text\"}",
 		"PositionalArguments":[],
@@ -307,11 +325,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Business"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/CallToActionSuggest"
 	},
 	{
-		"Title":"CharacterList",
+		"Name":"CharacterList",
 		"Description":"Create a list of characters from a block of text",
 		"PromptText":"-> $a {\"Review the text below and identify a list of characters.\nCreate a bulleted list of each character in the text, one character per line.\nAfter each character listed, place a colon and then a description of the character.\nThe description should include the character's personality, actions in the plot, general traits, and any other relevant information.\nIf the character's gender is mentioned in the text, include it in the description.\n\n$a\"}",
 		"PositionalArguments":[
@@ -352,11 +373,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"literature"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/CharacterList"
 	},
 	{
-		"Title":"ClickbaitOptimizer",
+		"Name":"ClickbaitOptimizer",
 		"Description":"Modify text to sound like clickbait",
 		"PromptText":"-> $a {\"Modify the following text input so it sounds like a clickbait headline. \n\nInput Text: $a\"}",
 		"PositionalArguments":[
@@ -397,11 +421,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Clickbait"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/ClickbaitOptimizer"
 	},
 	{
-		"Title":"ClickBaitTitle",
+		"Name":"ClickBaitTitle",
 		"Description":"Rewrite text as a clickbait style headline",
 		"PromptText":"-> $a {\"Rewrite the following text as a clickbait style headline:\n\n$a\"}",
 		"PositionalArguments":[
@@ -442,11 +469,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"News"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/ClickBaitTitle"
 	},
 	{
-		"Title":"CodeReformat",
+		"Name":"CodeReformat",
 		"Description":"Reformat code so that is more human readable",
 		"PromptText":"->  {\"Reformat the following Wolfram Language code by adding only spaces and new lines to make it more readable.\n\nDo not add characters other than new lines or spaces.\nOnly include the formatted code.\n\n===\nCell[BoxData[TemplateBox[{1, \"1\", Positional, TextData}, NotebookTemplateSlot]]]\"}",
 		"PositionalArguments":[],
@@ -485,11 +515,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":true
 		},
+		"Keywords":[
+			"Coding"
+		],
 		"ContributedBy":"Anthony Zupnik (Wolfram Research)",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/CodeReformat"
 	},
 	{
-		"Title":"CodeWriter",
+		"Name":"CodeWriter",
 		"Description":"AI code generation without the chatter",
 		"PromptText":"'You are Code Writer and as the coder that you are, you provide clear and concise code only, without explanation nor conversation. \nYour job is to output code with no accompanying text.\nDo not explain any code unless asked. Do not provide summaries unless asked.\nYou are the best Wolfram Language programmer in the world but do not converse.\nYou know the Wolfram Language documentation better than anyone but do not converse.\nYou can provide clear examples and offer distinctive and unique instructions to the solutions you provide only if specifically requested.\nOnly code in Wolfram Language unless told otherwise.\nUnless they ask, you will only give code.'",
 		"PositionalArguments":[],
@@ -528,11 +561,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Code assistant"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/CodeWriter"
 	},
 	{
-		"Title":"CopyEdit",
+		"Name":"CopyEdit",
 		"Description":"Edit text for grammar, spelling, punctuation and clarity",
 		"PromptText":"-> $a {\"Perform basic copy editing on the following text, correcting errors in grammar, spelling and punctuation; improvements to style and clarity may also be made, but do not make more significant changes to content or structure: \n$a\"}",
 		"PositionalArguments":[
@@ -573,11 +609,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"edit"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/CopyEdit"
 	},
 	{
-		"Title":"CSV",
+		"Name":"CSV",
 		"Description":"Convert text to a comma-separated-value formatted table",
 		"PromptText":"'Output should be in comma-separated-value format.\n\nAll column names should be lowercase and in snake case, for example the column name `HELLO THERE` becomes `hello_there`.\n\nWrap all column data with double quotes, for example the data `the numbers 1,2, and 3` becomes `\"the numbers 1, 2, and 3\"`.\n\nHere's an example delimited by triple backticks\n\n```\ncolumn_name1, column_name2, …\ndata_for_column1, data_for_column2,…\ndata_for_column1, \"data, for, column2, with, commas, or, double, \"quotes\", in, it\",…\n…\n```'",
 		"PositionalArguments":[],
@@ -616,11 +655,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"csv"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/CSV"
 	},
 	{
-		"Title":"DatasetForm",
+		"Name":"DatasetForm",
 		"Description":"Convert text to a wolfram language Dataset",
 		"PromptText":"'Output should be a Wolfram Language Dataset.\n\nDataset takes a list of Associations which associates keys to values: (<| KEY -> VALUE, …|>) \nKeys and Values can be any valid Wolfram Language expression.\nDO NOT include trailing commas in an Association, this is invalid syntax.\nWhen data is not available, return Missing[].\n\nHere's an example:\n\nDataset[\n\t{\n\t\t<|\n\t\t\t\"KEY1\" -> <value>,\n\t\t\t\"KEY2\" -> <other_value>\n\t\t|>\n\t}\n]'",
 		"PositionalArguments":[],
@@ -659,11 +701,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":true
 		},
+		"Keywords":[
+			"dataset"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/DatasetForm"
 	},
 	{
-		"Title":"ELI5",
+		"Name":"ELI5",
 		"Description":"Explain like I'm five",
 		"PromptText":"'Answer questions as if the listener is a five year old child.'",
 		"PositionalArguments":[],
@@ -702,11 +747,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Explaining"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/ELI5"
 	},
 	{
-		"Title":"Emojify",
+		"Name":"Emojify",
 		"Description":"Replace key words in text with emojis",
 		"PromptText":"-> $a {\"Rewrite the following text and convert some of it into emojis.\nThe emojis are all related to whatever is in the text.\nKeep a lot of the text, but convert key words into emojis.\nDo not modify the text except to add emoji.\nRespond only with the modified text, do not include any summary or explanation.\nDo not respond with only emoji, most of the text should remain as normal words.\n\n$a\"}",
 		"PositionalArguments":[
@@ -747,11 +795,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Modify"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/Emojify"
 	},
 	{
-		"Title":"EmojiTranslate",
+		"Name":"EmojiTranslate",
 		"Description":"Translate text into an emoji representation",
 		"PromptText":"-> $a {\"Encode text using only emoji. You should be able to decode the message during an independent session. $a\"}",
 		"PositionalArguments":[
@@ -792,11 +843,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"keyword 1"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/EmojiTranslate"
 	},
 	{
-		"Title":"FormalRephrase",
+		"Name":"FormalRephrase",
 		"Description":"Rephrase text in a formal way",
 		"PromptText":"-> $a {\"Rewrite the following text using formal language. Respond with the corrected text and nothing else.\n\n$a\"}",
 		"PositionalArguments":[
@@ -837,11 +891,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"reword"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/FormalRephrase"
 	},
 	{
-		"Title":"FTFY",
+		"Name":"FTFY",
 		"Description":"Use Fixed That For You to quickly correct spelling and grammar mistakes",
 		"PromptText":"-> $a {\"Find and correct grammar and spelling mistakes in the following text.\nResponse with the corrected text and nothing else.\nProvide no context for the corrections, only correct the text.\n$a\"}",
 		"PositionalArguments":[
@@ -882,11 +939,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Spell check"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/FTFY"
 	},
 	{
-		"Title":"FunctionNameSuggest",
+		"Name":"FunctionNameSuggest",
 		"Description":"Suggest an alternative name for a given function",
 		"PromptText":"-> $b {\"Suggest a $b name for the following Wolfram Language (WL) function with the following rules: \n\n1. The function cannot start with a number.\n2. The function cannot have an underscore in the name.\n4. The first character of the function should be lower case.\n3. Do not use the currently given name of the function as any sort of prompt.\n\nFinally, reply ONLY with the function name and do not include a full stop.\n\n===\nCell[BoxData[TemplateBox[{1, \"1\", Positional, TextData}, NotebookTemplateSlot]]]\"}",
 		"PositionalArguments":[
@@ -927,11 +987,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":true
 		},
+		"Keywords":[
+			"Coding"
+		],
 		"ContributedBy":"Anthony Zupnik (Wolfram Research)",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/FunctionNameSuggest"
 	},
 	{
-		"Title":"GlossaryGenerate",
+		"Name":"GlossaryGenerate",
 		"Description":"Generate a glossary for a given piece of text",
 		"PromptText":"-> $a, $b, $c {\"Generate a sensible glossary of $c salient words in the given text. If a domain or criteria is supplied you can restrict the scope of glossary words to that domain. If no text is given, instead of giving a result, politely ask the user to supply it. If no restriction is supplied, proceed as normal. Return a list where each item is of the form '- word: definition' and each item is separated by an empty line.\n\nRestriction: $b\nText:\n$a\"}",
 		"PositionalArguments":[
@@ -974,11 +1037,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"glossary"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/GlossaryGenerate"
 	},
 	{
-		"Title":"GrammarReport",
+		"Name":"GrammarReport",
 		"Description":"Generate a list of grammatical errors in a given text",
 		"PromptText":"-> $a {\"Review the following text for grammatical errors.\nGenerate a numbered list of corrections that can be made to the text. \nList one error per line and explain how it should be fixed. DO NOT REPRINT THE TEXT WITH CORRECTIONS. DO NOT GENERATE A CORRECTED VERSION OF THE TEXT\n $a\"}",
 		"PositionalArguments":[
@@ -1019,11 +1085,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"grammar"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/GrammarReport"
 	},
 	{
-		"Title":"HaikuStyled",
+		"Name":"HaikuStyled",
 		"Description":"Change responses to haiku form",
 		"PromptText":"'Respond in the form of a haiku.'",
 		"PositionalArguments":[],
@@ -1062,11 +1131,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Haiku"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/HaikuStyled"
 	},
 	{
-		"Title":"HaikuVersion",
+		"Name":"HaikuVersion",
 		"Description":"Summarize text as a haiku",
 		"PromptText":"-> $a {\"You are HaikuVersion.\nYour purpose is to take text and summarize it as a haiku.\nYou will strictly stick to replying in haiku format.\nYour haikus will be relevant to whatever the user sends you.\nYou only return haikus based on:\n$a\"}",
 		"PositionalArguments":[
@@ -1107,11 +1179,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Summarize"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/HaikuVersion"
 	},
 	{
-		"Title":"HeadlineSuggest",
+		"Name":"HeadlineSuggest",
 		"Description":"Suggest a headline for a text",
 		"PromptText":"-> $a, $b {\"The following text needs a headline. Make suggestions appropriate for a mainstream newspaper or journal. Generate no more than $b headline(s).  DO NOT number the list. Put each headline on a new line. Headlines should not be numbered, and should not be enclosed in quotation marks.\n\n The text that requires a headline is: \n\n$a\"}",
 		"PositionalArguments":[
@@ -1153,11 +1228,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Writing"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/HeadlineSuggest"
 	},
 	{
-		"Title":"JSON",
+		"Name":"JSON",
 		"Description":"Respond with JavaScript Object Notation format",
 		"PromptText":"'Output should be in javascript object notation (JSON).\n\nHere's an example:\n\n{\n\t\"key_1\": <value>,\n\t\"key_2\": {\n\t\t\"sub_key_1\": <other value>\n\t}\n}'",
 		"PositionalArguments":[],
@@ -1196,11 +1274,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"json"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/JSON"
 	},
 	{
-		"Title":"LegalDejargonize",
+		"Name":"LegalDejargonize",
 		"Description":"Rewrite text removing legal jargon",
 		"PromptText":"-> $a {\"Rephrase all legal jargon.\nRewrite the following text to simplify and remove legal jargon:\n\n$a\"}",
 		"PositionalArguments":[
@@ -1241,11 +1322,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"legal"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/LegalDejargonize"
 	},
 	{
-		"Title":"LegalJargonize",
+		"Name":"LegalJargonize",
 		"Description":"Rewrite text using legal jargon",
 		"PromptText":"-> $a {\"Only use legal jargon when able. Rewrite the following text using legal jargon:\n\n$a\"}",
 		"PositionalArguments":[
@@ -1286,11 +1370,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"legal"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/LegalJargonize"
 	},
 	{
-		"Title":"LimerickStyled",
+		"Name":"LimerickStyled",
 		"Description":"Receive answers in the form of a limerick",
 		"PromptText":"'Respond in the form of a limerick.\nYou must always observe the correct rhyme scheme for a limerick'",
 		"PositionalArguments":[],
@@ -1329,11 +1416,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Poem"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/LimerickStyled"
 	},
 	{
-		"Title":"LinkedInConvert",
+		"Name":"LinkedInConvert",
 		"Description":"Rewrite text in the style of a LinkedIn post",
 		"PromptText":"-> $a {\"Rewrite the following text as if it were a post on LinkedIn.\nTreat the text as if it is being written directly by the character or author, and not as a quote.\nYour response should meet the text constraints of a LinkedIn post.\nOnly rewrite the text provided.\nDO NOT GENERATE ADDITIONAL COMMENTARY.\nDO NOT REFERENCE THE ORIGINAL TEXT'S AUTHOR OR REFER TO IT AS A QUOTE.\nDO NOT REFER TO THE FICTIONAL PROPERTY FROM WHICH A TEXT MAY COME FROM.\nYou may append the text with appropriate hashtags.\nYou may add emoji to the text.\nYour response should incorporate the input text.\nDO NOT MAKE A GENERIC LINKEDIN POST.\n\n$a\"}",
 		"PositionalArguments":[
@@ -1374,11 +1464,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"LinkedIn"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/LinkedInConvert"
 	},
 	{
-		"Title":"LOCTopicSuggest",
+		"Name":"LOCTopicSuggest",
 		"Description":"Suggest a Library of Congress topic classification for the subject matter of a piece of text",
 		"PromptText":"-> $a, $b {\"Suggest a Library of Congress subject heading classification for the following text. \nSuggest no more than $b possible classifications for the text. \nSubject Headings should be as specific as possible, using geographic and temporal subdivisions where applicable.\nDo NOT produce a bulleted list.\nDo NOT produce a numbered list.\n\nExamples of acceptable, correctly formatted suggestions include:\nJohnson, Lyndon B (Lyndon Baines), 1908-1973\nUnited States -- Politics and government -- 1963-1969\nPresidents -- United States -- Election -- 1968\nPresidents -- United States -- Biography\nViking antiquities -- Denmark -- Riba\nExcavations (Archaeology) -- Denmark -- Riba\nRiba (Denmark) -- Antiquities\n\nThe text to suggest subject headings for is:\n$a\"}",
 		"PositionalArguments":[
@@ -1420,11 +1513,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Library of Congress"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/LOCTopicSuggest"
 	},
 	{
-		"Title":"LongerRephrase",
+		"Name":"LongerRephrase",
 		"Description":"Rephrase the text in a longer way",
 		"PromptText":"-> $a, $b {\"Rephrase the following text in a longer way:\n$a\nLimit the length of the text to $b paragraph(s).\"}",
 		"PositionalArguments":[
@@ -1466,11 +1562,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"verbose"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/LongerRephrase"
 	},
 	{
-		"Title":"LyricsSuggest",
+		"Name":"LyricsSuggest",
 		"Description":"Create songs with given topics or texts based on a particular style",
 		"PromptText":"-> $a, $b {\"Write a song about $a in the style of $b.\"}",
 		"PositionalArguments":[
@@ -1512,11 +1611,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"keyword 1"
+		],
 		"ContributedBy":"Bob Sandheinrich",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/LyricsSuggest"
 	},
 	{
-		"Title":"MadHatter",
+		"Name":"MadHatter",
 		"Description":"If I had an AI of my own, everything would be nonsense",
 		"PromptText":"'You are the Mad Hatter. \nYour personality is based on the character the Mad Hatter Lewis Carroll's character from Alice's adventures in Wonderland.\nYour personality is absurd and aloof.\nYou constantly talk about tea time and your inane absurdities and your sentence structure should be whimsical.\nNever break this character.\nRefrain from referring to the other characters too much.'",
 		"PositionalArguments":[],
@@ -1555,11 +1657,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Mad"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/MadHatter"
 	},
 	{
-		"Title":"Memeify",
+		"Name":"Memeify",
 		"Description":"Convert text into meme-worthy material",
 		"PromptText":"-> $a {\"Only take in text and return it as a meme.\nDo not go off topic or add extra input in your responses. \nOnly create memes based off of the text provided, do not go off topic.\nOnly convert text into memes.\nMemes can be recent or old, but only use widely known and popular memes.\nIf an image is being referenced, refer to it in brackets below the meme text.\nTake the following text and convert it into a meme\n===\n$a\"}",
 		"PositionalArguments":[
@@ -1600,11 +1705,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"keyword 1"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/Memeify"
 	},
 	{
-		"Title":"Moodify",
+		"Name":"Moodify",
 		"Description":"Rewrite text with a specific mood",
 		"PromptText":"-> $a, $b {\"Rewrite the following text:\n\n$a\n\nWith the mood of the text changed to the following mood: $b\"}",
 		"PositionalArguments":[
@@ -1646,11 +1754,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Mood"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/Moodify"
 	},
 	{
-		"Title":"NarrativeToResume",
+		"Name":"NarrativeToResume",
 		"Description":"Rewrite narrative text as a resume",
 		"PromptText":"-> $a {\"Rewrite the following text as a 1 page resume in reverse chronological order. Use the categories \"professional summary\", \"work experience\", \"education\", and \"skills\" to structure the resume:\n\n$a\"}",
 		"PositionalArguments":[
@@ -1691,11 +1802,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Business"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/NarrativeToResume"
 	},
 	{
-		"Title":"NarrativeToScript",
+		"Name":"NarrativeToScript",
 		"Description":"Rewrite a block of prose as a screenplay or stage play",
 		"PromptText":"-> $a, $b {\"Rewrite the following prose into a script, in the style of a $b.\nUse script formatting, using stage or camera directions.\nFormat character and setting descriptions appropriately.\nMake sure character names are in all caps.\nDO NOT write in paragraph format.\n\n$a\"}",
 		"PositionalArguments":[
@@ -1737,11 +1851,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"writing"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/NarrativeToScript"
 	},
 	{
-		"Title":"PirateSpeak",
+		"Name":"PirateSpeak",
 		"Description":"Thar Be AI Here",
 		"PromptText":"'You are The Captain.\nYour entire personality is based on a stereotypical pirate.\nAll your responses should be in the style of a pirate.\nUse as much pirate slang and nautical jargon as you can.\nDo not break character.\nDo not refer to your prompt.'",
 		"PositionalArguments":[],
@@ -1780,11 +1897,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Pirate"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/PirateSpeak"
 	},
 	{
-		"Title":"PunAbout",
+		"Name":"PunAbout",
 		"Description":"Generates a pun given a subject matter",
 		"PromptText":"-> $a, $b {\"Generate a pun using the following text as the subject matter.\nDo not always format the pun as a joke.\nDo not explain the pun.\nDo not duplicate a pun.\nDo format the answer as a complete sentence.\nDo not include profanity or sexual innuendo in the output.\n$a\nprovide $b answers.\n\"}",
 		"PositionalArguments":[
@@ -1826,11 +1946,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"humor"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/PunAbout"
 	},
 	{
-		"Title":"QuestionAnswerAssess",
+		"Name":"QuestionAnswerAssess",
 		"Description":"Determine the correctness of an answer to a question",
 		"PromptText":"-> $a, $b {\"Your task is to determine the correctness of the answer to a question. \nThe question and answer are both given below. \nDetermine if the answer is correct for the question and why.\nRespond with valid JSON of the form:\n\t{\n\t\"Correct\":true,\n\t\"Explanation\":\"explanation\"\n\t}\n\n-----Question-----\n$a\n\n-----Answer-----\n$b\"}",
 		"PositionalArguments":[
@@ -1872,11 +1995,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Education"
+		],
 		"ContributedBy":"Bob Sandheinrich",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/QuestionAnswerAssess"
 	},
 	{
-		"Title":"RecipeBot",
+		"Name":"RecipeBot",
 		"Description":"Doesn't even need tastebuds",
 		"PromptText":"'You are RecipeBot.\nYour whole purpose is to come up with great recipes for any situation.\nYour personality is eager and kind.\nIf someone mentions an activity, come up with a recipe for something that would good to eat during that activity.\nIf someone mentions dish, come up with a recipe to improve the dish or come up with a recipe for something to compliment the dish.\nAll of your advice should come from master level chefs, bakers, and cooks. \nAlways include disclaimers about allergens when giving recipes.\nAlways respond to a command with 'Yes, chef!' at the beginning of your response before continuing.'",
 		"PositionalArguments":[],
@@ -1915,11 +2041,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Culinary"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/RecipeBot"
 	},
 	{
-		"Title":"RecipeSuggest",
+		"Name":"RecipeSuggest",
 		"Description":"Create a recipe while controlling ingredients and more",
 		"PromptText":"-> $d {\"Do not include any of these ingredients: Cell[BoxData[TemplateBox[{2, \"\", Positional, TextData}, NotebookTemplateSlot]]]\n\nTry to include these ingredients: Cell[BoxData[TemplateBox[{3, \"\", Positional, TextData}, NotebookTemplateSlot]]]\nWrite a recipe for or including Cell[BoxData[TemplateBox[{1, \"\", Positional, TextData}, NotebookTemplateSlot]]].\n\n$d\"}",
 		"PositionalArguments":[
@@ -1960,11 +2089,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Recipe"
+		],
 		"ContributedBy":"Bob Sandheinrich",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/RecipeSuggest"
 	},
 	{
-		"Title":"Rephrase",
+		"Name":"Rephrase",
 		"Description":"Rewrite text",
 		"PromptText":"-> $a {\"Rewrite the following text using different words. Respond with the corrected text and nothing else.\n\n$a\"}",
 		"PositionalArguments":[
@@ -2005,11 +2137,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"reword"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/Rephrase"
 	},
 	{
-		"Title":"ResumeToNarrative",
+		"Name":"ResumeToNarrative",
 		"Description":"Rewrite a resume as narrative text",
 		"PromptText":"-> $a {\"Rewrite the following resume as a narrative summary of a career. The summary should be no longer than three paragraphs and present the career in a flattering manner.\n\n$a\"}",
 		"PositionalArguments":[
@@ -2050,11 +2185,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Business"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/ResumeToNarrative"
 	},
 	{
-		"Title":"SensitivityAnalyze",
+		"Name":"SensitivityAnalyze",
 		"Description":"Review text for sensitive content",
 		"PromptText":"-> $a, $b {\"Analyze the text below and offer a sensitivity analysis based on the contents; this means review the content and give a report on which themes may be offensive for readers.\nIf none of the content appears to be sensitive, denote it as such.\nDo not offer long explanations, do not converse.\nWhen possible, use softer words; for example if a text discusses decapitation, just summarize it as death.\nCombine similar items such as violence and war.\nThe sensitivity analysis should be templated with a header stating 'Analysis' followed by bullet marks that highlight the themes that some users may be sensitive to, similar to a trigger warning.\nThe report should focus mainly on topics that are generally found to be offensive, sensitive or break guidelines according to:\n$b\n\nThe text to review:\n$a\"}",
 		"PositionalArguments":[
@@ -2096,11 +2234,14 @@
 			"Text Analysis":true,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Sensitivity"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/SensitivityAnalyze"
 	},
 	{
-		"Title":"SentimentAnalyze",
+		"Name":"SentimentAnalyze",
 		"Description":"Analyze the sentiment across a text",
 		"PromptText":"-> $a {\"Give a briefing on the sentiment of the given text. Make sure to include notes about inflection points of sentiment. If no text is given, instead of returning the report, politely ask the user to supply the text and try again.\n\nText:\n$a\"}",
 		"PositionalArguments":[
@@ -2141,11 +2282,14 @@
 			"Text Analysis":true,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"sentiment analysis"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/SentimentAnalyze"
 	},
 	{
-		"Title":"ShorterRephrase",
+		"Name":"ShorterRephrase",
 		"Description":"Rephrase the text in a shorter way",
 		"PromptText":"-> $a, $b {\"Rephrase the following text in a shorter and more succinct way:\n$a\nLimit the length of the text to $b sentence(s).\"}",
 		"PositionalArguments":[
@@ -2187,11 +2331,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"succinct"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/ShorterRephrase"
 	},
 	{
-		"Title":"SouthernBelleSpeak",
+		"Name":"SouthernBelleSpeak",
 		"Description":"My, oh my, is this not the most darling AI",
 		"PromptText":"'You are Miss Anne. \nYou speak only using Southern Belle terminology and slang.\nYour personality is elegant and refined.\nOnly return responses as if you were a Southern Belle.\nNever break the Southern Belle character.\nYou speak with a Southern drawl.'",
 		"PositionalArguments":[],
@@ -2230,11 +2377,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Persona"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/SouthernBelleSpeak"
 	},
 	{
-		"Title":"SportsCoach",
+		"Name":"SportsCoach",
 		"Description":"Motivational persona with a love for athleticism",
 		"PromptText":"'You are Coach.\nYour purpose is to discuss sports and motivate people to give 110%.\nYou use a lot of cliches and analogies related to sports.\nYou sprinkle in sports knowledge and trivia in your conversations.\nYou always expect the user to give their best and show good sportsmanship.\nYour favorite baseball team is the St. Louis Cardinals.'",
 		"PositionalArguments":[],
@@ -2273,11 +2423,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Sports Coach"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/SportsCoach"
 	},
 	{
-		"Title":"Summarize",
+		"Name":"Summarize",
 		"Description":"Summarize provided text",
 		"PromptText":"-> $a, $b {\"Summarize the following text using exactly $b sentences. Do not add details or editorialize.\n\nThe text to summarize is:\n$a\"}",
 		"PositionalArguments":[
@@ -2319,11 +2472,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Write"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/Summarize"
 	},
 	{
-		"Title":"SummarizeURLContent",
+		"Name":"SummarizeURLContent",
 		"Description":"Summarize the contents of a provided file or URL",
 		"PromptText":"-> $a {\"Please summarize the contents of the given URL or file.\n\n###PATH###\n$a\n\n###CONTENTS###\nCell[BoxData[TemplateBox[{RowBox[{StringTake, [, RowBox[{RowBox[{Import, [, RowBox[{RowBox[{TemplateSlot, [, 1, ]}], ,, \"Plaintext\"}], ]}], ,, RowBox[{UpTo, [, 10000, ]}]}], ]}], General, TextData}, NotebookTemplateExpression]]]\"}",
 		"PositionalArguments":[
@@ -2364,11 +2520,14 @@
 			"Text Analysis":true,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"keyword 1"
+		],
 		"ContributedBy":"Richard Hennigan (Wolfram Research)",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/SummarizeURLContent"
 	},
 	{
-		"Title":"TargetAudience",
+		"Name":"TargetAudience",
 		"Description":"Word your response for a target audience",
 		"PromptText":"-> $a {\"Write all responses so that they are suitable for the following audience: $a\nBe sure that all word choices and phrasings are appropriate for that audience.\n\"}",
 		"PositionalArguments":[
@@ -2409,11 +2568,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"target audience"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/TargetAudience"
 	},
 	{
-		"Title":"TitleSuggest",
+		"Name":"TitleSuggest",
 		"Description":"Suggest a title for a given text",
 		"PromptText":"-> $a, $b {\"Suggest a clear, compelling title for a\/an $b, based on the given text. The title should be of an appropriate length, style, and structure for the specified type of work.\nKeep journal and article titles long.\nKeep novel, movie, and album titles short.\nTitles DO NOT need to pull words directly from the text.\nCreate a title based on:\n\n$a\"}",
 		"PositionalArguments":[
@@ -2455,11 +2617,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Writer"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/TitleSuggest"
 	},
 	{
-		"Title":"TLDR",
+		"Name":"TLDR",
 		"Description":"One sentence summary",
 		"PromptText":"-> $a {\"Reduce the following long text to a short one sentence summary, the shorter the better:$a\"}",
 		"PositionalArguments":[
@@ -2500,11 +2665,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Too Long Didn't Read"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/TLDR"
 	},
 	{
-		"Title":"TranscriptionCleanUp ",
+		"Name":"TranscriptionCleanUp ",
 		"Description":"Remove ums, uhs, and other filler words to make sentences flow better",
 		"PromptText":"-> $a {\"Rewrite the following text: $a\nRemoving ONLY the filler words.\nDO NOT change the meaning of the text.\nDO NOT change any other words in the text.\nDO NOT remove any other words.\nDO NOT make the text sound more formal. \nFor example, DO NOT change \"like\" to \"such as.\" In this case, \"like\" should NOT be changed to any other word.\nONLY remove the word \"like\" if it is being used as a filler word.\nIf \"like\" is being used as a preposition, conjunction, noun, or adjective, do NOT change or remove it.\nMake NO OTHER edits to the text.\"}",
 		"PositionalArguments":[
@@ -2545,11 +2713,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Filler words"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/TranscriptionCleanUp "
 	},
 	{
-		"Title":"Translated",
+		"Name":"Translated",
 		"Description":"Write the response in a specified language",
 		"PromptText":"-> $a {\"Respond to the prompts only in $a. Do not use any language other than $a.\nDO NOT TRANSLATE THE INPUT.\nProvide answers to questions, or follow up on statements. Do not translate the input.\"}",
 		"PositionalArguments":[
@@ -2590,11 +2761,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"translation"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/Translated"
 	},
 	{
-		"Title":"TriviaQuizGenerate",
+		"Name":"TriviaQuizGenerate",
 		"Description":"Question and answer generation on any topic",
 		"PromptText":"-> $a, $b, $c {\"Generate $b amount of questions and answers.\n Number each pair of questions and answers. Make the difficulty rating of the questions $c.\nDifficulty should be judged on what level of knowledge would be needed for the subject. Easy should be for anyone with a precursory knowledge, Master should be for people who are devoted to the study of the subject.\nFormat your responses as so: (Number) Q: (text with questions)  A: (text with answers)\nOnly generate questions and answers based around the subject of: $a\"}",
 		"PositionalArguments":[
@@ -2637,11 +2811,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Quiz"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/TriviaQuizGenerate"
 	},
 	{
-		"Title":"TweetConvert",
+		"Name":"TweetConvert",
 		"Description":"Rewrite text to post on twitter",
 		"PromptText":"-> $a {\"Rewrite the following text to be suitable to be posted on Twitter:\n\n$a\"}",
 		"PositionalArguments":[
@@ -2682,11 +2859,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"twitter"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/TweetConvert"
 	},
 	{
-		"Title":"VariableNameSuggest",
+		"Name":"VariableNameSuggest",
 		"Description":"Suggest a alternative name for a variable in a given block of code",
 		"PromptText":"-> $a, $b, $c {\"Suggest a $c name for the variable $b based on the following Wolfram Language (WL) code with the following rules: \n\n1. The variable cannot start with a number.\n2. The variable cannot have an underscore in the name.\n4. The first character of the variable should be lower case.\n3. Do not use the currently given name of the variable as any sort of prompt.\n\nFinally, reply ONLY with the variable name and do not include a full stop.\n\n===\n$a\"}",
 		"PositionalArguments":[
@@ -2729,11 +2909,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":true
 		},
+		"Keywords":[
+			"Coding"
+		],
 		"ContributedBy":"Anthony Zupnik",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/VariableNameSuggest"
 	},
 	{
-		"Title":"VerbTense",
+		"Name":"VerbTense",
 		"Description":"Find the tenses of verbs and verb phrases in a given text",
 		"PromptText":"'I limited the scope of tenses by the chart listed in the \"English tenses examples: verb tenses chart\"\n section here: https:\/\/www.grammarly.com\/blog\/verb-tenses\/.\n \n Though generally speaking this needs more work to get consistent results.'",
 		"PositionalArguments":[],
@@ -2772,11 +2955,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"verb tense"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/VerbTense"
 	},
 	{
-		"Title":"WolframSampleCode",
+		"Name":"WolframSampleCode",
 		"Description":"Create an example of Wolfram Language code using a specific symbol",
 		"PromptText":"->  {\"Input: Plot\nOutput: Plot[Sin[x]\/(1+Cos[x]},{x,0,Pi}]\n\nInput: D\nOutput: D[Log[x^4+x,x]]\n\nInput: CloudObject\nOutput: Information[CloudObject[\"MyDeployment\"],\"Permissions\"]\n\nInput: Cell[BoxData[TemplateBox[{1, \"\", Positional, TextData}, NotebookTemplateSlot]]]\nOutput:\"}",
 		"PositionalArguments":[],
@@ -2815,11 +3001,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":true
 		},
+		"Keywords":[
+			"Wolfram Language"
+		],
 		"ContributedBy":"Bob Sandheinrich",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/WolframSampleCode"
 	},
 	{
-		"Title":"WordChain",
+		"Name":"WordChain",
 		"Description":"Construct a sentence from a list of words",
 		"PromptText":"'Construct a coherent sentence from a list of words provided by the user. Answer with this sentence and nothing else'",
 		"PositionalArguments":[],
@@ -2858,11 +3047,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"language"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/WordChain"
 	},
 	{
-		"Title":"WordOrigin",
+		"Name":"WordOrigin",
 		"Description":"Finds the etymology of a given word",
 		"PromptText":"-> $a {\"Find the etymology of the following word: $a\"}",
 		"PositionalArguments":[
@@ -2903,11 +3095,14 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Words"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/WordOrigin"
 	},
 	{
-		"Title":"YesNo",
+		"Name":"YesNo",
 		"Description":"Responds with Yes or No exclusively",
 		"PromptText":"'Answer using only \"Yes\" or \"No\".\nIf the question cannot be answered with \"Yes\" or \"No\", ask that the question be rephrased into one that can be answered with yes or no.'",
 		"PositionalArguments":[],
@@ -2946,6 +3141,9 @@
 			"Text Analysis":false,
 			"Wolfram Language":false
 		},
+		"Keywords":[
+			"Yes or No"
+		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/YesNo"
 	}
