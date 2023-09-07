@@ -51,6 +51,25 @@ Use the LLM function to correct the grammar of sentence:
 
 -----
 
+## TODO
+
+- [ ] TODO Implementation
+  - [ ] TODO Addition of user/local prompts 
+    - XDG data directory.
+- [ ] TODO Add more prompts
+  - [ ] TODO Google's Bard example prompts
+  - [ ] TODO OpenAI's ChatGPT example prompts
+- [ ] TODO Documentation
+  - [ ] TODO Prompt format
+  - [ ] TODO Querying (ingested) prompts
+  - [ ] TODO On hijacking prompts
+  - [ ] TODO Diagrams
+    - [ ] Typical usage
+    - [ ] Chatbook usage 
+
+
+-----
+
 ## References
 
 ### Articles

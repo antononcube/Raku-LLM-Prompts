@@ -40,19 +40,20 @@ Show the record of the prompt named "FTFY":
 .say for |llm-prompt-data<FTFY>;
 ```
 ```
-# ContributedBy => Wolfram Staff
+# Description => Use Fixed That For You to quickly correct spelling and grammar mistakes
+# Topics => (General Text Manipulation)
+# Keywords => [Spell check Grammar Check Text Assistance]
+# PositionalArguments => {$a => }
+# Name => FTFY
+# URL => https://resources.wolframcloud.com/PromptRepository/resources/FTFY
 # Arity => 1
 # NamedArguments => []
-# Description => Use Fixed That For You to quickly correct spelling and grammar mistakes
-# Title => FTFY
-# Topics => (General Text Manipulation)
-# URL => https://resources.wolframcloud.com/PromptRepository/resources/FTFY
-# PromptText => -> $a {"Find and correct grammar and spelling mistakes in the following text.
+# PromptText => -> $a='' {"Find and correct grammar and spelling mistakes in the following text.
 # Response with the corrected text and nothing else.
 # Provide no context for the corrections, only correct the text.
 # $a"}
-# PositionalArguments => [$a]
 # Categories => (Function Prompts)
+# ContributedBy => Wolfram Staff
 ```
 
 Make an LLM function from the prompt named "FTFY":
@@ -61,7 +62,7 @@ Make an LLM function from the prompt named "FTFY":
 my &f = llm-function(llm-prompt('FTFY'));
 ```
 ```
-# -> **@args, *%args { #`(Block|5569350220704) ... }
+# -> **@args, *%args { #`(Block|5605119837632) ... }
 ```
 
 Use the LLM function to correct the grammar of sentence:
@@ -72,6 +73,25 @@ Use the LLM function to correct the grammar of sentence:
 ```
 # Where does he work now?
 ```
+
+-----
+
+## TODO
+
+- [ ] TODO Implementation
+  - [ ] TODO Addition of user/local prompts 
+    - XDG data directory.
+- [ ] TODO Add more prompts
+  - [ ] TODO Google's Bard example prompts
+  - [ ] TODO OpenAI's ChatGPT example prompts
+- [ ] TODO Documentation
+  - [ ] TODO Prompt format
+  - [ ] TODO Querying (ingested) prompts
+  - [ ] TODO On hijacking prompts
+  - [ ] TODO Diagrams
+    - [ ] Typical usage
+    - [ ] Chatbook usage 
+
 
 -----
 
