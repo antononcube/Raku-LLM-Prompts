@@ -49,6 +49,32 @@ multi sub llm-prompt-data(-->Hash) {
 }
 
 #-----------------------------------------------------------
+#| Get the prompts database as hash with the keys being the prompt titles.
+proto sub llm-prompt-dataset() is export {*}
+
+multi sub llm-prompt-dataset() {
+    my @recs = llm-prompt-data.values;
+
+    my @pivotCols = <Topics Categories Keywords PositionalArguments NamedArguments>;
+    my $idCols = @recs.head.keys (-) @pivotCols;
+
+    @recs = @recs.grep({ $_<Name> ~~ / Emo /});
+
+    my @res;
+    for @recs -> %record {
+        my %coreRec = %record.grep({ $_.key ∈ $idCols });
+        for @pivotCols -> $pc {
+            for |%record{$pc} -> $val {
+                my %h = %coreRec , %(Variable => $pc, Value => $val);
+                @res.push(%h);
+            }
+        }
+    }
+
+    return @res.sort(*<Name Variable Value>);
+}
+
+#-----------------------------------------------------------
 #| Create the prompt string or pure function for a given prompt name.
 sub llm-prompt($name is copy) is export {
 
