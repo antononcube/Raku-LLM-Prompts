@@ -58,8 +58,6 @@ multi sub llm-prompt-dataset() {
     my @pivotCols = <Topics Categories Keywords PositionalArguments NamedArguments>;
     my $idCols = @recs.head.keys (-) @pivotCols;
 
-    @recs = @recs.grep({ $_<Name> ~~ / Emo /});
-
     my @res;
     for @recs -> %record {
         my %coreRec = %record.grep({ $_.key ∈ $idCols });
