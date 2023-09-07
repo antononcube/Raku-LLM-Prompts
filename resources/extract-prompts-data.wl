@@ -6,6 +6,19 @@ Clear[GetPromptDescr];
 GetPromptDescr[nbExpr_] :=
     Cases[nbExpr, {Cell[title_, "Title", ___], Cell[descr_, "Text", ___], ___} :> descr, \[Infinity]][[1]];
 
+Clear[GetKeywords];
+GetKeywords[nbExpr_] :=
+  Block[{t},
+    t = Cases[nbExpr, Cell[TextData[{"Keywords", x___}], y___] :> x, \[Infinity]];
+    t = Position[nbExpr, Cell[TextData[{"Keywords", x___}], y___], \[Infinity]];
+    If[Length[t] > 0,
+      t = nbExpr[[Sequence @@ Most[First[t]]]];
+      Cases[t, Cell[kw_, "Item", ___] :> kw],
+      (*ELSE*)
+      {}
+    ]
+  ];
+
 Clear[GetContributedBy];
 GetContributedBy[nbExpr_] :=
     Block[{t},
@@ -90,7 +103,7 @@ PromptNotebookToRecord[nb_NotebookObject] :=
       nbExpr = NotebookGet[nb];
       ptext = PromptTextToRaku@GetPromptText[nbExpr];
       aRes = <|
-        "Title" -> GetPromptTitle[nbExpr],
+        "Name" -> GetPromptTitle[nbExpr],
         "Description" -> GetPromptDescr[nbExpr],
         "PromptText" -> ptext["Code"],
         "PositionalArguments" -> ptext["PositionalArgs"],
@@ -98,6 +111,7 @@ PromptNotebookToRecord[nb_NotebookObject] :=
         "Arity" -> Length[Union@ptext["PositionalArgs"]],
         "Categories" -> GetCategories[nbExpr],
         "Topics" -> GetTopics[nbExpr],
+        "Keywords" -> GetKeywords[nbExpr],
         "ContributedBy" -> GetContributedBy[nbExpr],
         "URL" -> urlWPR <> GetPromptTitle[nbExpr]
       |>
