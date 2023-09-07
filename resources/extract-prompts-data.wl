@@ -33,37 +33,46 @@ GetPromptText[nbExpr_] :=
       res[[1, 2, 1]]
     ];
 
+Clear[ToUnquoted];
+ToUnquoted["\"\""] := "";
+ToUnquoted[s_String] :=
+  Block[{t},
+    t = StringCases[s, StartOfString ~~ "\"" ~~ x : (___) ~~ "\"" ~~ EndOfString :> x];
+    If[Length[t] == 0, s, t[[1]]]
+  ];
+  
 Clear[PromptTextToRaku];
 
 PromptTextToRaku[prompt_String] :=
-    <|"PositionalArgs" -> {},
-      "NamedArgs" -> {},
-      "Code" -> "'" <> prompt <> "'"|>;
+  <|"PositionalArgs" -> {},
+   "NamedArgs" -> {},
+   "Code" -> "'" <> prompt <> "'"|>;
 
 PromptTextToRaku[prompt_TextData] :=
-    Block[{aSlotToRakuRules, posArgs = {}, namedArgs = {}, args, t, code},
-
-      aSlotToRakuRules = {
-        Cell[BoxData[TemplateBox[{n_Integer, _, "Positional", ___}, "NotebookTemplateSlot"]], ___] :> (t = "$" <> CharacterRange["a", "z"][[n]];
-        posArgs = Union@Append[posArgs, t]; t),
-        Cell[BoxData[TemplateBox[{n_String, _, "Named", ___}, "NotebookTemplateSlot"]], ___] :> (t = "$" <> StringReplace[n, {StartOfString ~~ "\"" -> "", "\"" ~~ EndOfString -> ""}];
-        namedArgs = Union@Append[namedArgs, t]; t)
-      };
-
-
-      If[FreeQ[prompt, _TemplateBox, \[Infinity]],
-        "'" <> StringRiffle[prompt[[1]], ""] <> "'",
-        (*ELSE*)
-        code =
-            "{\"" <> StringRiffle[prompt[[1]] //. aSlotToRakuRules, ""] <> "\"}";
-        args = StringRiffle[Flatten@{posArgs, ":" <> # & /@ namedArgs}, ", "];
-        code = "-> " <> args <> " " <> code;
-
-        <|"PositionalArgs" -> posArgs,
-          "NamedArgs" -> namedArgs,
-          "Code" -> code|>
-      ]
-    ];
+  Block[{aSlotToRakuRules, posArgs = {}, namedArgs = {}, args, t, code},
+   
+    aSlotToRakuRules = {
+     Cell[
+       BoxData[TemplateBox[{n_Integer, d_, "Positional", ___}, 
+         "NotebookTemplateSlot"]], ___] :> (t = "$" <> CharacterRange["a", "z"][[n]]; posArgs = Union@Append[posArgs, t -> ToUnquoted[d]]; t),
+     Cell[
+       BoxData[TemplateBox[{n_String, d_, "Named", ___}, 
+         "NotebookTemplateSlot"]], ___] :> (t = "$" <> ToUnquoted[n]; namedArgs = Union@Append[namedArgs, t -> ToUnquoted[d]]; t)
+     };
+   
+   
+    If[FreeQ[prompt, _TemplateBox, \[Infinity]],
+      "'" <> StringRiffle[prompt[[1]], ""] <> "'",
+      (*ELSE*)
+      code = "{\"" <> StringRiffle[prompt[[1]] //. aSlotToRakuRules, ""] <> "\"}";
+      args = StringRiffle[Flatten@{#[[1]] <> "='" <> ToUnquoted[#[[2]]] <> "'" & /@ posArgs, ":" <> #[[1]] <> "='" <> ToUnquoted[#[[2]]] <> "'" & /@ namedArgs}, ", "];
+      code = "-> " <> args <> " " <> code;
+    
+      <|"PositionalArgs" -> posArgs,
+       "NamedArgs" -> namedArgs,
+       "Code" -> code|>
+     ]
+   ];
 
 Clear[GetCategories];
 GetCategories[nbExpr_] :=
