@@ -42,7 +42,9 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Abstraction"
+			"Abstraction",
+			"Paragraph",
+			"Summary"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/AbstractConvert"
@@ -90,7 +92,10 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Writing"
+			"Writing",
+			"Grammar",
+			"Passive Voice",
+			"Editing"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/ActiveVoiceRephrase"
@@ -184,7 +189,14 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"maxim"
+			"maxim",
+			"expression",
+			"saying",
+			"cliche",
+			"adage",
+			"precept",
+			"proverb",
+			"canard"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/AphorismStyled"
@@ -326,7 +338,8 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Business"
+			"Business",
+			"Marketing"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/CallToActionSuggest"
@@ -374,7 +387,10 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"literature"
+			"literature",
+			"characters",
+			"text analysis",
+			"fiction"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/CharacterList"
@@ -422,7 +438,10 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Clickbait"
+			"Clickbait",
+			"Headlines",
+			"Modifier",
+			"Fun"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/ClickbaitOptimizer"
@@ -470,7 +489,11 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"News"
+			"News",
+			"Journalism",
+			"Sensationalism",
+			"Writing",
+			"Media"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/ClickBaitTitle"
@@ -516,7 +539,8 @@
 			"Wolfram Language":true
 		},
 		"Keywords":[
-			"Coding"
+			"Coding",
+			"Code Improvement"
 		],
 		"ContributedBy":"Anthony Zupnik (Wolfram Research)",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/CodeReformat"
@@ -562,7 +586,9 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Code assistant"
+			"Code assistant",
+			"code generation",
+			"programming"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/CodeWriter"
@@ -610,7 +636,9 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"edit"
+			"edit",
+			"grammar",
+			"correction"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/CopyEdit"
@@ -656,7 +684,11 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"csv"
+			"csv",
+			"file format",
+			"comma separated values",
+			"database",
+			"database generation"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/CSV"
@@ -702,7 +734,9 @@
 			"Wolfram Language":true
 		},
 		"Keywords":[
-			"dataset"
+			"dataset",
+			"data visualization",
+			"data wrangling"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/DatasetForm"
@@ -748,7 +782,10 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Explaining"
+			"Explaining",
+			"Simple explanation",
+			"For children",
+			"Five Years Old"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/ELI5"
@@ -796,7 +833,10 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Modify"
+			"Modify",
+			"Convert",
+			"Fun",
+			"Emoji"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/Emojify"
@@ -892,7 +932,12 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"reword"
+			"reword",
+			"rephrase",
+			"paraphrase",
+			"rewrite",
+			"formal",
+			"etiquette"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/FormalRephrase"
@@ -940,7 +985,9 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Spell check"
+			"Spell check",
+			"Grammar Check",
+			"Text Assistance"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/FTFY"
@@ -988,7 +1035,9 @@
 			"Wolfram Language":true
 		},
 		"Keywords":[
-			"Coding"
+			"Coding",
+			"Function Definition",
+			"Code Improvement"
 		],
 		"ContributedBy":"Anthony Zupnik (Wolfram Research)",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/FunctionNameSuggest"
@@ -1038,7 +1087,10 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"glossary"
+			"glossary",
+			"definitions",
+			"salient words",
+			"keywords"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/GlossaryGenerate"
@@ -1086,7 +1138,11 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"grammar"
+			"grammar",
+			"language",
+			"text editing",
+			"grammatical errors",
+			"correction"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/GrammarReport"
@@ -1132,7 +1188,13 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Haiku"
+			"Haiku",
+			"Poem",
+			"Art",
+			"Literature",
+			"Poetry",
+			"Haiku Styled",
+			"Haiku Style"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/HaikuStyled"
@@ -1180,7 +1242,10 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Summarize"
+			"Summarize",
+			"Haiku",
+			"Poem",
+			"Fun"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/HaikuVersion"
@@ -1229,7 +1294,8 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Writing"
+			"Writing",
+			"Assistant"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/HeadlineSuggest"
@@ -1275,7 +1341,9 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"json"
+			"json",
+			"javascript object notation",
+			"javascript objects"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/JSON"
@@ -1323,7 +1391,8 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"legal"
+			"legal",
+			"simplify"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/LegalDejargonize"
@@ -1417,7 +1486,13 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Poem"
+			"Poem",
+			"Poetry",
+			"Literature",
+			"Limerick",
+			"Art",
+			"Limerick Style",
+			"Limerick Styled"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/LimerickStyled"
@@ -1465,7 +1540,8 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"LinkedIn"
+			"LinkedIn",
+			"Social media"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/LinkedInConvert"
@@ -1514,7 +1590,12 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Library of Congress"
+			"Library of Congress",
+			"topic headings",
+			"LOC headings",
+			"categorization",
+			"classification",
+			"library headings"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/LOCTopicSuggest"
@@ -1658,7 +1739,9 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Mad"
+			"Mad",
+			"Hatter",
+			"Alice In Wonderland"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/MadHatter"
@@ -1755,7 +1838,10 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Mood"
+			"Mood",
+			"Emotion",
+			"Sentiment",
+			"Writing"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/Moodify"
@@ -1803,7 +1889,10 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Business"
+			"Business",
+			"Summarization",
+			"Employment",
+			"Writing"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/NarrativeToResume"
@@ -1852,7 +1941,13 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"writing"
+			"writing",
+			"prose",
+			"text",
+			"scriptwriting",
+			"scripts",
+			"screenplay",
+			"stage play"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/NarrativeToScript"
@@ -1898,7 +1993,9 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Pirate"
+			"Pirate",
+			"Persona",
+			"Fun"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/PirateSpeak"
@@ -1947,7 +2044,9 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"humor"
+			"humor",
+			"jokes",
+			"homophones"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/PunAbout"
@@ -1996,7 +2095,15 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Education"
+			"Education",
+			"Quiz",
+			"Test",
+			"Exam",
+			"Courseware",
+			"Courses",
+			"Questions",
+			"Grading",
+			"Assessment"
 		],
 		"ContributedBy":"Bob Sandheinrich",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/QuestionAnswerAssess"
@@ -2042,7 +2149,10 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Culinary"
+			"Culinary",
+			"Cook",
+			"Chef",
+			"Recipe"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/RecipeBot"
@@ -2090,7 +2200,15 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Recipe"
+			"Recipe",
+			"Cooking",
+			"Nutrition",
+			"Food",
+			"Drink",
+			"Culinary",
+			"Ingredients",
+			"Directions",
+			"Chef"
 		],
 		"ContributedBy":"Bob Sandheinrich",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/RecipeSuggest"
@@ -2138,7 +2256,12 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"reword"
+			"reword",
+			"rephrase",
+			"paraphrase",
+			"rewrite",
+			"add styles",
+			"edit"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/Rephrase"
@@ -2186,7 +2309,10 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Business"
+			"Business",
+			"Summarization",
+			"Employment",
+			"Writing"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/ResumeToNarrative"
@@ -2235,7 +2361,9 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Sensitivity"
+			"Sensitivity",
+			"Analysis",
+			"Review"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/SensitivityAnalyze"
@@ -2283,7 +2411,9 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"sentiment analysis"
+			"sentiment analysis",
+			"text analysis",
+			"text sentiment"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/SentimentAnalyze"
@@ -2332,7 +2462,8 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"succinct"
+			"succinct",
+			"shorten"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/ShorterRephrase"
@@ -2378,7 +2509,8 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Persona"
+			"Persona",
+			"Southern Belle"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/SouthernBelleSpeak"
@@ -2473,7 +2605,10 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Write"
+			"Write",
+			"Rephrase",
+			"Summary",
+			"Essay"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/Summarize"
@@ -2569,7 +2704,9 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"target audience"
+			"target audience",
+			"audience engagement",
+			"tailored marketing"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/TargetAudience"
@@ -2618,7 +2755,10 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Writer"
+			"Writer",
+			"Write",
+			"Summarize",
+			"Essay"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/TitleSuggest"
@@ -2666,7 +2806,10 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Too Long Didn't Read"
+			"Too Long Didn't Read",
+			"Summary",
+			"Summarize",
+			"Text"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/TLDR"
@@ -2714,7 +2857,8 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Filler words"
+			"Filler words",
+			"Transcription"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/TranscriptionCleanUp "
@@ -2762,7 +2906,11 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"translation"
+			"translation",
+			"localization",
+			"conversion",
+			"languages",
+			"translate"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/Translated"
@@ -2812,7 +2960,10 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Quiz"
+			"Quiz",
+			"Generation",
+			"Questionnaire",
+			"Trivia"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/TriviaQuizGenerate"
@@ -2860,7 +3011,8 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"twitter"
+			"twitter",
+			"tweet"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/TweetConvert"
@@ -2956,7 +3108,9 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"verb tense"
+			"verb tense",
+			"grammar",
+			"linguistics"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/VerbTense"
@@ -3002,7 +3156,11 @@
 			"Wolfram Language":true
 		},
 		"Keywords":[
-			"Wolfram Language"
+			"Wolfram Language",
+			"Mathematica",
+			"Code Example",
+			"Sample Code",
+			"How to use a function"
 		],
 		"ContributedBy":"Bob Sandheinrich",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/WolframSampleCode"
@@ -3048,7 +3206,9 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"language"
+			"language",
+			"sentences",
+			"writing"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/WordChain"
@@ -3096,7 +3256,10 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Words"
+			"Words",
+			"Text",
+			"Etymology",
+			"Reference"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/WordOrigin"
@@ -3142,7 +3305,12 @@
 			"Wolfram Language":false
 		},
 		"Keywords":[
-			"Yes or No"
+			"Yes or No",
+			"Yes No",
+			"No",
+			"Yes",
+			"Binary",
+			"Boolean"
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/YesNo"
