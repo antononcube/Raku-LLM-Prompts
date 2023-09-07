@@ -44,7 +44,7 @@ proto sub llm-prompt-data(-->Hash) is export {*}
 
 multi sub llm-prompt-data(-->Hash) {
     if ! @records { ingest-prompt-data; }
-    my %resPrompts = @records.map({ $_<Title> => $_.clone }).Hash;
+    my %resPrompts = @records.map({ $_<Name> => $_.clone }).Hash;
     return %resPrompts;
 }
 
