@@ -74,7 +74,7 @@ multi sub llm-prompt-dataset() {
 
 #-----------------------------------------------------------
 #| Create the prompt string or pure function for a given prompt name.
-sub llm-prompt($name is copy) is export {
+sub llm-prompt($name is copy, Bool :$warn = True) is export {
 
     my %ps = llm-prompt-data;
 
@@ -101,7 +101,7 @@ sub llm-prompt($name is copy) is export {
         }
 
     } else {
-        note "Unknown prompt name: ⎡$name⎦.";
+        note "Unknown prompt name: ⎡$name⎦." if $warn;
         return Nil;
     }
 }
