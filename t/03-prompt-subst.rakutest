@@ -1,0 +1,47 @@
+use v6.d;
+use Test;
+
+use lib '.';
+use lib './lib';
+
+use LLM::Prompts;
+
+
+## 1
+is
+        llm-prompt-expand('This is a simple prompt'),
+        'This is a simple prompt';
+
+## 2
+is
+        llm-prompt-expand('@Yoda The summer is gone.'),
+        llm-prompt('Yoda') ~ ' The summer is gone.';
+
+## 3
+my $spec3 = 'The summer is gone, school is comming soon.';
+is
+        llm-prompt-expand("$spec3 #HaikuStyled"),
+        $spec3 ~ ' ' ~ llm-prompt('HaikuStyled');
+
+## 4
+is
+        llm-prompt-expand("$spec3 #HaikuStyled #Translated"),
+        $spec3 ~ ' ' ~ llm-prompt('HaikuStyled') ~ ' ' ~ llm-prompt('Translated').();
+
+## 5
+is
+        llm-prompt-expand("$spec3 #HaikuStyled #Translated|German"),
+        $spec3 ~ ' ' ~ llm-prompt('HaikuStyled') ~ ' ' ~ llm-prompt('Translated')('German');
+
+## 6
+is
+        llm-prompt-expand("!Translated|Russian $spec3"),
+        llm-prompt('Translated')('Russian') ~ ' ' ~ $spec3;
+
+
+## 7
+is
+        llm-prompt-expand("!Translated|'High German' $spec3"),
+        llm-prompt('Translated')('High German') ~ ' ' ~ $spec3;
+
+done-testing;
