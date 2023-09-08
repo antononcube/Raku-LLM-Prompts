@@ -29,4 +29,7 @@ ok PromptLine.parse('The summer is gone, school is comming soon. #HaikuStyled #T
 ## 6
 ok PromptLine.parse('!Translated|Russian The summer is gone, school is comming soon.');
 
+## 7
+ok PromptLine.parse('!Translated|"High German" The summer is gone, school is comming soon.');
+
 done-testing;
