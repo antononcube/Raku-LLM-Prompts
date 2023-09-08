@@ -104,15 +104,14 @@ Summer is over, school is coming soon. #HaikuStyled
 Summer is over, school is coming soon. #HaikuStyled #Translated|Russian
 ```
 
-
-
-Having a grammar is most likely not needed, and 
+Having a grammar is most likely not needed, and it is better to use "prompt expansion" (via regex-based substitutions.)
 
 -----
 
 ## TODO
 
 - [ ] TODO Implementation
+  - [X] DONE Prompt retrieval adverbs
   - [X] DONE Prompt DSL grammar and actions
   - [ ] TODO Prompt spec expansion
   - [ ] TODO Addition of user/local prompts 
@@ -121,8 +120,9 @@ Having a grammar is most likely not needed, and
   - [ ] TODO Google's Bard example prompts
   - [ ] TODO OpenAI's ChatGPT example prompts
 - [ ] TODO Documentation
+  - [X] TODO Querying (ingested) prompts
   - [ ] TODO Prompt format
-  - [ ] TODO Querying (ingested) prompts
+  - [ ] TODO Prompt DSL
   - [ ] TODO On hijacking prompts
   - [ ] TODO Diagrams
     - [ ] Typical usage

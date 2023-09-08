@@ -40,20 +40,20 @@ Show the record of the prompt named "FTFY":
 .say for |llm-prompt-data<FTFY>;
 ```
 ```
-# Name => FTFY
 # NamedArguments => []
+# Name => FTFY
+# Description => Use Fixed That For You to quickly correct spelling and grammar mistakes
+# Keywords => [Spell check Grammar Check Text Assistance]
+# ContributedBy => Wolfram Staff
+# Categories => (Function Prompts)
+# Arity => 1
+# URL => https://resources.wolframcloud.com/PromptRepository/resources/FTFY
 # Topics => (General Text Manipulation)
 # PositionalArguments => {$a => }
-# Description => Use Fixed That For You to quickly correct spelling and grammar mistakes
-# URL => https://resources.wolframcloud.com/PromptRepository/resources/FTFY
-# Arity => 1
-# Keywords => [Spell check Grammar Check Text Assistance]
 # PromptText => -> $a='' {"Find and correct grammar and spelling mistakes in the following text.
 # Response with the corrected text and nothing else.
 # Provide no context for the corrections, only correct the text.
 # $a"}
-# Categories => (Function Prompts)
-# ContributedBy => Wolfram Staff
 ```
 
 Make an LLM function from the prompt named "FTFY":
@@ -62,7 +62,7 @@ Make an LLM function from the prompt named "FTFY":
 my &f = llm-function(llm-prompt('FTFY'));
 ```
 ```
-# -> **@args, *%args { #`(Block|4801358093624) ... }
+# -> **@args, *%args { #`(Block|5798092430648) ... }
 ```
 
 Use the LLM function to correct the grammar of sentence:
@@ -97,13 +97,13 @@ use Data::Translators;
 select-columns(llm-prompt-dataset, <Variable Value>).grep({ $_<Variable> eq 'Categories' }) ==> records-summary
 ```
 ```
-# +------------------------+-------------------+
-# | Value                  | Variable          |
-# +------------------------+-------------------+
-# | Personas         => 55 | Categories => 118 |
-# | Function Prompts => 50 |                   |
-# | Modifier Prompts => 13 |                   |
-# +------------------------+-------------------+
+# +-------------------+------------------------+
+# | Variable          | Value                  |
+# +-------------------+------------------------+
+# | Categories => 118 | Personas         => 55 |
+# |                   | Function Prompts => 50 |
+# |                   | Modifier Prompts => 13 |
+# +-------------------+------------------------+
 ```
 
 Here are all modifier prompts in compact format:
@@ -115,19 +115,19 @@ llm-prompt-dataset():modifiers:compact ==> to-pretty-table(field-names => <Name 
 # +-----------------+-------------------------------------------------------+-----------------------------------+
 # | Name            | Description                                           | Categories                        |
 # +-----------------+-------------------------------------------------------+-----------------------------------+
-# | Translated      | Write the response in a specified language            | Modifier Prompts                  |
-# | AphorismStyled  | Write the response as an aphorism                     | Modifier Prompts                  |
 # | ELI5            | Explain like I'm five                                 | Function Prompts Modifier Prompts |
+# | TargetAudience  | Word your response for a target audience              | Modifier Prompts                  |
+# | Moodified       | Modify an answer to express a certain mood            | Modifier Prompts                  |
+# | Translated      | Write the response in a specified language            | Modifier Prompts                  |
+# | YesNo           | Responds with Yes or No exclusively                   | Modifier Prompts                  |
+# | JSON            | Respond with JavaScript Object Notation format        | Modifier Prompts                  |
+# | AphorismStyled  | Write the response as an aphorism                     | Modifier Prompts                  |
 # | DatasetForm     | Convert text to a wolfram language Dataset            | Modifier Prompts                  |
+# | Emojified       | Provide responses that include emojis within the text | Modifier Prompts                  |
 # | BadGrammar      | Provide answers using incorrect grammar               | Modifier Prompts                  |
 # | HaikuStyled     | Change responses to haiku form                        | Modifier Prompts                  |
-# | YesNo           | Responds with Yes or No exclusively                   | Modifier Prompts                  |
-# | LimerickStyled  | Receive answers in the form of a limerick             | Modifier Prompts                  |
-# | JSON            | Respond with JavaScript Object Notation format        | Modifier Prompts                  |
-# | Emojified       | Provide responses that include emojis within the text | Modifier Prompts                  |
-# | TargetAudience  | Word your response for a target audience              | Modifier Prompts                  |
 # | EmojiTranslated | Get a response translated to emoji                    | Modifier Prompts                  |
-# | Moodified       | Modify an answer to express a certain mood            | Modifier Prompts                  |
+# | LimerickStyled  | Receive answers in the form of a limerick             | Modifier Prompts                  |
 # +-----------------+-------------------------------------------------------+-----------------------------------+
 ```
 
@@ -160,15 +160,14 @@ Summer is over, school is coming soon. #HaikuStyled
 Summer is over, school is coming soon. #HaikuStyled #Translated|Russian
 ```
 
-
-
-Having a grammar is most likely not needed, and 
+Having a grammar is most likely not needed, and it is better to use "prompt expansion" (via regex-based substitutions.)
 
 -----
 
 ## TODO
 
 - [ ] TODO Implementation
+  - [X] DONE Prompt retrieval adverbs
   - [X] DONE Prompt DSL grammar and actions
   - [ ] TODO Prompt spec expansion
   - [ ] TODO Addition of user/local prompts 
@@ -177,8 +176,9 @@ Having a grammar is most likely not needed, and
   - [ ] TODO Google's Bard example prompts
   - [ ] TODO OpenAI's ChatGPT example prompts
 - [ ] TODO Documentation
+  - [X] TODO Querying (ingested) prompts
   - [ ] TODO Prompt format
-  - [ ] TODO Querying (ingested) prompts
+  - [ ] TODO Prompt DSL
   - [ ] TODO On hijacking prompts
   - [ ] TODO Diagrams
     - [ ] Typical usage
