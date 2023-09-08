@@ -51,9 +51,70 @@ Use the LLM function to correct the grammar of sentence:
 
 -----
 
+## Prompt data
+
+Here is how the prompt data can be obtained:
+
+```perl6
+llm-prompt-data.elems
+```
+
+Here is a breakdown of the prompts categories:
+
+```perl6
+use Data::Reshapers;
+use Data::Summarizers;
+use Data::Translators;
+
+select-columns(llm-prompt-dataset, <Variable Value>).grep({ $_<Variable> eq 'Categories' }) ==> records-summary
+```
+
+Here are all modifier prompts in compact format:
+
+```perl6
+llm-prompt-dataset():modifiers:compact ==> to-pretty-table(field-names => <Name Description Categories>, align => 'l')
+```
+
+**Remark:** The adverbs `:functions`, `:modifiers`, and `:personas` mean 
+that *only* the prompts with the corresponding categories will be returned.
+
+**Remark:** The adverbs `:compact`, `:functions`, `:modifiers`, and `:personas` have the respective shortcuts `:c`, `:f`, `:m`, and `:p`.
+
+-----
+
+## Implementation notes
+
+### Prompt DSL grammar and actions
+
+The DSL:
+
+- Prompt personas can be "addressed" with "@". For example:
+
+```
+@Yoda Life can be easy, but some people instist for to be difficult.
+```
+
+- One or several modifier prompts can be specified at the end of the prompt spec. For example:
+
+```
+Summer is over, school is coming soon. #HaikuStyled
+```
+
+```
+Summer is over, school is coming soon. #HaikuStyled #Translated|Russian
+```
+
+
+
+Having a grammar is most likely not needed, and 
+
+-----
+
 ## TODO
 
 - [ ] TODO Implementation
+  - [X] DONE Prompt DSL grammar and actions
+  - [ ] TODO Prompt spec expansion
   - [ ] TODO Addition of user/local prompts 
     - XDG data directory.
 - [ ] TODO Add more prompts
