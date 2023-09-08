@@ -50,13 +50,37 @@ multi sub llm-prompt-data(-->Hash) {
 
 #-----------------------------------------------------------
 #| Get the prompts database as hash with the keys being the prompt titles.
-proto sub llm-prompt-dataset() is export {*}
+proto sub llm-prompt-dataset(:f(:$functions) = Whatever,
+                             :m(:$modifiers) = Whatever,
+                             :p(:$personas) = Whatever,
+                             Bool :c(:$compact) = False) is export {*}
 
-multi sub llm-prompt-dataset() {
+multi sub llm-prompt-dataset(:f(:$functions) is copy = Whatever,
+                             :m(:$modifiers) is copy = Whatever,
+                             :p(:$personas) is copy = Whatever,
+                             Bool :c(:$compact) = False) {
+
+    #------------------------------------------------------
+    # Process options
+
+    if $functions.isa(Whatever) { $functions = False; }
+    if $modifiers.isa(Whatever) { $modifiers = False; }
+    if $personas.isa(Whatever) { $personas = False; }
+
+    #------------------------------------------------------
     my @recs = llm-prompt-data.values;
 
     my @pivotCols = <Topics Categories Keywords PositionalArguments NamedArguments>;
     my $idCols = @recs.head.keys (-) @pivotCols;
+
+    if $functions { @recs = @recs.grep({ 'Function Prompts' ∈ $_<Categories>}); }
+    if $modifiers { @recs = @recs.grep({ 'Modifier Prompts' ∈ $_<Categories>}); }
+    if $personas { @recs = @recs.grep({ 'Personas' ∈ $_<Categories>}); }
+
+    if $compact {
+        @recs.map({ $_.grep({ $_.key ∈ <Name Description Categories> }).Hash }).Array;
+        return @recs;
+    }
 
     my @res;
     for @recs -> %record {
@@ -69,7 +93,7 @@ multi sub llm-prompt-dataset() {
         }
     }
 
-    return @res.sort(*<Name Variable Value>);
+    return @res.sort(*<Name Variable Value>).Array;
 }
 
 #-----------------------------------------------------------
