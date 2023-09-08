@@ -32,6 +32,7 @@ role LLM::Prompts::Actionish {
             if $p.arity > @args.elems {
                 @args = '' xx ($p.arity - @args.elems);
             }
+            @args = @args.head($p.arity);
             make $p.(|@args);
         } else {
             make $p;
