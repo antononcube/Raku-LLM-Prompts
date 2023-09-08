@@ -1417,6 +1417,52 @@
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/ElizaBot"
 	},
 	{
+		"Name":"Emojified",
+		"Description":"Provide responses that include emojis within the text",
+		"PromptText":"Factually reply to the query and use both text and emoji within the reply.\nDO NOT replace all of the text with emojis. Make sure keywords are denoted with an emoji.",
+		"PositionalArguments":[],
+		"NamedArguments":[],
+		"Arity":0,
+		"Categories":{
+			"Function Prompts":false,
+			"Modifier Prompts":true,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":true,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"personality"
+		],
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/Emojified"
+	},
+	{
 		"Name":"Emojify",
 		"Description":"Replace key words in text with emojis",
 		"PromptText":"-> $a='' {\"Rewrite the following text and convert some of it into emojis.\nThe emojis are all related to whatever is in the text.\nKeep a lot of the text, but convert key words into emojis.\nDo not modify the text except to add emoji.\nRespond only with the modified text, do not include any summary or explanation.\nDo not respond with only emoji, most of the text should remain as normal words.\n\n$a\"}",
@@ -1514,6 +1560,54 @@
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/EmojiTranslate"
+	},
+	{
+		"Name":"EmojiTranslated",
+		"Description":"Get a response translated to emoji",
+		"PromptText":"Respond in a brief manner using no more than 15 characters. The response must be written entirely using emoji.",
+		"PositionalArguments":[],
+		"NamedArguments":[],
+		"Arity":0,
+		"Categories":{
+			"Function Prompts":false,
+			"Modifier Prompts":true,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":true,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"Emoji",
+			"Humor",
+			"Translation"
+		],
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/EmojiTranslated"
 	},
 	{
 		"Name":"EntertainerBot",
