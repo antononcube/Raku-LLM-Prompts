@@ -130,6 +130,71 @@ sub llm-prompt($name is copy, Bool :$warn = True) is export {
     }
 }
 
+#-----------------------------------------------------------
+
+#| Prompt parameters
+my regex pmt-param-simple { $<param-simple>=([<.alpha> | '.' | '_' | '-']+)  }
+my regex pmt-param-qouted { $<param-quoted>=('"' ~ '"' <-["]>+ || '\'' ~ '\'' <-[']>+ )  }
+my regex pmt-param { $<param>=(<pmt-param-qouted> || <pmt-param-simple>)  }
+
+#| Sequence of parameters
+my regex pmt-list-of-params { <pmt-param>+ % '|' }
+
+#| Persona
+my regex pmt-persona { ^ '@' $<name>=(<.alnum>+) }
+
+#| Modifier
+my regex pmt-modifier { '#' $<name>=(<.alnum>+) [ '|' <pmt-list-of-params> '|'? ]? }
+
+#| Function
+my regex pmt-function { '!' $<name>=(<.alnum>+) [ '|' <pmt-list-of-params> '|'? ]? }
+
+#| Any prompt
+my regex pmt-any { <pmt-persona> || <pmt-function> || <pmt-modifier> }
+
+#-----------------------------------------------------------
+sub to-unquoted(Str $ss is copy) {
+    if $ss ~~ / ^ '\'' (.*) '\'' $ / { return ~$0; }
+    if $ss ~~ / ^ '"' (.*) '"' $ / { return ~$0; }
+    if $ss ~~ / ^ '⎡' (.*) '⎦' $ / { return ~$0; }
+    return $ss;
+}
+
+#-----------------------------------------------------------
+sub prompt-function-spec($/) {
+    my $m = $<pmt-persona> // $<pmt-function> // $<pmt-modifier>;
+    my $p = llm-prompt($m<name>.Str);
+
+    without $p {
+        return $/.Str;
+    }
+
+    my @args ;
+
+    with $m<pmt-list-of-params> {
+        @args = $m<pmt-list-of-params>.Str.split('|', :skip-empty);
+        @args .= map({ to-unquoted($_) });
+    }
+
+    if $p ~~ Callable {
+        if $p.count > @args.elems {
+            @args.append('' xx ($p.arity - @args.elems));
+        }
+        @args = @args.head($p.count);
+        return $p.(|@args);
+    } else {
+        return $p;
+    }
+}
+
+#-----------------------------------------------------------
+proto sub llm-prompt-expand(Str:D) is export {*}
+
+multi sub llm-prompt-expand(Str:D $input) {
+    return $input.subst(&pmt-any, &prompt-function-spec):g;
+}
+
+
 #============================================================
 # Optimization
 #============================================================
