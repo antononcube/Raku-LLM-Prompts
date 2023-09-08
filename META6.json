@@ -11,7 +11,9 @@
   "build-depends": [],
   "test-depends": [],
   "provides": {
-    "LLM::Prompts": "lib/LLM/Prompts.rakumod"
+    "LLM::Prompts": "lib/LLM/Prompts.rakumod",
+    "LLM::Prompts::Actionish": "lib/LLM/Prompts/Actionish.rakumod",
+    "LLM::Prompts::Grammarish": "lib/LLM/Prompts/Grammarish.rakumod"
   },
   "resources": [
     "prompts.json"
