@@ -73,9 +73,9 @@ multi sub llm-prompt-dataset(:f(:$functions) is copy = Whatever,
     my @pivotCols = <Topics Categories Keywords PositionalArguments NamedArguments>;
     my $idCols = @recs.head.keys (-) @pivotCols;
 
-    if $functions { @recs = @recs.grep({ 'Function Prompts' ∈ $_<Categories>}); }
-    if $modifiers { @recs = @recs.grep({ 'Modifier Prompts' ∈ $_<Categories>}); }
-    if $personas { @recs = @recs.grep({ 'Personas' ∈ $_<Categories>}); }
+    if $functions { @recs .= grep({ 'Function Prompts' ∈ $_<Categories>} ); }
+    if $modifiers { @recs .= grep({ 'Modifier Prompts' ∈ $_<Categories>} ); }
+    if $personas  { @recs .= grep({ 'Personas'         ∈ $_<Categories>} ); }
 
     if $compact {
         @recs .= map({ $_.grep({ $_.key ∈ <Name Description Categories> }).Hash }).sort(*<Name>).Array;
