@@ -13,6 +13,7 @@
   "provides": {
     "LLM::Prompts": "lib/LLM/Prompts.rakumod",
     "LLM::Prompts::Actionish": "lib/LLM/Prompts/Actionish.rakumod",
+    "LLM::Prompts::DSL": "lib/LLM/Prompts/DSL.rakumod",
     "LLM::Prompts::Grammarish": "lib/LLM/Prompts/Grammarish.rakumod"
   },
   "resources": [
