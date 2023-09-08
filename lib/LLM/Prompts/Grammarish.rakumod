@@ -24,8 +24,8 @@ role LLM::Prompts::Grammarish {
         '|' <prompt-param>+ % '|'?
     }
     token prompt-param {
-        || <prompt-param-simple>
         || <prompt-param-quoted>
+        || <prompt-param-simple>
     }
     token prompt-param-simple { \S+ { make $/.Str } }
     token prompt-param-quoted {
