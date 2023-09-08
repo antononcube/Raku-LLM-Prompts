@@ -1,0 +1,32 @@
+use v6.d;
+use Test;
+
+use lib '.';
+use lib './lib';
+
+use LLM::Prompts;
+use LLM::Prompts::Grammarish;
+
+grammar PromptLine does LLM::Prompts::Grammarish {
+    rule TOP { <prompt>  }
+}
+
+## 1
+ok PromptLine.parse('This is a simple prompt');
+
+## 2
+ok PromptLine.parse('@Yoda The summer is gone.');
+
+## 3
+ok PromptLine.parse('The summer is gone, school is comming soon. #HaikuStyled');
+
+## 4
+ok PromptLine.parse('The summer is gone, school is comming soon. #HaikuStyled');
+
+## 5
+ok PromptLine.parse('The summer is gone, school is comming soon. #HaikuStyled #Translated');
+
+## 6
+ok PromptLine.parse('!Translated|Russian The summer is gone, school is comming soon.');
+
+done-testing;
