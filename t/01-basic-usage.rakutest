@@ -23,4 +23,30 @@ isa-ok llm-prompt-topics(), Positional;
 ## 5
 isa-ok llm-prompt('FTFY'), Callable;
 
+## 6
+isa-ok llm-prompt-dataset():f, Array;
+
+## 7
+isa-ok llm-prompt-dataset():compact, Array;
+
+## 8
+isa-ok llm-prompt-dataset():personas, Array;
+
+## 9
+isa-ok llm-prompt-dataset():modifiers, Array;
+
+## 10
+is-deeply llm-prompt-dataset():modifiers, llm-prompt-dataset():m;
+
+## 11
+is-deeply llm-prompt-dataset():functions, llm-prompt-dataset():f;
+
+## 12
+is-deeply llm-prompt-dataset():personas, llm-prompt-dataset():p;
+
+## 13
+is-deeply
+        llm-prompt-dataset(:m,:c).map({ $_<Name> => $_ }).Hash,
+        llm-prompt-dataset(:modifiers,:compact).map({ $_<Name> => $_ }).Hash;
+
 done-testing;
