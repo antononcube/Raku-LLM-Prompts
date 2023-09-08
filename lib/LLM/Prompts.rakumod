@@ -78,7 +78,7 @@ multi sub llm-prompt-dataset(:f(:$functions) is copy = Whatever,
     if $personas { @recs = @recs.grep({ 'Personas' ∈ $_<Categories>}); }
 
     if $compact {
-        @recs.map({ $_.grep({ $_.key ∈ <Name Description Categories> }).Hash }).Array;
+        @recs .= map({ $_.grep({ $_.key ∈ <Name Description Categories> }).Hash }).sort(*<Name>).Array;
         return @recs;
     }
 
