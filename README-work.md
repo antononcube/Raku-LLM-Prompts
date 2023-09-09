@@ -24,6 +24,8 @@ zef install https://github.com/antononcube/Raku-LLM-Prompts.git
 
 ## Usage examples
 
+### Retrieval
+
 Load the packages "LLM::Prompts", [AAp1], and "LLM::Functions", [AAp2]:
 
 ```perl6
@@ -37,6 +39,8 @@ Show the record of the prompt named "FTFY":
 .say for |llm-prompt-data<FTFY>;
 ```
 
+### LLM functions based on prompts
+
 Make an LLM function from the prompt named "FTFY":
 
 ```perl6
@@ -48,6 +52,84 @@ Use the LLM function to correct the grammar of sentence:
 ```perl6
 &f('Where does he works now?')
 ```
+
+### Prompt expansion
+
+Prompt expansion using the chatbook prompt spec DSL described in [SW1] 
+can be done using the function `llm-prompt-expand`:  
+
+```perl6
+llm-prompt-expand('What is an internal combustion engine? #ELI5')
+```
+
+Here we get the actual LLM answer:
+
+```perl6
+use Text::Utils :ALL;
+
+'What is an internal combustion engine? #ELI5' 
+        ==> llm-prompt-expand() 
+        ==> llm-synthesize() 
+        ==> wrap-paragraph() 
+        ==> join("\n") 
+```
+
+Here is another example using a persona and two modifiers:
+
+```perl6
+my $prmt = llm-prompt-expand("@SouthernBelleSpeak What is light travel distance to Mars? #ELI5 #Moodified|sad")
+```
+
+Here we get the actual LLM answer:
+
+```perl6
+$prmt 
+        ==> llm-prompt-expand() 
+        ==> llm-synthesize()
+```
+
+-----
+
+## Prompt spec DSL
+
+A more formal description of the Domain Specific Language (DSL) for specifying prompts
+have the following elements: 
+
+- Prompt personas can be "addressed" with "@". For example:
+
+```
+@Yoda Life can be easy, but some people instist for it to be difficult.
+```
+
+- One or several modifier prompts can be specified at the end of the prompt spec. For example:
+
+```
+Summer is over, school is coming soon. #HaikuStyled
+```
+
+```
+Summer is over, school is coming soon. #HaikuStyled #Translated|Russian
+```
+
+- Functions can be specified to be applied "cell-wide" with "!" and placing the prompt spec at
+  the start of the prompt spec to be expanded. For example:
+
+```
+!Translated|Portuguese Summer is over, school is coming soon
+```
+
+Here is a table of prompt expansion specs (a simpler version of the one in [SW1]):
+
+| Spec               | Interpretation                                     |
+|:-------------------|:---------------------------------------------------|
+| @*name*            | Direct chat to a persona                           |
+| #*name*            | Use modifier prompts                               |
+| !*name*            | Use function prompt with the input of current cell |
+| !*name*>           | *«same as above»*                                  |
+| !*name*￨*param*... | Include parameters for prompts                     |
+
+**Remark:** Prompt expansion make the usage of LLM-chatbooks much easier.
+See "Jupyter::Chatbook", [AAp3].
 
 -----
 
@@ -84,27 +166,25 @@ that *only* the prompts with the corresponding categories will be returned.
 
 ## Implementation notes
 
-### Prompt DSL grammar and actions
+### Prompt collection
 
-The DSL:
+The original (for this package) collection of prompts was taken from 
+[Wolfram Prompt Repository](https://resources.wolframcloud.com/PromptRepository/) (WPR), [SW2].
+All prompts from WPR in the package have the corresponding contributors and URLs to the corresponding WPR pages.  
 
-- Prompt personas can be "addressed" with "@". For example:
+Example prompts from Google/Bard/PaLM and OpenAI/ChatGPT are added using the format of WPR. 
 
-```
-@Yoda Life can be easy, but some people instist for to be difficult.
-```
+### Extending prompt collection
 
-- One or several modifier prompts can be specified at the end of the prompt spec. For example:
-
-```
-Summer is over, school is coming soon. #HaikuStyled
-```
-
-```
-Summer is over, school is coming soon. #HaikuStyled #Translated|Russian
-```
+It is essential to have the ability to programmatically add new prompts.
+(Not implemented yet -- see the TODO section below.)
 
 Having a grammar is most likely not needed, and it is better to use "prompt expansion" (via regex-based substitutions.)
+
+### Prompt expansion
+
+The prompt specs can be "just expanded" instead of having a grammar parse and apply actions within.
+Hence, the sub `llm-prompt-expand` was implemented. 
 
 -----
 
@@ -113,7 +193,7 @@ Having a grammar is most likely not needed, and it is better to use "prompt expa
 - [ ] TODO Implementation
   - [X] DONE Prompt retrieval adverbs
   - [X] DONE Prompt DSL grammar and actions
-  - [ ] TODO Prompt spec expansion
+  - [X] DONE Prompt spec expansion
   - [ ] TODO Addition of user/local prompts 
     - XDG data directory.
 - [ ] TODO Add more prompts
@@ -159,6 +239,11 @@ Having a grammar is most likely not needed, and it is better to use "prompt expa
 
 [AAp2] Anton Antonov,
 [LLM::Functions Raku package](https://github.com/antononcube/Raku-LLM-Functions),
+(2023),
+[GitHub/antononcube](https://github.com/antononcube).
+
+[AAp3] Anton Antonov,
+[Jupyter::Chatbook Raku package](https://github.com/antononcube/Raku-Jupyter-Chatbook),
 (2023),
 [GitHub/antononcube](https://github.com/antononcube).
 
