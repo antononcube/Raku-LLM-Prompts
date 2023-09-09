@@ -14,44 +14,55 @@ is
 
 ## 2
 is
+        llm-prompt-expand('@Yoda'),
+        llm-prompt('Yoda');
+
+
+## 3
+is
+        llm-prompt-expand('!Translated|German'),
+        llm-prompt('Translated')('German');
+
+## 4
+is
         llm-prompt-expand('@Yoda The summer is gone.'),
         llm-prompt('Yoda') ~ ' The summer is gone.';
 
-## 3
+## 5
 my $spec3 = 'The summer is gone, school is comming soon.';
 is
         llm-prompt-expand("$spec3 #HaikuStyled"),
         $spec3 ~ ' ' ~ llm-prompt('HaikuStyled');
 
-## 4
+## 6
 is
         llm-prompt-expand("$spec3 #HaikuStyled #Translated"),
         $spec3 ~ ' ' ~ llm-prompt('HaikuStyled') ~ ' ' ~ llm-prompt('Translated').();
 
-## 5
+## 7
 is
         llm-prompt-expand("$spec3 #HaikuStyled #Translated|German"),
         $spec3 ~ ' ' ~ llm-prompt('HaikuStyled') ~ ' ' ~ llm-prompt('Translated')('German');
 
-## 6
+## 8
 is
         llm-prompt-expand("!Translated|Russian $spec3"),
         llm-prompt('Translated')('Russian') ~ ' ' ~ $spec3;
 
 
-## 7
+## 9
 is
         llm-prompt-expand("!Translated|'High German' $spec3"),
         llm-prompt('Translated')('High German') ~ ' ' ~ $spec3;
 
 
-## 8
+## 10
 my $spec8 = 'The cat chased the mouse.';
 is
         llm-prompt-expand("!FormalRephrase $spec8"),
         llm-prompt('FormalRephrase')($spec8);
 
-## 9
+## 11
 is
         llm-prompt-expand("!FormalRephrase>$spec8"),
         llm-prompt('FormalRephrase')($spec8);
