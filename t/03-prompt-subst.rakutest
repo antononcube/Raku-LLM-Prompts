@@ -51,4 +51,9 @@ is
         llm-prompt-expand("!FormalRephrase $spec8"),
         llm-prompt('FormalRephrase')($spec8);
 
+## 9
+is
+        llm-prompt-expand("!FormalRephrase>$spec8"),
+        llm-prompt('FormalRephrase')($spec8);
+
 done-testing;
