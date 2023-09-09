@@ -141,16 +141,26 @@ my regex pmt-param { $<param>=(<pmt-param-qouted> || <pmt-param-simple>)  }
 my regex pmt-list-of-params { <pmt-param>+ % '|' }
 
 #| Persona
-my regex pmt-persona { ^ '@' $<name>=(<.alnum>+) }
+my regex pmt-persona { ^ \h* '@' $<name>=(<.alnum>+) }
 
 #| Modifier
 my regex pmt-modifier { '#' $<name>=(<.alnum>+) [ '|' <pmt-list-of-params> '|'? ]? }
 
-#| Function
-my regex pmt-function { '!' $<name>=(<.alnum>+) [ '|' <pmt-list-of-params> '|'? ]? }
+#| Function with params
+my regex pmt-function { '!' $<name>=(<.alnum>+) '|' <pmt-list-of-params> '|'? }
+
+#| Function over cell
+my regex pmt-function-cell { '!' $<name>=(<.alnum>+) [\h+ $<cell-arg>=(<-[|\s]> .+)]? }
+
+#| Function over prior
+my regex pmt-function-prior { ^ \h* '!' $<name>=(<.alnum>+) $<pointer>=('^') \h* $}
 
 #| Any prompt
-my regex pmt-any { <pmt-persona> || <pmt-function> || <pmt-modifier> }
+my regex pmt-any {
+    || <pmt-persona>
+    || <pmt-function>
+    || <pmt-function-cell>
+    || <pmt-modifier> }
 
 #-----------------------------------------------------------
 sub to-unquoted(Str $ss is copy) {
@@ -162,7 +172,8 @@ sub to-unquoted(Str $ss is copy) {
 
 #-----------------------------------------------------------
 sub prompt-function-spec($/) {
-    my $m = $<pmt-persona> // $<pmt-function> // $<pmt-modifier>;
+
+    my $m = $<pmt-persona> // $<pmt-function-cell> // $<pmt-function> // $<pmt-modifier>;
     my $p = llm-prompt($m<name>.Str);
 
     without $p {
@@ -174,6 +185,10 @@ sub prompt-function-spec($/) {
     with $m<pmt-list-of-params> {
         @args = $m<pmt-list-of-params>.Str.split('|', :skip-empty);
         @args .= map({ to-unquoted($_) });
+    }
+
+    with $m<cell-arg> {
+        @args = [$m<cell-arg>.Str,];
     }
 
     if $p ~~ Callable {
