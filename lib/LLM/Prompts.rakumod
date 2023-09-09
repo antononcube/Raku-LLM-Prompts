@@ -150,7 +150,7 @@ my regex pmt-modifier { '#' $<name>=(<.alnum>+) [ '|' <pmt-list-of-params> '|'? 
 my regex pmt-function { '!' $<name>=(<.alnum>+) '|' <pmt-list-of-params> '|'? }
 
 #| Function over cell
-my regex pmt-function-cell { '!' $<name>=(<.alnum>+) [\h+ $<cell-arg>=(<-[|\s]> .+)]? }
+my regex pmt-function-cell { '!' $<name>=(<.alnum>+) [ [\h+ | '>']? $<cell-arg>=(.+)]? }
 
 #| Function over prior
 my regex pmt-function-prior { ^ \h* '!' $<name>=(<.alnum>+) $<pointer>=('^') \h* $}
