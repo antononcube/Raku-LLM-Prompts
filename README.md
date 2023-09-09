@@ -42,20 +42,20 @@ Show the record of the prompt named "FTFY":
 .say for |llm-prompt-data<FTFY>;
 ```
 ```
-# NamedArguments => []
-# URL => https://resources.wolframcloud.com/PromptRepository/resources/FTFY
-# Categories => (Function Prompts)
 # PositionalArguments => {$a => }
+# Arity => 1
+# Keywords => [Spell check Grammar Check Text Assistance]
+# Name => FTFY
+# ContributedBy => Wolfram Staff
 # PromptText => -> $a='' {"Find and correct grammar and spelling mistakes in the following text.
 # Response with the corrected text and nothing else.
 # Provide no context for the corrections, only correct the text.
 # $a"}
-# Keywords => [Spell check Grammar Check Text Assistance]
-# Description => Use Fixed That For You to quickly correct spelling and grammar mistakes
-# ContributedBy => Wolfram Staff
-# Name => FTFY
+# URL => https://resources.wolframcloud.com/PromptRepository/resources/FTFY
+# NamedArguments => []
+# Categories => (Function Prompts)
 # Topics => (General Text Manipulation)
-# Arity => 1
+# Description => Use Fixed That For You to quickly correct spelling and grammar mistakes
 ```
 
 ### LLM functions based on prompts
@@ -66,7 +66,7 @@ Make an LLM function from the prompt named "FTFY":
 my &f = llm-function(llm-prompt('FTFY'));
 ```
 ```
-# -> **@args, *%args { #`(Block|3799255532976) ... }
+# -> **@args, *%args { #`(Block|2520253491616) ... }
 ```
 
 Use the LLM function to correct the grammar of sentence:
@@ -102,9 +102,10 @@ use Text::Utils :ALL;
         ==> join("\n") 
 ```
 ```
-# An internal combustion engine is a machine that burns fuel to make a car move.
-# It takes the fuel and mixes it with air, then sets it on fire to make the car
-# go. The fire makes the car's wheels turn around, and that makes the car move.
+# An internal combustion engine is a type of engine that uses a fuel like
+# gasoline to make power. Inside the engine, the fuel is mixed with air and then
+# is ignited by a spark. This makes a little explosion that pushes the pistons.
+# The pistons then move up and down and turn a shaft, which makes the car go!
 ```
 
 Here is another example using a persona and two modifiers:
@@ -133,7 +134,7 @@ $prmt
         ==> llm-synthesize()
 ```
 ```
-# Mars is a long way away, darlin'. It's so far away that we can't even imagine it. Even if we were to hop in a car and drive, it'd take us years and years and years to get there. That's why it's so important to stay close to home and keep lovin' the ones we love.
+# Oh my! That is such a long way away! It would take us an awfully long time to get to Mars if we wanted to go and visit. It's so sad that we can't just hop in a carriage and be there in no time at all.
 ```
 
 -----
@@ -189,7 +190,7 @@ Here is how the prompt data can be obtained:
 llm-prompt-data.elems
 ```
 ```
-# 118
+# 125
 ```
 
 Here is a breakdown of the prompts categories:
@@ -202,13 +203,13 @@ use Data::Translators;
 select-columns(llm-prompt-dataset, <Variable Value>).grep({ $_<Variable> eq 'Categories' }) ==> records-summary
 ```
 ```
-# +------------------------+-------------------+
-# | Value                  | Variable          |
-# +------------------------+-------------------+
-# | Personas         => 55 | Categories => 118 |
-# | Function Prompts => 50 |                   |
-# | Modifier Prompts => 13 |                   |
-# +------------------------+-------------------+
+# +-------------------+------------------------+
+# | Variable          | Value                  |
+# +-------------------+------------------------+
+# | Categories => 125 | Personas         => 59 |
+# |                   | Function Prompts => 51 |
+# |                   | Modifier Prompts => 15 |
+# +-------------------+------------------------+
 ```
 
 Here are all modifier prompts in compact format:
@@ -217,23 +218,25 @@ Here are all modifier prompts in compact format:
 llm-prompt-dataset():modifiers:compact ==> to-pretty-table(field-names => <Name Description Categories>, align => 'l')
 ```
 ```
-# +-----------------+-------------------------------------------------------+-----------------------------------+
-# | Name            | Description                                           | Categories                        |
-# +-----------------+-------------------------------------------------------+-----------------------------------+
-# | AphorismStyled  | Write the response as an aphorism                     | Modifier Prompts                  |
-# | BadGrammar      | Provide answers using incorrect grammar               | Modifier Prompts                  |
-# | DatasetForm     | Convert text to a wolfram language Dataset            | Modifier Prompts                  |
-# | ELI5            | Explain like I'm five                                 | Modifier Prompts Function Prompts |
-# | EmojiTranslated | Get a response translated to emoji                    | Modifier Prompts                  |
-# | Emojified       | Provide responses that include emojis within the text | Modifier Prompts                  |
-# | HaikuStyled     | Change responses to haiku form                        | Modifier Prompts                  |
-# | JSON            | Respond with JavaScript Object Notation format        | Modifier Prompts                  |
-# | LimerickStyled  | Receive answers in the form of a limerick             | Modifier Prompts                  |
-# | Moodified       | Modify an answer to express a certain mood            | Modifier Prompts                  |
-# | TargetAudience  | Word your response for a target audience              | Modifier Prompts                  |
-# | Translated      | Write the response in a specified language            | Modifier Prompts                  |
-# | YesNo           | Responds with Yes or No exclusively                   | Modifier Prompts                  |
-# +-----------------+-------------------------------------------------------+-----------------------------------+
+# +-------------------+-------------------------------------------------------+-----------------------------------+
+# | Name              | Description                                           | Categories                        |
+# +-------------------+-------------------------------------------------------+-----------------------------------+
+# | AphorismStyled    | Write the response as an aphorism                     | Modifier Prompts                  |
+# | BadGrammar        | Provide answers using incorrect grammar               | Modifier Prompts                  |
+# | DatasetForm       | Convert text to a wolfram language Dataset            | Modifier Prompts                  |
+# | ELI5              | Explain like I'm five                                 | Modifier Prompts Function Prompts |
+# | EmojiTranslated   | Get a response translated to emoji                    | Modifier Prompts                  |
+# | Emojified         | Provide responses that include emojis within the text | Modifier Prompts                  |
+# | FictionQuestioned | Generate questions for a fictional paragraph          | Modifier Prompts                  |
+# | HaikuStyled       | Change responses to haiku form                        | Modifier Prompts                  |
+# | JSON              | Respond with JavaScript Object Notation format        | Modifier Prompts                  |
+# | LimerickStyled    | Receive answers in the form of a limerick             | Modifier Prompts                  |
+# | Moodified         | Modify an answer to express a certain mood            | Modifier Prompts                  |
+# | TargetAudience    | Word your response for a target audience              | Modifier Prompts                  |
+# | Translated        | Write the response in a specified language            | Modifier Prompts                  |
+# | Unhedged          | Rewrite a sentence to be more assertive               | Modifier Prompts                  |
+# | YesNo             | Responds with Yes or No exclusively                   | Modifier Prompts                  |
+# +-------------------+-------------------------------------------------------+-----------------------------------+
 ```
 
 **Remark:** The adverbs `:functions`, `:modifiers`, and `:personas` mean 
