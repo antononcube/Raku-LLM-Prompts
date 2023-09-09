@@ -40,7 +40,7 @@ role LLM::Prompts::Actionish {
 
         if $p ~~ Callable {
             if $p.count > @args.elems {
-                @args.append('' xx ($p.count - @args.elems));
+                @args.append('' xx ($p.arity - @args.elems));
             }
             @args = @args.head($p.count);
             make $p.(|@args);

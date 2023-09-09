@@ -193,7 +193,7 @@ sub prompt-function-spec($/) {
 
     if $p ~~ Callable {
         if $p.count > @args.elems {
-            @args.append('' xx ($p.count - @args.elems));
+            @args.append('' xx ($p.arity - @args.elems));
         }
         @args = @args.head($p.count);
         return $p.(|@args);
