@@ -13,15 +13,23 @@ is
         'This is a simple prompt';
 
 ## 2
-is
-        llm-prompt-expand('@Yoda'),
-        llm-prompt('Yoda');
+my $spec2 = q:to/END/;
 
+ @Yoda
+END
+
+is
+        llm-prompt-expand($spec2).chomp,
+        llm-prompt('Yoda').chomp;
 
 ## 3
+my $spec3 = q:to/END/;
+!Translated|German
+END
+
 is
-        llm-prompt-expand('!Translated|German'),
-        llm-prompt('Translated')('German');
+        llm-prompt-expand($spec3).chomp,
+        llm-prompt('Translated')('German').chomp;
 
 ## 4
 is
@@ -29,31 +37,31 @@ is
         llm-prompt('Yoda') ~ ' The summer is gone.';
 
 ## 5
-my $spec3 = 'The summer is gone, school is comming soon.';
+my $spec5 = 'The summer is gone, school is comming soon.';
 is
-        llm-prompt-expand("$spec3 #HaikuStyled"),
-        $spec3 ~ ' ' ~ llm-prompt('HaikuStyled');
+        llm-prompt-expand("$spec5 #HaikuStyled"),
+        $spec5 ~ ' ' ~ llm-prompt('HaikuStyled');
 
 ## 6
 is
-        llm-prompt-expand("$spec3 #HaikuStyled #Translated"),
-        $spec3 ~ ' ' ~ llm-prompt('HaikuStyled') ~ ' ' ~ llm-prompt('Translated').();
+        llm-prompt-expand("$spec5 #HaikuStyled #Translated"),
+        $spec5 ~ ' ' ~ llm-prompt('HaikuStyled') ~ ' ' ~ llm-prompt('Translated').();
 
 ## 7
 is
-        llm-prompt-expand("$spec3 #HaikuStyled #Translated|German"),
-        $spec3 ~ ' ' ~ llm-prompt('HaikuStyled') ~ ' ' ~ llm-prompt('Translated')('German');
+        llm-prompt-expand("$spec5 #HaikuStyled #Translated|German"),
+        $spec5 ~ ' ' ~ llm-prompt('HaikuStyled') ~ ' ' ~ llm-prompt('Translated')('German');
 
 ## 8
 is
-        llm-prompt-expand("!Translated|Russian $spec3"),
-        llm-prompt('Translated')('Russian') ~ ' ' ~ $spec3;
+        llm-prompt-expand("!Translated|Russian $spec5"),
+        llm-prompt('Translated')('Russian') ~ ' ' ~ $spec5;
 
 
 ## 9
 is
-        llm-prompt-expand("!Translated|'High German' $spec3"),
-        llm-prompt('Translated')('High German') ~ ' ' ~ $spec3;
+        llm-prompt-expand("!Translated|'High German' $spec5"),
+        llm-prompt('Translated')('High German') ~ ' ' ~ $spec5;
 
 
 ## 10

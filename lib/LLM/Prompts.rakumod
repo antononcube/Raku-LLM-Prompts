@@ -141,7 +141,7 @@ my regex pmt-param { $<param>=(<pmt-param-qouted> || <pmt-param-simple>)  }
 my regex pmt-list-of-params { <pmt-param>+ % '|' }
 
 #| Persona
-my regex pmt-persona { ^ \h* '@' $<name>=(<.alnum>+) }
+my regex pmt-persona { ^ \s* '@' $<name>=(<.alnum>+) }
 
 #| Modifier
 my regex pmt-modifier { '#' $<name>=(<.alnum>+) [ '|' <pmt-list-of-params> '|'? ]? }
@@ -150,10 +150,10 @@ my regex pmt-modifier { '#' $<name>=(<.alnum>+) [ '|' <pmt-list-of-params> '|'? 
 my regex pmt-function { '!' $<name>=(<.alnum>+) '|' <pmt-list-of-params> '|'? }
 
 #| Function over cell
-my regex pmt-function-cell { '!' $<name>=(<.alnum>+) [ [\h+ | '>']? $<cell-arg>=(.+)]? }
+my regex pmt-function-cell { ^ \s* '!' $<name>=(<.alnum>+) [ [\h+ | '>']? $<cell-arg>=(.+)]? }
 
 #| Function over prior
-my regex pmt-function-prior { ^ \h* '!' $<name>=(<.alnum>+) $<pointer>=('^') \h* $}
+my regex pmt-function-prior { ^ \s* '!' $<name>=(<.alnum>+) $<pointer>=('^') \h* $}
 
 #| Any prompt
 my regex pmt-any {
