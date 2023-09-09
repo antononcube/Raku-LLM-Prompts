@@ -8,6 +8,8 @@ role LLM::Prompts::Actionish {
 
         @res.push($<prompt-persona-spec>.made) if $<prompt-persona-spec>;
 
+        @res.push($<prompt-function-cell-spec>.made) if $<prompt-function-cell-spec>;
+
         with $<prompt-body> {
             @res.append($<prompt-body>.made);
         }
@@ -26,20 +28,31 @@ role LLM::Prompts::Actionish {
     method prompt-function-spec($/) {
         my $p = llm-prompt($<name>.Str);
 
-        my @args ;
-        with $<prompt-param-list> { @args = $<prompt-param-list>.made; }
+        my @args;
+
+        with $<prompt-param-list> {
+            @args = $<prompt-param-list>.made;
+        }
+
+        with $<cell-arg> {
+            @args = [$<cell-arg>.Str,];
+        }
+
         if $p ~~ Callable {
-            if $p.arity > @args.elems {
-                @args = '' xx ($p.arity - @args.elems);
+            if $p.count > @args.elems {
+                @args.append('' xx ($p.count - @args.elems));
             }
-            @args = @args.head($p.arity);
+            @args = @args.head($p.count);
             make $p.(|@args);
         } else {
             make $p;
         }
     }
+    method prompt-function-cell-spec($/) {
+        self.prompt-function-spec($/);
+    }
     method prompt-modifier-spec($/) {
-      self.prompt-function-spec($/);
+        self.prompt-function-spec($/);
     }
     method prompt-word($/) {
         make $/.Str;

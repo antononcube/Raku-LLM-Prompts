@@ -32,4 +32,10 @@ ok PromptLine.parse('!Translated|Russian The summer is gone, school is comming s
 ## 7
 ok PromptLine.parse('!Translated|"High German" The summer is gone, school is comming soon.');
 
+## 8
+is
+        (so PromptLine.parse('!Translated The summer is gone, school is comming soon.'){*;'prompt-function-cell-spec'}),
+        True,
+        'Parsing function cell spec';
+
 done-testing;
