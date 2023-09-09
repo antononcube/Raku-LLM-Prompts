@@ -44,4 +44,11 @@ is
         llm-prompt-expand("!Translated|'High German' $spec3"),
         llm-prompt('Translated')('High German') ~ ' ' ~ $spec3;
 
+
+## 8
+my $spec8 = 'The cat chased the mouse.';
+is
+        llm-prompt-expand("!FormalRephrase $spec8"),
+        llm-prompt('FormalRephrase')($spec8);
+
 done-testing;
