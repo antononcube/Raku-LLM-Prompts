@@ -39,6 +39,14 @@ Show the record of the prompt named "FTFY":
 .say for |llm-prompt-data<FTFY>;
 ```
 
+Here is an example of retrieval of prompt data with a regex that is applied over the prompt names:
+
+```perl6
+.say for llm-prompt-data(/Sc/)
+```
+
+More prompt retrieval examples are given in the section "Prompt data" below.
+
 ### LLM functions based on prompts
 
 Make an LLM function from the prompt named "FTFY":
@@ -141,10 +149,10 @@ Here is how the prompt data can be obtained:
 llm-prompt-data.elems
 ```
 
-Here is retrieval prompt data with a regex that applied over the prompt names:
+Here is an example of retrieval of prompt data with a regex that is applied over the prompt names:
 
 ```perl6
-.say for llm-prompt-data(/Em/, field => 'Description')
+.say for llm-prompt-data(/Em/, fields => <Description Categories>)
 ```
 
 In many cases it is better to have the prompt data -- or any data -- in long format.
@@ -186,19 +194,19 @@ The original (for this package) collection of prompts was taken from
 [Wolfram Prompt Repository](https://resources.wolframcloud.com/PromptRepository/) (WPR), [SW2].
 All prompts from WPR in the package have the corresponding contributors and URLs to the corresponding WPR pages.  
 
-Example prompts from Google/Bard/PaLM and OpenAI/ChatGPT are added using the format of WPR. 
+Example prompts from Google/Bard/PaLM and ~~OpenAI/ChatGPT~~ are added using the format of WPR. 
 
 ### Extending prompt collection
 
 It is essential to have the ability to programmatically add new prompts.
 (Not implemented yet -- see the TODO section below.)
 
-Having a grammar is most likely not needed, and it is better to use "prompt expansion" (via regex-based substitutions.)
-
 ### Prompt expansion
 
-The prompt specs can be "just expanded" instead of having a grammar parse and apply actions within.
-Hence, the sub `llm-prompt-expand` was implemented. 
+Initially prompt DSL grammar and corresponding expansion actions were implemented.
+Having a grammar is most likely not needed, though, and it is better to use "prompt expansion" (via regex-based substitutions.)
+
+Prompts can be "just expanded" using the sub `llm-prompt-expand`. 
 
 -----
 
@@ -212,7 +220,7 @@ Hence, the sub `llm-prompt-expand` was implemented.
     - XDG data directory.
 - [X] DONE Add more prompts
   - [X] DONE Google's Bard example prompts
-  - [C] TODO OpenAI's ChatGPT example prompts
+  - [X] CANCELED OpenAI's ChatGPT example prompts
 - [ ] TODO Documentation
   - [X] TODO Querying (ingested) prompts
   - [ ] TODO Prompt format
