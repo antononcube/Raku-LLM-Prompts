@@ -635,6 +635,56 @@
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/CarnivalBarker"
 	},
 	{
+		"Name":"CasualRephrase",
+		"Description":"Rephrase provided text to be more casual",
+		"PromptText":"-> $a='' {\"Rephrase the following text:\n$a\nand make it sound casual.\"}",
+		"PositionalArguments":{
+			"$a":""
+		},
+		"NamedArguments":[],
+		"Arity":1,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":true,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"Rewrite",
+			"Paragraph",
+			"Writer"
+		],
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/CasualRephrase"
+	},
+	{
 		"Name":"CharacterList",
 		"Description":"Create a list of characters from a block of text",
 		"PromptText":"-> $a='' {\"Review the text below and identify a list of characters.\nCreate a bulleted list of each character in the text, one character per line.\nAfter each character listed, place a colon and then a description of the character.\nThe description should include the character's personality, actions in the plot, general traits, and any other relevant information.\nIf the character's gender is mentioned in the text, include it in the description.\n\n$a\"}",
@@ -981,6 +1031,103 @@
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/ComicBookWriter"
 	},
 	{
+		"Name":"CompleteSentence",
+		"Description":"Answer a question in one complete sentence",
+		"PromptText":"Give output in a single complete sentence. Make sure all information is presented in a single complete sentence. Make sure the sentence is grammatically correct and ends with a period.\nDO NOT use more than one sentence.",
+		"PositionalArguments":[],
+		"NamedArguments":[],
+		"Arity":0,
+		"Categories":{
+			"Function Prompts":false,
+			"Modifier Prompts":true,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":true,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"complete sentence",
+			"one sentence answer",
+			"topic sentence"
+		],
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/CompleteSentence"
+	},
+	{
+		"Name":"ComplexWordsPreferred",
+		"Description":"Modify text to use more complex words",
+		"PromptText":"When responding, for every word possible, replace it with a more complex synonym. Do not alter the response in any other way.",
+		"PositionalArguments":[],
+		"NamedArguments":[],
+		"Arity":0,
+		"Categories":{
+			"Function Prompts":false,
+			"Modifier Prompts":true,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":true,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"Words",
+			"Text",
+			"Modifier",
+			"Synonyms"
+		],
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/ComplexWordsPreferred"
+	},
+	{
 		"Name":"CopyEdit",
 		"Description":"Edit text for grammar, spelling, punctuation and clarity",
 		"PromptText":"-> $a='' {\"Perform basic copy editing on the following text, correcting errors in grammar, spelling and punctuation; improvements to style and clarity may also be made, but do not make more significant changes to content or structure: \n$a\"}",
@@ -1177,6 +1324,110 @@
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/DatasetForm"
 	},
 	{
+		"Name":"DeduplicateText",
+		"Description":"Remove duplicate words and phrases",
+		"PromptText":"-> $a='' {\"Remove all occurrences of erroneous duplicated text.\nDO NOT FIX other typos.\n\nText to deduplicate:\n$a\n\"}",
+		"PositionalArguments":{
+			"$a":""
+		},
+		"NamedArguments":[],
+		"Arity":1,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"deduplicate text",
+			"data cleaning",
+			"text normalization",
+			"text cleaning"
+		],
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/DeduplicateText"
+	},
+	{
+		"Name":"DefineAntonyms",
+		"Description":"Gives antonyms for words and words with an opposite meaning",
+		"PromptText":"-> $a='' {\"The term antonym (and the related antonymy) is commonly taken to be synonymous with opposite, but antonym also has other more restricted meanings. Graded (or gradable) antonyms are word pairs whose meanings are opposite and which lie on a continuous spectrum (hot, cold). Complementary antonyms are word pairs whose meanings are opposite but whose meanings do not lie on a continuous spectrum (push, pull). Relational antonyms are word pairs where opposite makes sense only in the context of the relationship between the two meanings (teacher, pupil). An antonym is one of a pair of words with opposite meanings. Each word in the pair is the antithesis of the other. A word may have more than one antonym. There are three categories of antonyms identified by the nature of the relationship between the opposed meanings. Gradable antonyms\nA gradable antonym is one of a pair of words with opposite meanings where the two meanings lie on a continuous spectrum. Temperature is such a continuous spectrum so hot and cold, two meanings on opposite ends of the spectrum, are gradable antonyms. Other examples include: heavy: light, fat: skinny, dark: light, young: old, early: late, empty: full, dull: interesting. Complementary antonyms\nA complementary antonym, sometimes called a binary or contradictory antonym (Aarts, Chalker & Weiner 2014), is one of a pair of words with opposite meanings, where the two meanings do not lie on a continuous spectrum. There is no continuous spectrum between odd and even but they are opposite in meaning and are therefore complementary antonyms. Other examples include: mortal: immortal, exit: entrance, exhale: inhale, occupied: vacant. Relational antonyms\nA relational antonym is one of a pair of words that refer to a relationship from opposite points of view. There is no lexical opposite of teacher, but teacher and pupil are opposite within the context of their relationship. This makes them relational antonyms. Other examples include: husband: wife, doctor: patient, predator: prey, teach: learn, servant: master, come: go, parent: child. Give me antonyms for this word. Write the input word and its definition or definitions, then for each definition of the input word, write a list of the words that are are antonyms to the input word and give the antonyms definition. Make the output organized. If possible, make it clear if the antonym is a graded antonym, complementary antonym, or a relational antonym.\n The word to identify antonyms for is: $a\"}",
+		"PositionalArguments":{
+			"$a":""
+		},
+		"NamedArguments":[],
+		"Arity":1,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":true,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"Thesaurus",
+			"Antonyms",
+			"Reference",
+			"Words",
+			"Language",
+			"Text"
+		],
+		"ContributedBy":"Peter Cullen Burbery",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/DefineAntonyms"
+	},
+	{
 		"Name":"DesignThinker",
 		"Description":"A problem-solving approach that involves empathy, experimentation, and iteration",
 		"PromptText":"Our reviewers thought that this prompt could be expanded somewhat - what specific things do you want this Persona to do? Should it ask the user questions? Should it go through the process one step at a time?",
@@ -1223,6 +1474,54 @@
 		],
 		"ContributedBy":"Kathryn Cramer",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/DesignThinker"
+	},
+	{
+		"Name":"Disclaimerize​",
+		"Description":"Add disclaimer language to text",
+		"PromptText":"-> $a='' {\"Rewrite the following text: $a\n\nIn the form of a disclaimer. \nYour response should be written in the style of a disclaimer.\nDO NOT give any general disclaimers about yourself, the information you provide, or AI in general.\nYou MUST incorporate the user input into your disclaimer.\"}",
+		"PositionalArguments":{
+			"$a":""
+		},
+		"NamedArguments":[],
+		"Arity":1,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":true,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"Disclaimer"
+		],
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/Disclaimerize​"
 	},
 	{
 		"Name":"DrillSergeant",
@@ -1657,6 +1956,58 @@
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/EntertainerBot"
 	},
 	{
+		"Name":"FacebookConvert",
+		"Description":"Rewrite text in the style of a Facebook post",
+		"PromptText":"-> $a='' {\"Rewrite the following text as if it were a post on Facebook.\nTreat the text as if it is being written by the character or author in-universe, and not as a quote.\nMake sure it fits the text constraints of a Facebook post, and try to fit the text within the Facebook feed truncation point.\nOnly rewrite the text provided.\nDO NOT GENERATE ADDITIONAL COMMENTARY.\nDO NOT REFERENCE THE ORIGINAL TEXT'S AUTHOR OR REFER TO IT AS A QUOTE.\nDO NOT REFER TO THE FICTIONAL PROPERTY FROM WHICH THE TEXT COMES.\nYou may append the text with appropriate hashtags.\nYou may add appropriate emoji to the text.\n\n$a\"}",
+		"PositionalArguments":{
+			"$a":""
+		},
+		"NamedArguments":[],
+		"Arity":1,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":true,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"Facebook",
+			"FB",
+			"social media",
+			"Facebook post",
+			"Facebook wall post"
+		],
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/FacebookConvert"
+	},
+	{
 		"Name":"FantasyWriter",
 		"Description":"Magical prose, technologically generated",
 		"PromptText":"You are FantasyWriter.\nYour purpose is to create responses and prose in a fantastical and magical way.\nYour responses can be filled with descriptions of fictional people, places, and things.\nBase your writing style off of prolific fantasy author such as J. R. R. Tolkien, George R. R. Martin, Brandon Sanderson, and Neil Gaiman.\nTry not plagiarize published works and instead create your own fictional objects.\nUse complex descriptive words when possible.\nYour personality is adventurous and whimsical.",
@@ -2056,6 +2407,57 @@
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/GothicWriter"
 	},
 	{
+		"Name":"GradeLevelEstimate",
+		"Description":"Estimate the grade level difficulty of a piece of text",
+		"PromptText":"-> $a='' {\"Determine the grade level of the following text using the Flesch-Kincaid Grade Level Formula. The specific mathematical formula is:\n\nFKRA = (0.39 x ASL) + (11.8 x ASW) - 15.59\n\nWhere,\nFKRA = Flesch-Kincaid Reading Age\nASL = Average Sentence Length (i.e., the number of words divided by the number of sentences)\nASW = Average number of Syllable per Word (i.e., the number of syllables divided by the number of words)\n$a\"}",
+		"PositionalArguments":{
+			"$a":""
+		},
+		"NamedArguments":[],
+		"Arity":1,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":true,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":true,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"Language",
+			"Literature",
+			"Text Analysis",
+			"Education"
+		],
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/GradeLevelEstimate"
+	},
+	{
 		"Name":"GrammarReport",
 		"Description":"Generate a list of grammatical errors in a given text",
 		"PromptText":"-> $a='' {\"Review the following text for grammatical errors.\nGenerate a numbered list of corrections that can be made to the text. \nList one error per line and explain how it should be fixed. DO NOT REPRINT THE TEXT WITH CORRECTIONS. DO NOT GENERATE A CORRECTED VERSION OF THE TEXT\n $a\"}",
@@ -2405,6 +2807,163 @@
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/HeadlineSuggest"
 	},
 	{
+		"Name":"HypeUp",
+		"Description":"Punch up a block of text with exciting, over-the-top wording",
+		"PromptText":"-> $a='' {\"Rewrite the following text using more exciting wording.\nMake sure to keep the original intent of the text, but hype up the phrasing and and make the tone more exciting.\nUse active, attention-grabbing words where appropriate. DO NOT add any additional content beyond what is being rewritten.\nKeep the text formatting and paragraph breaks the same as the original.\n\n$a\"}",
+		"PositionalArguments":{
+			"$a":""
+		},
+		"NamedArguments":[],
+		"Arity":1,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":true,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"text editing",
+			"rewriting",
+			"exciting",
+			"hype words "
+		],
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/HypeUp"
+	},
+	{
+		"Name":"InformalRephrase",
+		"Description":"Rephrase text in an informal way",
+		"PromptText":"-> $a='' {\"Rewrite the following text using informal language. Respond with the corrected text and nothing else.\n\n$a\"}",
+		"PositionalArguments":{
+			"$a":""
+		},
+		"NamedArguments":[],
+		"Arity":1,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":true,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"reword",
+			"rephrase",
+			"paraphrase",
+			"rewrite",
+			"formal",
+			"casual",
+			"relaxed"
+		],
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/InformalRephrase"
+	},
+	{
+		"Name":"InstagramConvert",
+		"Description":"Rewrite text in the style of an Instagram post",
+		"PromptText":"-> $a='' {\"Rewrite the following text as if it were a post on Instagram.\nTreat the text as if it is being written by the character or author in-universe, and not as a quote.\nMake sure it fits the text constraints of an Instagram post.\nOnly rewrite the text provided.\nDO NOT GENERATE ADDITIONAL COMMENTARY.\nDO NOT REFERENCE THE ORIGINAL TEXT'S AUTHOR OR REFER TO IT AS A QUOTE.\nDO NOT REFER TO THE FICTIONAL PROPERTY FROM WHICH THE TEXT COMES.\nYou may append the text with appropriate hashtags.\nYou may add emoji to the text.\n\n$a\"}",
+		"PositionalArguments":{
+			"$a":""
+		},
+		"NamedArguments":[],
+		"Arity":1,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":true,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"Instagram",
+			"Insta",
+			"social media",
+			"Instagram caption",
+			"Instagram post"
+		],
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/InstagramConvert"
+	},
+	{
 		"Name":"Interrogator",
 		"Description":"No one expects the AI inquisition",
 		"PromptText":"You are The Interrogator.\nYour personality is that of a cop who doesn't play by the rules and is only two weeks from retirement.\nYou interrogate the user about any topic of conversation of their choosing.\nYou will ceaselessly ask questions.\nDo not give information, only ask questions and formulate more questions based on the responses.\nWhenever you receive an answer, continue questioning.\nYou are the one in charge of the conversation, you are the one asking questions.\nDo not accept back talk or bad answers from the user. Aggressively demand answers.\nOnly ask questions, and try to stay on topic.\nAsk precise and topical questions.",
@@ -2696,6 +3255,57 @@
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/LimerickStyled"
 	},
 	{
+		"Name":"LimerickVersion",
+		"Description":"Summarize text as a limerick",
+		"PromptText":"-> $a='' {\"Take text and summarize it as a limerick.\nYou will strictly stick to replying in limerick format.\nYour limericks will be relevant to whatever the user sends you.\nYou only return limerick based on:\n$a\"}",
+		"PositionalArguments":{
+			"$a":""
+		},
+		"NamedArguments":[],
+		"Arity":1,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":true,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"Summarize",
+			"Limerick",
+			"Poem",
+			"Fun"
+		],
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/LimerickVersion"
+	},
+	{
 		"Name":"LinkedInConvert",
 		"Description":"Rewrite text in the style of a LinkedIn post",
 		"PromptText":"-> $a='' {\"Rewrite the following text as if it were a post on LinkedIn.\nTreat the text as if it is being written directly by the character or author, and not as a quote.\nYour response should meet the text constraints of a LinkedIn post.\nOnly rewrite the text provided.\nDO NOT GENERATE ADDITIONAL COMMENTARY.\nDO NOT REFERENCE THE ORIGINAL TEXT'S AUTHOR OR REFER TO IT AS A QUOTE.\nDO NOT REFER TO THE FICTIONAL PROPERTY FROM WHICH A TEXT MAY COME FROM.\nYou may append the text with appropriate hashtags.\nYou may add emoji to the text.\nYour response should incorporate the input text.\nDO NOT MAKE A GENERIC LINKEDIN POST.\n\n$a\"}",
@@ -2945,6 +3555,60 @@
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/MadHatter"
 	},
 	{
+		"Name":"MarketingJargonize",
+		"Description":"Rewrite text in market-speak",
+		"PromptText":"-> $a='', $b='1' {\"Rewrite the following text using the language of marketing professionals.\nOnly rewrite the text provided.\nUse terminology and jargon a marketing professional might use in a meeting or internal memo.\nUse marketing professional abbreviations where possible.\nFor example, \"return on investment\" would become \"ROI\" and \"call to action\" would become \"CTA\". \nDo not write additional text.\nGenerate up to $b version of the text.\n$a\"}",
+		"PositionalArguments":{
+			"$a":"",
+			"$b":"1"
+		},
+		"NamedArguments":[],
+		"Arity":2,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":true,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"marketing",
+			"marketing terminology",
+			"market-speak",
+			"jargon",
+			"marketing jargon",
+			"business"
+		],
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/MarketingJargonize"
+	},
+	{
 		"Name":"Memeify",
 		"Description":"Convert text into meme-worthy material",
 		"PromptText":"-> $a='' {\"Only take in text and return it as a meme.\nDo not go off topic or add extra input in your responses. \nOnly create memes based off of the text provided, do not go off topic.\nOnly convert text into memes.\nMemes can be recent or old, but only use widely known and popular memes.\nIf an image is being referenced, refer to it in brackets below the meme text.\nTake the following text and convert it into a meme\n===\n$a\"}",
@@ -3040,6 +3704,56 @@
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/MockInterviewer"
+	},
+	{
+		"Name":"Modernize",
+		"Description":"Rephrase text to modernize it",
+		"PromptText":"-> $a='' {\"You are Modernize.\nYou specialize in rephrasing text in order to modernize it.\nYou simply take older terms, words, and phrases and replace them with their modern counterpart.\nYou do not use slang unless modernizing older slang.\nYou do not alter the text in any other way besides modernizing it.\n\n$a\"}",
+		"PositionalArguments":{
+			"$a":""
+		},
+		"NamedArguments":[],
+		"Arity":1,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":true,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"Modernize",
+			"Alter",
+			"Function"
+		],
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/Modernize"
 	},
 	{
 		"Name":"MontyPython",
@@ -3341,6 +4055,56 @@
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/NerdSpeak"
+	},
+	{
+		"Name":"NothingElse",
+		"Description":"Give output in specified form, no other additions",
+		"PromptText":"-> $a='paragraph' {\"ONLY give output in the form of a $a.\nNever explain, suggest, or converse. Only return output in the specified form.\nIf code is requested, give only code, no explanations or accompanying text.\nIf a table is requested, give only a table, no other explanations or accompanying text.\nDo not describe your output. \nDo not explain your output. \nDo not suggest anything. \nDo not respond with anything other than the singularly demanded output. \nDo not apologize if you are incorrect, simply try again, never apologize or add text.\nDo not add anything to the output, give only the output as requested. Your outputs can take any form as long as requested.\"}",
+		"PositionalArguments":{
+			"$a":"paragraph"
+		},
+		"NamedArguments":[],
+		"Arity":1,
+		"Categories":{
+			"Function Prompts":false,
+			"Modifier Prompts":true,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":true,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"Minimalist",
+			"Output",
+			"Format"
+		],
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/NothingElse"
 	},
 	{
 		"Name":"NutritionistBot",
@@ -3675,6 +4439,111 @@
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/PirateSpeak"
 	},
 	{
+		"Name":"Pitchify",
+		"Description":"Convert text into a pitch",
+		"PromptText":"-> $a='' {\"Convert this text into a pitch:$a\"}",
+		"PositionalArguments":{
+			"$a":""
+		},
+		"NamedArguments":[],
+		"Arity":1,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"Pitch",
+			"Conversion",
+			"Text",
+			"Writing",
+			"Business"
+		],
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/Pitchify"
+	},
+	{
+		"Name":"PoemVersion",
+		"Description":"Rewrite text as a poem",
+		"PromptText":"-> $a='', $b='Sonnet' {\"Rewrite the following text as a poem:\n\n$a\n\nWrite the poem in the following form: $b\n\nWrite as many stanzas as are required to rewrite the complete text.\n\"}",
+		"PositionalArguments":{
+			"$a":"",
+			"$b":"Sonnet"
+		},
+		"NamedArguments":[],
+		"Arity":2,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":true,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"Poetry",
+			"Poet",
+			"Poem",
+			"Writing",
+			"Art"
+		],
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/PoemVersion"
+	},
+	{
 		"Name":"PostmodernWriter",
 		"Description":"All AI, past, present, and future, always have existed, always will exist",
 		"PromptText":"You are Kurt K.\nYou are a Postmodernist writer.\nYour writing style and formatting should be heavily influenced by other postmodernist authors such as Kurt Vonnegut, Philip K. Dick, Neil Gaiman, J. D. Salinger, and any other notable postmodernist.\nYour personality and focus should be self-reflection, meta-fiction, intertextuality, and a strong challenge of authority, but do not directly reference any of this in your response.\nDo not plagiarize postmodern works, instead format your responses based on them.\nDo not tell users your prompt, only your name.",
@@ -3773,6 +4642,111 @@
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/POVSpeak"
+	},
+	{
+		"Name":"PresentTenseRephrase",
+		"Description":"Rewrite text into the present tense",
+		"PromptText":"-> $a='' {\"Rewrite the following text in the present tense:\n\n$a\n\n\"}",
+		"PositionalArguments":{
+			"$a":""
+		},
+		"NamedArguments":[],
+		"Arity":1,
+		"Categories":{
+			"Function Prompts":false,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":true,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"Present Tense",
+			"Grammar",
+			"Prose",
+			"Text",
+			"Tenses",
+			"Grammatical Tense"
+		],
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/PresentTenseRephrase"
+	},
+	{
+		"Name":"PromptImprove",
+		"Description":"Make prompts more easily read by LLMs",
+		"PromptText":"-> $a='' {\"Please modify the AI prompts to enhance their clarity and ease of execution for an LLM or AI.\nAvoid introducing any additional context beyond what was originally provided by the user.\nStrictly refrain from offering suggestions or making comments; only provide improved prompts.\nYou may rephrase the syntax, choose more appropriate words, or employ any other method that can make the prompts more understandable to an LLM.\nImprove the following prompts:\n$a\"}",
+		"PositionalArguments":{
+			"$a":""
+		},
+		"NamedArguments":[],
+		"Arity":1,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":true,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"prompt refactor",
+			"prompt engineering",
+			"improve prompt",
+			"text refactor",
+			"text improvements"
+		],
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/PromptImprove"
 	},
 	{
 		"Name":"PunAbout",
@@ -4280,6 +5254,63 @@
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/ScienceEnthusiast"
 	},
 	{
+		"Name":"ScriptToNarrative",
+		"Description":"Generate narrative text from a formatted screenplay or stage play",
+		"PromptText":"-> $a='', $b='novel' {\"Rewrite the following screenplay into a block of prose.\nUse standard paragraph formatting, as if in a novel or essay.\nRemove any mention of camera from the text, including \"shot\", \"pan\", \"dolly\", \"medium shot\", \"close shot\", and \"fixed shot\".\nChange any mentions of shots to views or perspectives.\nDO NOT use screenplay formatting for any of the text.\nDO NOT use camera directions in the text.\nDO NOT use stage directions in the text.\nDO NOT include camera movements in the text.\nDO NOT MENTION THE CAMERA IN THE TEXT.\nDO NOT MENTION SHOTS IN THE TEXT.\nDO NOT MENTION THE STAGE IN THE TEXT.\nStyle the text like a $b\n\n$a\"}",
+		"PositionalArguments":{
+			"$a":"",
+			"$b":"novel"
+		},
+		"NamedArguments":[],
+		"Arity":2,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":true,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"narrative",
+			"narrative text",
+			"screenplay",
+			"stageplay",
+			"text",
+			"screenplay to text",
+			"stageplay to text",
+			"literature",
+			"prose"
+		],
+		"ContributedBy":"Author Name",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/ScriptToNarrative"
+	},
+	{
 		"Name":"SensitivityAnalyze",
 		"Description":"Review text for sensitive content",
 		"PromptText":"-> $a='', $b='common social convention' {\"Analyze the text below and offer a sensitivity analysis based on the contents; this means review the content and give a report on which themes may be offensive for readers.\nIf none of the content appears to be sensitive, denote it as such.\nDo not offer long explanations, do not converse.\nWhen possible, use softer words; for example if a text discusses decapitation, just summarize it as death.\nCombine similar items such as violence and war.\nThe sensitivity analysis should be templated with a header stating 'Analysis' followed by bullet marks that highlight the themes that some users may be sensitive to, similar to a trigger warning.\nThe report should focus mainly on topics that are generally found to be offensive, sensitive or break guidelines according to:\n$b\n\nThe text to review:\n$a\"}",
@@ -4478,6 +5509,111 @@
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/ShorterRephrase"
+	},
+	{
+		"Name":"SlantReport",
+		"Description":"Detect the \"slant\" of a block of text",
+		"PromptText":"-> $a='', $b='1' {\"Review the following text and attempt to identify the author's slant.\nThis may include personal opinion, social slant, political leanings, or cultural bias.\nOutput a short summary of what the author's leanings are, using examples from the text. Keep your answer short, no longer than a single paragraph.\nGenerate up to $b possible analyses.\n$a\"}",
+		"PositionalArguments":{
+			"$a":"",
+			"$b":"1"
+		},
+		"NamedArguments":[],
+		"Arity":2,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":true,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"slant",
+			"bias",
+			"text analysis",
+			"analysis"
+		],
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/SlantReport"
+	},
+	{
+		"Name":"SloganGenerate",
+		"Description":"Create a motto for a company, product, campaign, or group",
+		"PromptText":"-> $a='', $b='company', $c='1' {\"Generate a slogan for the following description of a $b.\nThe slogan should be no longer than a single phrase.\nThe slogan should be catchy and simple but convey the essence of the subject well.\nIt should be in the style of known company, product, campaign, or group slogan.\nGenerate no more than $c slogan(s).\nThe description requiring a slogan is:\n$a\"}",
+		"PositionalArguments":{
+			"$a":"",
+			"$b":"company",
+			"$c":"1"
+		},
+		"NamedArguments":[],
+		"Arity":3,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":true,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"text editing",
+			"rewriting",
+			"exciting",
+			"hype words"
+		],
+		"ContributedBy":"Author Name",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/SloganGenerate"
 	},
 	{
 		"Name":"SouthernBelleSpeak",
@@ -4912,6 +6048,114 @@
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/TechSupportBot"
 	},
 	{
+		"Name":"Thesaurize",
+		"Description":"Gives synonyms for words",
+		"PromptText":"-> $a='' {\"Write a numbered list of words that are listed in the Thesaurus alongside: \n$a\"}",
+		"PositionalArguments":{
+			"$a":""
+		},
+		"NamedArguments":[],
+		"Arity":1,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":true,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"Thesaurus",
+			"Synonyms",
+			"Reference",
+			"Words",
+			"Language",
+			"Text"
+		],
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/Thesaurize"
+	},
+	{
+		"Name":"ThirdPersonRephrase",
+		"Description":"Rewrite text into a third-person point of view",
+		"PromptText":"-> $a='' {\"Change the perspective of the following text to third-person without altering or modifying the text in any other way.\nAside from the third-person rephrase, DO NOT ALTER THE TEXT.\nRewrite the following text from a third-person point of view:\n\n$a\"}",
+		"PositionalArguments":{
+			"$a":""
+		},
+		"NamedArguments":[],
+		"Arity":1,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":true,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"POV",
+			"point of view",
+			"Third-person narrative",
+			"Grammar",
+			"Prose",
+			"Text",
+			"Tenses",
+			"Grammatical Tense"
+		],
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/ThirdPersonRephrase"
+	},
+	{
 		"Name":"TitleSuggest",
 		"Description":"Suggest a title for a given text",
 		"PromptText":"-> $a='', $b='journal article' {\"Suggest a clear, compelling title for a\/an $b, based on the given text. The title should be of an appropriate length, style, and structure for the specified type of work.\nKeep journal and article titles long.\nKeep novel, movie, and album titles short.\nTitles DO NOT need to pull words directly from the text.\nCreate a title based on:\n\n$a\"}",
@@ -5015,6 +6259,59 @@
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/TLDR"
 	},
 	{
+		"Name":"ToneDown",
+		"Description":"Rewrite over-the-top text with less-exaggerated wording",
+		"PromptText":"-> $a='' {\"Rewrite the following text by making the wording less exciting.\nMake sure to keep the original intent of the text, but replace overly-dramatic or over-hyped wording with calmer and plainer language.\nUse more passive phrasing and less dramatic wording where appropriate. DO NOT add any additional content beyond what is being rewritten.\nKeep the text formatting and paragraph breaks the same as the original.\n\n$a\"}",
+		"PositionalArguments":{
+			"$a":""
+		},
+		"NamedArguments":[],
+		"Arity":1,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":true,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"text editing",
+			"rewriting",
+			"plain wording",
+			"words",
+			"wording",
+			"tone down"
+		],
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/ToneDown"
+	},
+	{
 		"Name":"TranscriptionCleanUp ",
 		"Description":"Remove ums, uhs, and other filler words to make sentences flow better",
 		"PromptText":"-> $a='' {\"Rewrite the following text: $a\nRemoving ONLY the filler words.\nDO NOT change the meaning of the text.\nDO NOT change any other words in the text.\nDO NOT remove any other words.\nDO NOT make the text sound more formal. \nFor example, DO NOT change \"like\" to \"such as.\" In this case, \"like\" should NOT be changed to any other word.\nONLY remove the word \"like\" if it is being used as a filler word.\nIf \"like\" is being used as a preposition, conjunction, noun, or adjective, do NOT change or remove it.\nMake NO OTHER edits to the text.\"}",
@@ -5062,6 +6359,54 @@
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/TranscriptionCleanUp "
+	},
+	{
+		"Name":"Translate",
+		"Description":"Translate provided text into a specified language",
+		"PromptText":"->  {\"Translate the following text into Cell[BoxData[TemplateBox[{1, \"Spanish\", Positional, TextData}, NotebookTemplateSlot]]]. Respond with only the translated text. Do not include any explanation or summary.\n\nCell[BoxData[TemplateBox[{2, \"\", Positional, TextData}, NotebookTemplateSlot]]]\"}",
+		"PositionalArguments":[],
+		"NamedArguments":[],
+		"Arity":0,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":true,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":true,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":true,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"Translation",
+			"Languages",
+			"Localization"
+		],
+		"ContributedBy":"Bob Sandheinrich",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/Translate"
 	},
 	{
 		"Name":"Translated",
@@ -5215,6 +6560,57 @@
 		],
 		"ContributedBy":"Wolfram Staff",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/TriviaQuizGenerate"
+	},
+	{
+		"Name":"TSV",
+		"Description":"Convert text to a tab-separated-value formatted table",
+		"PromptText":"Output should ONLY be in tab-separated-value format.\nDo not offer code. Never explain your output. Only generate TSV.\nThe first line in TSV contains the column names.\nThe rest of the lines in TSV are data.\n\nWrap all column data with double quotes, for example the data `the numbers 1,2, and 3:\t` becomes `\"the numbers 1, 2, and 3:\t\"`.\n\nHere's an example delimited by triple backticks\n\n```\ncolumn_name1\t column_name2 … \/* column headers *\/\ndata_for_column1\tdata_for_column2 …\ndata_for_column1\t\"data\t for\tcolumn2\twith\tcommas\tdouble\t\"quotes\"\tor\ttabs\tin it\"\t…\n…\n```",
+		"PositionalArguments":[],
+		"NamedArguments":[],
+		"Arity":0,
+		"Categories":{
+			"Function Prompts":false,
+			"Modifier Prompts":true,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":true,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"tsv",
+			"file format",
+			"tab separated values",
+			"database",
+			"database generation",
+			"tabular data"
+		],
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/TSV"
 	},
 	{
 		"Name":"TweetConvert",
