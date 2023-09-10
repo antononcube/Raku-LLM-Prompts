@@ -6,6 +6,7 @@ use JSON::Fast;
 
 #-----------------------------------------------------------
 my @records;
+my @record-fields;
 my @topics;
 my @categories;
 
@@ -15,6 +16,7 @@ sub ingest-prompt-data() is export {
     # It is expected that resource file "prompts.json" is an array of hashes.
     @records = from-json(slurp(%?RESOURCES<prompts.json>)).List;
 
+    @record-fields = @records.map({ $_.keys }).flat.unique.sort;
     @categories = @records.map({ $_<Categories>.keys }).flat.unique.sort;
     @topics = @records.map({ $_<Topics>.keys }).flat.unique.sort;
 
@@ -40,12 +42,26 @@ sub llm-prompt-topics() is export {
 
 #-----------------------------------------------------------
 #| Get the prompts database as hash with the keys being the prompt titles.
-proto sub llm-prompt-data(-->Hash) is export {*}
+proto sub llm-prompt-data(| -->Hash) is export {*}
 
 multi sub llm-prompt-data(-->Hash) {
     if ! @records { ingest-prompt-data; }
     my %resPrompts = @records.map({ $_<Name> => $_.clone }).Hash;
     return %resPrompts;
+}
+
+multi sub llm-prompt-data(Str :$field!) {
+    my %res = llm-prompt-data;
+
+    die "The argument \$field is expected to be one of {@record-fields.join(', ')}."
+    unless $field ∈ @record-fields;
+
+    return %res.map({ $_.key => $_.value{$field} }).Hash;
+}
+
+multi sub llm-prompt-data(Regex $name, Str :$field = 'Description') {
+    my %res = llm-prompt-data(:$field);
+    return %res.grep({ $_.key ~~ $name }).Hash;
 }
 
 #-----------------------------------------------------------
@@ -98,7 +114,9 @@ multi sub llm-prompt-dataset(:f(:$functions) is copy = Whatever,
 
 #-----------------------------------------------------------
 #| Create the prompt string or pure function for a given prompt name.
-sub llm-prompt($name is copy, Bool :$warn = True) is export {
+proto sub llm-prompt($name, Bool :$warn = True) is export {*}
+
+multi sub llm-prompt($name is copy, Bool :$warn = True) is export {
 
     my %ps = llm-prompt-data;
 
