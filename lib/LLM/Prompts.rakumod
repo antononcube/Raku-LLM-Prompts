@@ -50,17 +50,23 @@ multi sub llm-prompt-data(-->Hash) {
     return %resPrompts;
 }
 
-multi sub llm-prompt-data(Str :$field!) {
+multi sub llm-prompt-data(:$fields! is copy) {
     my %res = llm-prompt-data;
 
-    die "The argument \$field is expected to be one of {@record-fields.join(', ')}."
-    unless $field ∈ @record-fields;
+    if $fields.isa(Whatever) { $fields = ['Description',]; }
+    if $fields ~~ Str:D { $fields = [$fields,]; }
 
-    return %res.map({ $_.key => $_.value{$field} }).Hash;
+    die "The argument \$fields is expected to be Whateever, one of the strings \"{@record-fields.join('", "')}\" or a list of those strings."
+    unless $fields ~~ Iterable && ($fields (&) @record-fields).elems > 0;
+
+    if $fields.elems == 1 {
+        return %res.map({ $_.key => $_.value{$fields.head} }).Hash;
+    }
+    return %res.map({ $_.key => $_.value{|$fields} }).Hash;
 }
 
-multi sub llm-prompt-data(Regex $name, Str :$field = 'Description') {
-    my %res = llm-prompt-data(:$field);
+multi sub llm-prompt-data(Regex $name, :$fields = 'Description') {
+    my %res = llm-prompt-data(:$fields);
     return %res.grep({ $_.key ~~ $name }).Hash;
 }
 
