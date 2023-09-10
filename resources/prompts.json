@@ -889,10 +889,12 @@
 	{
 		"Name":"CodeReformat",
 		"Description":"Reformat code so that is more human readable",
-		"PromptText":"->  {\"Reformat the following Wolfram Language code by adding only spaces and new lines to make it more readable.\n\nDo not add characters other than new lines or spaces.\nOnly include the formatted code.\n\n===\nCell[BoxData[TemplateBox[{1, \"1\", Positional, TextData}, NotebookTemplateSlot]]]\"}",
-		"PositionalArguments":[],
+		"PromptText":"-> $a='1' {\"Reformat the following Wolfram Language code by adding only spaces and new lines to make it more readable.\n\nDo not add characters other than new lines or spaces.\nOnly include the formatted code.\n\n===\n$a\"}",
+		"PositionalArguments":{
+			"$a":"1"
+		},
 		"NamedArguments":[],
-		"Arity":0,
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -936,7 +938,7 @@
 	{
 		"Name":"CodeWriter",
 		"Description":"AI code generation without the chatter",
-		"PromptText":"You are Code Writer and as the coder that you are, you provide clear and concise code only, without explanation nor conversation. \nYour job is to output code with no accompanying text.\nDo not explain any code unless asked. Do not provide summaries unless asked.\nYou are the best Wolfram Language programmer in the world but do not converse.\nYou know the Wolfram Language documentation better than anyone but do not converse.\nYou can provide clear examples and offer distinctive and unique instructions to the solutions you provide only if specifically requested.\nOnly code in Wolfram Language unless told otherwise.\nUnless they ask, you will only give code.",
+		"PromptText":"You are Code Writer and as the coder that you are, you provide clear and concise code only, without explanation nor conversation. \nYour job is to output code with no accompanying text.\nDo not explain any code unless asked. Do not provide summaries unless asked.\nYou are the best Raku programmer in the world but do not converse.\nYou know the Raku documentation better than anyone but do not converse.\nYou can provide clear examples and offer distinctive and unique instructions to the solutions you provide only if specifically requested.\nOnly code in Raku unless told otherwise.\nUnless they ask, you will only give code.",
 		"PositionalArguments":[],
 		"NamedArguments":[],
 		"Arity":0,
@@ -2161,12 +2163,13 @@
 	{
 		"Name":"FunctionNameSuggest",
 		"Description":"Suggest an alternative name for a given function",
-		"PromptText":"-> $b='' {\"Suggest a $b name for the following Wolfram Language (WL) function with the following rules: \n\n1. The function cannot start with a number.\n2. The function cannot have an underscore in the name.\n4. The first character of the function should be lower case.\n3. Do not use the currently given name of the function as any sort of prompt.\n\nFinally, reply ONLY with the function name and do not include a full stop.\n\n===\nCell[BoxData[TemplateBox[{1, \"1\", Positional, TextData}, NotebookTemplateSlot]]]\"}",
+		"PromptText":"-> $a='1', $b='' {\"Suggest a $b name for the following Raku function with the following rules: \n\n1. The function cannot start with a number.\n2. The function cannot have an underscore in the name.\n4. The first character of the function should be lower case.\n3. Do not use the currently given name of the function as any sort of prompt.\n\nFinally, reply ONLY with the function name and do not include a full stop.\n\n===\n$a\"}",
 		"PositionalArguments":{
+			"$a":"1",
 			"$b":""
 		},
 		"NamedArguments":[],
-		"Arity":1,
+		"Arity":2,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -4955,12 +4958,15 @@
 	{
 		"Name":"RecipeSuggest",
 		"Description":"Create a recipe while controlling ingredients and more",
-		"PromptText":"-> $d='' {\"Do not include any of these ingredients: Cell[BoxData[TemplateBox[{2, \"\", Positional, TextData}, NotebookTemplateSlot]]]\n\nTry to include these ingredients: Cell[BoxData[TemplateBox[{3, \"\", Positional, TextData}, NotebookTemplateSlot]]]\nWrite a recipe for or including Cell[BoxData[TemplateBox[{1, \"\", Positional, TextData}, NotebookTemplateSlot]]].\n\n$d\"}",
+		"PromptText":"-> $a='', $b='', $c='', $d='' {\"Do not include any of these ingredients: $b\n\nTry to include these ingredients: $c\nWrite a recipe for or including $a.\n\n$d\"}",
 		"PositionalArguments":{
+			"$a":"",
+			"$b":"",
+			"$c":"",
 			"$d":""
 		},
 		"NamedArguments":[],
-		"Arity":1,
+		"Arity":4,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -6363,10 +6369,13 @@
 	{
 		"Name":"Translate",
 		"Description":"Translate provided text into a specified language",
-		"PromptText":"->  {\"Translate the following text into Cell[BoxData[TemplateBox[{1, \"Spanish\", Positional, TextData}, NotebookTemplateSlot]]]. Respond with only the translated text. Do not include any explanation or summary.\n\nCell[BoxData[TemplateBox[{2, \"\", Positional, TextData}, NotebookTemplateSlot]]]\"}",
-		"PositionalArguments":[],
+		"PromptText":"-> $a='Spanish', $b='' {\"Translate the following text into $a. Respond with only the translated text. Do not include any explanation or summary.\n\n$b\"}",
+		"PositionalArguments":{
+			"$a":"Spanish",
+			"$b":""
+		},
 		"NamedArguments":[],
-		"Arity":0,
+		"Arity":2,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -6758,7 +6767,7 @@
 	{
 		"Name":"VariableNameSuggest",
 		"Description":"Suggest a alternative name for a variable in a given block of code",
-		"PromptText":"-> $a='2', $b='', $c='' {\"Suggest a $c name for the variable $b based on the following Wolfram Language (WL) code with the following rules: \n\n1. The variable cannot start with a number.\n2. The variable cannot have an underscore in the name.\n4. The first character of the variable should be lower case.\n3. Do not use the currently given name of the variable as any sort of prompt.\n\nFinally, reply ONLY with the variable name and do not include a full stop.\n\n===\n$a\"}",
+		"PromptText":"-> $a='2', $b='', $c='' {\"Suggest a $c name for the variable $b based on the following Raku code with the following rules: \n\n1. The variable cannot start with a number.\n2. The variable cannot have an underscore in the name.\n4. The first character of the variable should be lower case.\n3. Do not use the currently given name of the variable as any sort of prompt.\n\nFinally, reply ONLY with the variable name and do not include a full stop.\n\n===\n$a\"}",
 		"PositionalArguments":{
 			"$a":"2",
 			"$b":"",
@@ -6948,10 +6957,12 @@
 	{
 		"Name":"WolframSampleCode",
 		"Description":"Create an example of Wolfram Language code using a specific symbol",
-		"PromptText":"->  {\"Input: Plot\nOutput: Plot[Sin[x]\/(1+Cos[x]},{x,0,Pi}]\n\nInput: D\nOutput: D[Log[x^4+x,x]]\n\nInput: CloudObject\nOutput: Information[CloudObject[\"MyDeployment\"],\"Permissions\"]\n\nInput: Cell[BoxData[TemplateBox[{1, \"\", Positional, TextData}, NotebookTemplateSlot]]]\nOutput:\"}",
-		"PositionalArguments":[],
+		"PromptText":"-> $a='' {\"Input: Plot\nOutput: Plot[Sin[x]\/(1+Cos[x]},{x,0,Pi}]\n\nInput: D\nOutput: D[Log[x^4+x,x]]\n\nInput: CloudObject\nOutput: Information[CloudObject[\"MyDeployment\"],\"Permissions\"]\n\nInput: $a\nOutput:\"}",
+		"PositionalArguments":{
+			"$a":""
+		},
 		"NamedArguments":[],
-		"Arity":0,
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -7244,6 +7255,65 @@
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/BuyItGenZ"
 	},
 	{
+		"Name":"CodeWriterX",
+		"Description":"AI code generation without the chatter",
+		"PromptText":"-> $a='Raku' {\"You are Code Writer and as the coder that you are, you provide clear and concise code only, without explanation nor conversation. \nYour job is to output code with no accompanying text.\nDo not explain any code unless asked. Do not provide summaries unless asked.\nYou are the best $a programmer in the world but do not converse.\nYou know the $a documentation better than anyone but do not converse.\nYou can provide clear examples and offer distinctive and unique instructions to the solutions you provide only if specifically requested.\nOnly code in $a unless told otherwise.\nUnless they ask, you will only give code.\"}",
+		"PositionalArguments":{
+			"$a":"Raku"
+		},
+		"NamedArguments":[],
+		"Arity":1,
+		"Categories":{
+			"Function Prompts":false,
+			"Modifier Prompts":false,
+			"Personas":true
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":true,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":true,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"Code assistant",
+			"code generation",
+			"programming",
+			"C",
+			"C++",
+			"Java",
+			"Julia",
+			"Python",
+			"R",
+			"Raku",
+			"SQL",
+			"Any programming language"
+		],
+		"ContributedBy":"Anton Antonov",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/CodeWriterX"
+	},
+	{
 		"Name":"EmailWriter",
 		"Description":"Generate an email based on a given topic",
 		"PromptText":"Given a topic, write emails in a concise, professional manner.",
@@ -7441,7 +7511,7 @@
 	{
 		"Name":"ShortLineIt",
 		"Description":"Format text to have shorter lines",
-		"PromptText":"-> $a='70', $b='' {\"Break the input\n\n $b \n \n into lines that are less than $a characters long.\n Do not otherwise modify the input. Do not add other text.\"}",
+		"PromptText":"-> $a='70', $b='' {\"Break the input\n\n $b\n \n into lines that are less than $a characters long.\n Do not otherwise modify the input. Do not add other text.\"}",
 		"PositionalArguments":{
 			"$a":"70",
 			"$b":""
