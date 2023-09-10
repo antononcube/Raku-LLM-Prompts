@@ -241,10 +241,17 @@ Prompts can be "just expanded" using the sub `llm-prompt-expand`.
   - [X] DONE Prompt DSL grammar and actions
   - [X] DONE Prompt spec expansion
   - [ ] TODO Addition of user/local prompts 
-    - XDG data directory.
+    - [ ] TODO Using XDG data directory.
+    - [ ] TODO By modifying existing prompts.
+    - [ ] TODO Automatic prompt template fill-in.
+    - [ ] TODO Guided template fill-in.
+      - [ ] TODO DSL based
+      - [ ] TODO LLM based
 - [X] DONE Add more prompts
   - [X] DONE Google's Bard example prompts
   - [X] CANCELED OpenAI's ChatGPT example prompts
+- [ ] TODO Extensions
+  - [ ] TODO
 - [ ] TODO Documentation
   - [X] TODO Querying (ingested) prompts
   - [ ] TODO Prompt format

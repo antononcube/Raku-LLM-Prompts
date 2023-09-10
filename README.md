@@ -42,20 +42,20 @@ Show the record of the prompt named "FTFY":
 .say for |llm-prompt-data<FTFY>;
 ```
 ```
-# ContributedBy => Wolfram Staff
+# URL => https://resources.wolframcloud.com/PromptRepository/resources/FTFY
+# PositionalArguments => {$a => }
 # Description => Use Fixed That For You to quickly correct spelling and grammar mistakes
-# NamedArguments => []
-# Keywords => [Spell check Grammar Check Text Assistance]
 # PromptText => -> $a='' {"Find and correct grammar and spelling mistakes in the following text.
 # Response with the corrected text and nothing else.
 # Provide no context for the corrections, only correct the text.
 # $a"}
-# URL => https://resources.wolframcloud.com/PromptRepository/resources/FTFY
-# PositionalArguments => {$a => }
-# Name => FTFY
-# Categories => (Function Prompts)
+# NamedArguments => []
 # Topics => (General Text Manipulation)
+# ContributedBy => Wolfram Staff
+# Keywords => [Spell check Grammar Check Text Assistance]
+# Categories => (Function Prompts)
 # Arity => 1
+# Name => FTFY
 ```
 
 Here is an example of retrieval of prompt data with a regex that is applied over the prompt names:
@@ -79,7 +79,7 @@ Make an LLM function from the prompt named "FTFY":
 my &f = llm-function(llm-prompt('FTFY'));
 ```
 ```
-# -> **@args, *%args { #`(Block|6570650776952) ... }
+# -> **@args, *%args { #`(Block|2693603014224) ... }
 ```
 
 Use the LLM function to correct the grammar of sentence:
@@ -97,20 +97,14 @@ Generate Raku code using the prompt "CodeWriter":
 llm-synthesize([llm-prompt('CodeWriter'), "Simulate a random walk."])
 ```
 ```perl6
-# Create a variable to hold the current position
-my $position = 0;
+my @pos = (0, 0);
+my @dirs = <N S E W>;
 
-# Create a loop to simulate the random walk
-while ($position > -5 && $position <= 5) {
-    # Create a random number between 0 and 1
-    my $random_number = rand;
-
-    # Move up if random number is <= 0.5, else move down
-    if ($random_number <= 0.5) {
-        $position++;
-    } else {
-        $position--;
-    }
+for 1..50 {
+    my $dir = @dirs.pick;
+    @pos[0] += $dir eq 'N' ?? 1 !! $dir eq 'S' ?? -1 !! 0;
+    @pos[1] += $dir eq 'E' ?? 1 !! $dir eq 'W' ?? -1 !! 0; 
+    # do something with @pos if you need to
 }
 ```
 
@@ -138,9 +132,10 @@ use Text::Utils :ALL;
         ==> join("\n") 
 ```
 ```
-# An internal combustion engine is a machine that uses fuel and air to make a
-# powerful energy. It is like a big motor inside your car that helps it go
-# faster and farther.
+# An internal combustion engine is like a really big car that runs on fuel.
+# Inside the engine, fuel is mixed with air, and then it is burned which creates
+# a lot of energy. This energy makes the engine move, and when the engine is
+# attached to a car, it makes the car move too.
 ```
 
 Here is another example using a persona and two modifiers:
@@ -171,8 +166,10 @@ $prmt
         ==> join("\n") 
 ```
 ```
-# I'm afraid I'm not sure about that, sweetheart. But I do know that Mars is
-# very, very far away. Much farther than I want us to be apart.
+# Oh honey, Mars is such a far away place! It takes light about 6 minutes and 8
+# seconds to travel from the sun to Mars. That's about a hundred and thirty-four
+# million miles. I don't think any of us will ever get to go there. Ain't that a
+# shame?
 ```
 
 -----
@@ -252,11 +249,11 @@ Here is an example of retrieval of prompt data with a regex that is applied over
 .say for llm-prompt-data(/Em/, fields => <Description Categories>)
 ```
 ```
-# EmailWriter => (Generate an email based on a given topic (Personas))
-# Emojified => (Provide responses that include emojis within the text (Modifier Prompts))
+# Emojify => (Replace key words in text with emojis (Function Prompts))
 # EmojiTranslate => (Translate text into an emoji representation (Function Prompts))
 # EmojiTranslated => (Get a response translated to emoji (Modifier Prompts))
-# Emojify => (Replace key words in text with emojis (Function Prompts))
+# EmailWriter => (Generate an email based on a given topic (Personas))
+# Emojified => (Provide responses that include emojis within the text (Modifier Prompts))
 ```
 
 In many cases it is better to have the prompt data -- or any data -- in long format.
@@ -270,16 +267,16 @@ llm-prompt-dataset.pick(6)
         ==> to-pretty-table(align => 'l', field-names => <Name Description Variable Value>)
 ```
 ```
-# +----------------------+-----------------------------------------------------------------------+------------+------------------+
-# | Name                 | Description                                                           | Variable   | Value            |
-# +----------------------+-----------------------------------------------------------------------+------------+------------------+
-# | Spock                | AI: The final frontier                                                | Keywords   | Fun              |
-# | AlternativeHistorian | Explore alternate versions of history                                 | Categories | Personas         |
-# | Anonymize            | Replace personally identifiable information in text with placeholders | Keywords   | keyword 1        |
-# | TargetAudience       | Word your response for a target audience                              | Categories | Modifier Prompts |
-# | AnimalSpeak          | The language of beasts, sort of                                       | Categories | Personas         |
-# | CopyEdit             | Edit text for grammar, spelling, punctuation and clarity              | Keywords   | edit             |
-# +----------------------+-----------------------------------------------------------------------+------------+------------------+
+# +--------------------+------------------------------------------------------------------+------------+-----------------+
+# | Name               | Description                                                      | Variable   | Value           |
+# +--------------------+------------------------------------------------------------------+------------+-----------------+
+# | EmailWriter        | Generate an email based on a given topic                         | Topics     | Text Generation |
+# | SurferDudeSpeak    | Totally rad personality                                          | Categories | Personas        |
+# | DrillSergeant      | AI DONT KNOW BUT AI'VE BEEN TOLD                                 | Topics     | Roles           |
+# | R2D2               | This is the AI you are looking for                               | Categories | Personas        |
+# | MarketingJargonize | Rewrite text in market-speak                                     | Keywords   | marketing       |
+# | BuyItGenZ          | Create an exciting advertising copy for a product targeting GenZ | Keywords   | Product         |
+# +--------------------+------------------------------------------------------------------+------------+-----------------+
 ```
 
 Here is a breakdown of the prompts categories:
@@ -369,10 +366,17 @@ Prompts can be "just expanded" using the sub `llm-prompt-expand`.
   - [X] DONE Prompt DSL grammar and actions
   - [X] DONE Prompt spec expansion
   - [ ] TODO Addition of user/local prompts 
-    - XDG data directory.
+    - [ ] TODO Using XDG data directory.
+    - [ ] TODO By modifying existing prompts.
+    - [ ] TODO Automatic prompt template fill-in.
+    - [ ] TODO Guided template fill-in.
+      - [ ] TODO DSL based
+      - [ ] TODO LLM based
 - [X] DONE Add more prompts
   - [X] DONE Google's Bard example prompts
   - [X] CANCELED OpenAI's ChatGPT example prompts
+- [ ] TODO Extensions
+  - [ ] TODO
 - [ ] TODO Documentation
   - [X] TODO Querying (ingested) prompts
   - [ ] TODO Prompt format
