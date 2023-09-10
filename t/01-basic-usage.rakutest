@@ -50,12 +50,18 @@ is-deeply
         llm-prompt-dataset(:modifiers,:compact).map({ $_<Name> => $_ }).Hash;
 
 ## 14
-isa-ok llm-prompt-data(field => 'Description'), Hash;
+isa-ok llm-prompt-data(fields => 'Description'), Hash;
 
 ## 15
-isa-ok llm-prompt-data(/ Em /), Hash;
+isa-ok llm-prompt-data(fields => <Description URL>), Hash;
 
 ## 16
-is llm-prompt-data(/ Em /, field => 'PromptText').values.all ~~ Str, True;
+isa-ok llm-prompt-data(/ Em /), Hash;
+
+## 17
+is llm-prompt-data(/ Em /, fields => 'PromptText').values.all ~~ Str, True;
+
+## 18
+dies-ok { llm-prompt-data(/ Em /, fields => 'BlahBlah') };
 
 done-testing;
