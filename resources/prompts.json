@@ -7441,10 +7441,10 @@
 	{
 		"Name":"ShortLineIt",
 		"Description":"Format text to have shorter lines",
-		"PromptText":"-> $a='', $b='70' {\"Break the input\n\n $a \n \n into lines that are less than $b characters long.\n Do not otherwise modify the input. Do not add other text.\"}",
+		"PromptText":"-> $a='70', $b='' {\"Break the input\n\n $b \n \n into lines that are less than $a characters long.\n Do not otherwise modify the input. Do not add other text.\"}",
 		"PositionalArguments":{
-			"$a":"",
-			"$b":"70"
+			"$a":"70",
+			"$b":""
 		},
 		"NamedArguments":[],
 		"Arity":2,
