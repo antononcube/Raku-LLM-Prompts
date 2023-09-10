@@ -61,6 +61,12 @@ Use the LLM function to correct the grammar of sentence:
 &f('Where does he works now?')
 ```
 
+Generate Raku code:
+
+```perl6, output-lang=perl6, output-prompt=NONE
+llm-synthesize([llm-prompt('CodeWriter'), "Simulate a random walk."])
+```
+
 ### Prompt expansion
 
 Prompt expansion using the chatbook prompt spec DSL described in [SW1] 
@@ -94,6 +100,8 @@ Here we get the actual LLM answer:
 $prmt 
         ==> llm-prompt-expand() 
         ==> llm-synthesize()
+        ==> wrap-paragraph()
+        ==> join("\n") 
 ```
 
 -----
@@ -101,7 +109,7 @@ $prmt
 ## Prompt spec DSL
 
 A more formal description of the Domain Specific Language (DSL) for specifying prompts
-have the following elements: 
+has the following elements: 
 
 - Prompt personas can be "addressed" with "@". For example:
 
@@ -126,7 +134,17 @@ Summer is over, school is coming soon. #HaikuStyled #Translated|Russian
 !Translated|Portuguese Summer is over, school is coming soon
 ```
 
-Here is a table of prompt expansion specs (a simpler version of the one in [SW1]):
+- Functions can be specified to be applied to "previous" messages with "!" and 
+  placing just the prompt with one of the pointers "^" or "^^". 
+  The former means "the last message", the latter means "all messages."
+    - The messages can be provided with the option argument `:@messages` of `llm-prompt-expand`.
+- For example:
+
+```
+!ShortLineIt^
+```
+
+- Here is a table of prompt expansion specs (more or less the same as the one in [SW1]):
 
 | Spec               | Interpretation                                      |
 |:-------------------|:----------------------------------------------------|
@@ -134,9 +152,12 @@ Here is a table of prompt expansion specs (a simpler version of the one in [SW1]
 | #*name*            | Use modifier prompts                                |
 | !*name*            | Use function prompt with the input of current cell  |
 | !*name*>           | *«same as above»*                                   |
+| &*name*>           | *«same as above»*                                   |
 | !*name*^           | Use function prompt with previous chat message      |
 | !*name*^^          | Use function prompt with all previous chat messages |
 | !*name*￨*param*... | Include parameters for prompts                      |
+
+**Remark:** The function prompts can have both sigils "!" and "&".
 
 **Remark:** Prompt expansion make the usage of LLM-chatbooks much easier.
 See "Jupyter::Chatbook", [AAp3].
@@ -174,7 +195,7 @@ Here is a breakdown of the prompts categories:
 select-columns(llm-prompt-dataset, <Variable Value>).grep({ $_<Variable> eq 'Categories' }) ==> records-summary
 ```
 
-Here are all modifier prompts in compact format:
+Here are obtained all modifier prompts in compact format:
 
 ```perl6
 llm-prompt-dataset():modifiers:compact ==> to-pretty-table(field-names => <Name Description Categories>, align => 'l')
@@ -183,7 +204,8 @@ llm-prompt-dataset():modifiers:compact ==> to-pretty-table(field-names => <Name 
 **Remark:** The adverbs `:functions`, `:modifiers`, and `:personas` mean 
 that *only* the prompts with the corresponding categories will be returned.
 
-**Remark:** The adverbs `:compact`, `:functions`, `:modifiers`, and `:personas` have the respective shortcuts `:c`, `:f`, `:m`, and `:p`.
+**Remark:** The adverbs `:compact`, `:functions`, `:modifiers`, and `:personas` 
+have the respective shortcuts `:c`, `:f`, `:m`, and `:p`.
 
 
 -----
