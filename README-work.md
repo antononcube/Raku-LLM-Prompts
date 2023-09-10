@@ -210,9 +210,9 @@ Hence, the sub `llm-prompt-expand` was implemented.
   - [X] DONE Prompt spec expansion
   - [ ] TODO Addition of user/local prompts 
     - XDG data directory.
-- [ ] TODO Add more prompts
-  - [ ] TODO Google's Bard example prompts
-  - [ ] TODO OpenAI's ChatGPT example prompts
+- [X] DONE Add more prompts
+  - [X] DONE Google's Bard example prompts
+  - [C] TODO OpenAI's ChatGPT example prompts
 - [ ] TODO Documentation
   - [X] TODO Querying (ingested) prompts
   - [ ] TODO Prompt format
