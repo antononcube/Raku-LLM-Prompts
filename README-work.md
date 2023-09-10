@@ -141,13 +141,26 @@ Here is how the prompt data can be obtained:
 llm-prompt-data.elems
 ```
 
-Here is a breakdown of the prompts categories:
+Here is retrieval prompt data with a regex that applied over the prompt names:
+
+```perl6
+.say for llm-prompt-data(/Em/, field => 'Description')
+```
+
+In many cases it is better to have the prompt data -- or any data -- in long format.
+Prompt data in long format can be obtained with the function `llm-prompt-dataset`:
 
 ```perl6
 use Data::Reshapers;
 use Data::Summarizers;
-use Data::Translators;
 
+llm-prompt-dataset.pick(6) 
+        ==> to-pretty-table(align => 'l', field-names => <Name Description Variable Value>)
+```
+
+Here is a breakdown of the prompts categories:
+
+```perl6
 select-columns(llm-prompt-dataset, <Variable Value>).grep({ $_<Variable> eq 'Categories' }) ==> records-summary
 ```
 
@@ -161,6 +174,7 @@ llm-prompt-dataset():modifiers:compact ==> to-pretty-table(field-names => <Name 
 that *only* the prompts with the corresponding categories will be returned.
 
 **Remark:** The adverbs `:compact`, `:functions`, `:modifiers`, and `:personas` have the respective shortcuts `:c`, `:f`, `:m`, and `:p`.
+
 
 -----
 
