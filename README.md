@@ -91,7 +91,7 @@ Use the LLM function to correct the grammar of sentence:
 # Where does he work now?
 ```
 
-Generate Raku code:
+Generate Raku code using the prompt "CodeWriter":
 
 ```perl6, output-lang=perl6, output-prompt=NONE
 llm-synthesize([llm-prompt('CodeWriter'), "Simulate a random walk."])
