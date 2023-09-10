@@ -43,19 +43,19 @@ Show the record of the prompt named "FTFY":
 ```
 ```
 # URL => https://resources.wolframcloud.com/PromptRepository/resources/FTFY
+# Keywords => [Spell check Grammar Check Text Assistance]
+# Arity => 1
 # PositionalArguments => {$a => }
+# Name => FTFY
 # Description => Use Fixed That For You to quickly correct spelling and grammar mistakes
+# ContributedBy => Wolfram Staff
+# Topics => (General Text Manipulation)
+# Categories => (Function Prompts)
 # PromptText => -> $a='' {"Find and correct grammar and spelling mistakes in the following text.
 # Response with the corrected text and nothing else.
 # Provide no context for the corrections, only correct the text.
 # $a"}
 # NamedArguments => []
-# Topics => (General Text Manipulation)
-# ContributedBy => Wolfram Staff
-# Keywords => [Spell check Grammar Check Text Assistance]
-# Categories => (Function Prompts)
-# Arity => 1
-# Name => FTFY
 ```
 
 Here is an example of retrieval of prompt data with a regex that is applied over the prompt names:
@@ -79,7 +79,7 @@ Make an LLM function from the prompt named "FTFY":
 my &f = llm-function(llm-prompt('FTFY'));
 ```
 ```
-# -> **@args, *%args { #`(Block|2693603014224) ... }
+# -> **@args, *%args { #`(Block|5983447082360) ... }
 ```
 
 Use the LLM function to correct the grammar of sentence:
@@ -97,14 +97,20 @@ Generate Raku code using the prompt "CodeWriter":
 llm-synthesize([llm-prompt('CodeWriter'), "Simulate a random walk."])
 ```
 ```perl6
-my @pos = (0, 0);
-my @dirs = <N S E W>;
+use v6;
 
-for 1..50 {
-    my $dir = @dirs.pick;
-    @pos[0] += $dir eq 'N' ?? 1 !! $dir eq 'S' ?? -1 !! 0;
-    @pos[1] += $dir eq 'E' ?? 1 !! $dir eq 'W' ?? -1 !! 0; 
-    # do something with @pos if you need to
+my @steps = <N S E W>;
+my ($x, $y) = (0, 0);
+
+for 1..100 {
+    my $dir = @steps.pick;
+    given $dir {
+        when 'N' { $y++ }
+        when 'S' { $y-- }
+        when 'E' { $x++ }
+        when 'W' { $x-- }
+    }
+    say "Moved $dir to ($x, $y)"
 }
 ```
 
@@ -132,10 +138,10 @@ use Text::Utils :ALL;
         ==> join("\n") 
 ```
 ```
-# An internal combustion engine is like a really big car that runs on fuel.
-# Inside the engine, fuel is mixed with air, and then it is burned which creates
-# a lot of energy. This energy makes the engine move, and when the engine is
-# attached to a car, it makes the car move too.
+# An internal combustion engine is a type of machine that uses small explosions
+# to make things move. It's like a mini explosion inside the engine that helps
+# power a car or other vehicle. The explosions happen inside the engine, which
+# is why it's called an "internal" combustion engine.
 ```
 
 Here is another example using a persona and two modifiers:
@@ -166,10 +172,9 @@ $prmt
         ==> join("\n") 
 ```
 ```
-# Oh honey, Mars is such a far away place! It takes light about 6 minutes and 8
-# seconds to travel from the sun to Mars. That's about a hundred and thirty-four
-# million miles. I don't think any of us will ever get to go there. Ain't that a
-# shame?
+# Oh, honey, the light travel distance to Mars is so far away it's unimaginable!
+# It would take an eternity to get there. I can't even begin to imagine what it
+# would be like. *sigh*
 ```
 
 -----
@@ -249,9 +254,9 @@ Here is an example of retrieval of prompt data with a regex that is applied over
 .say for llm-prompt-data(/Em/, fields => <Description Categories>)
 ```
 ```
+# EmojiTranslated => (Get a response translated to emoji (Modifier Prompts))
 # Emojify => (Replace key words in text with emojis (Function Prompts))
 # EmojiTranslate => (Translate text into an emoji representation (Function Prompts))
-# EmojiTranslated => (Get a response translated to emoji (Modifier Prompts))
 # EmailWriter => (Generate an email based on a given topic (Personas))
 # Emojified => (Provide responses that include emojis within the text (Modifier Prompts))
 ```
@@ -267,16 +272,8 @@ llm-prompt-dataset.pick(6)
         ==> to-pretty-table(align => 'l', field-names => <Name Description Variable Value>)
 ```
 ```
-# +--------------------+------------------------------------------------------------------+------------+-----------------+
-# | Name               | Description                                                      | Variable   | Value           |
-# +--------------------+------------------------------------------------------------------+------------+-----------------+
-# | EmailWriter        | Generate an email based on a given topic                         | Topics     | Text Generation |
-# | SurferDudeSpeak    | Totally rad personality                                          | Categories | Personas        |
-# | DrillSergeant      | AI DONT KNOW BUT AI'VE BEEN TOLD                                 | Topics     | Roles           |
-# | R2D2               | This is the AI you are looking for                               | Categories | Personas        |
-# | MarketingJargonize | Rewrite text in market-speak                                     | Keywords   | marketing       |
-# | BuyItGenZ          | Create an exciting advertising copy for a product targeting GenZ | Keywords   | Product         |
-# +--------------------+------------------------------------------------------------------+------------+-----------------+
+#ERROR: Too few positionals passed to '<anon>'; expected 2 arguments but got 1 in sub-signature
+# Nil
 ```
 
 Here is a breakdown of the prompts categories:
@@ -339,8 +336,8 @@ have the respective shortcuts `:c`, `:f`, `:m`, and `:p`.
 
 ### Prompt collection
 
-The original (for this package) collection of prompts was taken from 
-[Wolfram Prompt Repository](https://resources.wolframcloud.com/PromptRepository/) (WPR), [SW2].
+The original (for this package) collection of prompts was a (not small) sample of the prompt texts
+hosted at [Wolfram Prompt Repository](https://resources.wolframcloud.com/PromptRepository/) (WPR), [SW2].
 All prompts from WPR in the package have the corresponding contributors and URLs to the corresponding WPR pages.  
 
 Example prompts from Google/Bard/PaLM and ~~OpenAI/ChatGPT~~ are added using the format of WPR. 

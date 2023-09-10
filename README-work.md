@@ -214,8 +214,8 @@ have the respective shortcuts `:c`, `:f`, `:m`, and `:p`.
 
 ### Prompt collection
 
-The original (for this package) collection of prompts was taken from 
-[Wolfram Prompt Repository](https://resources.wolframcloud.com/PromptRepository/) (WPR), [SW2].
+The original (for this package) collection of prompts was a (not small) sample of the prompt texts
+hosted at [Wolfram Prompt Repository](https://resources.wolframcloud.com/PromptRepository/) (WPR), [SW2].
 All prompts from WPR in the package have the corresponding contributors and URLs to the corresponding WPR pages.  
 
 Example prompts from Google/Bard/PaLM and ~~OpenAI/ChatGPT~~ are added using the format of WPR. 
