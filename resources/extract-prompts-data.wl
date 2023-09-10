@@ -52,15 +52,14 @@ PromptTextToRaku[prompt_TextData] :=
   Block[{aSlotToRakuRules, posArgs = {}, namedArgs = {}, args, t, code},
    
     aSlotToRakuRules = {
-     Cell[
-       BoxData[TemplateBox[{n_Integer, d_, "Positional", ___}, 
-         "NotebookTemplateSlot"]], ___] :> (t = "$" <> CharacterRange["a", "z"][[n]]; posArgs = Union@Append[posArgs, t -> ToUnquoted[d]]; t),
-     Cell[
-       BoxData[TemplateBox[{n_String, d_, "Named", ___}, 
-         "NotebookTemplateSlot"]], ___] :> (t = "$" <> ToUnquoted[n]; namedArgs = Union@Append[namedArgs, t -> ToUnquoted[d]]; t)
-     };
-   
-   
+       Cell[BoxData[
+          TemplateBox[{n : (_Integer | _String), d_, "Positional", ___}, "NotebookTemplateSlot"]], ___] :>
+          (t = "$" <> CharacterRange["a", "z"][[ToExpression[n]]]; posArgs = Union@Append[posArgs, t -> ToUnquoted[d]]; t),
+       Cell[BoxData[
+          TemplateBox[{n_String, d_, "Named", ___}, "NotebookTemplateSlot"]], ___] :>
+          (t = "$" <> ToUnquoted[n]; namedArgs = Union@Append[namedArgs, t -> ToUnquoted[d]]; t)
+    };
+
     If[FreeQ[prompt, _TemplateBox, \[Infinity]],
       "'" <> StringRiffle[prompt[[1]], ""] <> "'",
       (*ELSE*)
