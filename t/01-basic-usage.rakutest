@@ -49,4 +49,13 @@ is-deeply
         llm-prompt-dataset(:m,:c).map({ $_<Name> => $_ }).Hash,
         llm-prompt-dataset(:modifiers,:compact).map({ $_<Name> => $_ }).Hash;
 
+## 14
+isa-ok llm-prompt-data(field => 'Description'), Hash;
+
+## 15
+isa-ok llm-prompt-data(/ Em /), Hash;
+
+## 16
+is llm-prompt-data(/ Em /, field => 'PromptText').values.all ~~ Str, True;
+
 done-testing;
