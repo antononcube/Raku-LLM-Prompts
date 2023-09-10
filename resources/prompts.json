@@ -7439,6 +7439,57 @@
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/HugoAwardWinner"
 	},
 	{
+		"Name":"ShortLineIt",
+		"Description":"Format text to have shorter lines",
+		"PromptText":"-> $a='', $b='70' {\"Break the input\n\n $a \n \n into lines that are less than $b characters long.\n Do not otherwise modify the input. Do not add other text.\"}",
+		"PositionalArguments":{
+			"$a":"",
+			"$b":"70"
+		},
+		"NamedArguments":[],
+		"Arity":2,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":true,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":true,
+			"Text Styling":true,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"Breaks",
+			"Automatic breaks",
+			"Wrap"
+		],
+		"ContributedBy":"Anton Antonov",
+		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/ShortLineIt"
+	},
+	{
 		"Name":"Unhedged",
 		"Description":"Rewrite a sentence to be more assertive",
 		"PromptText":"-> $a='' {\"Remove hedging to make your writing more persuasive.\n$a\"}",
