@@ -128,13 +128,15 @@ Summer is over, school is coming soon. #HaikuStyled #Translated|Russian
 
 Here is a table of prompt expansion specs (a simpler version of the one in [SW1]):
 
-| Spec               | Interpretation                                     |
-|:-------------------|:---------------------------------------------------|
-| @*name*            | Direct chat to a persona                           |
-| #*name*            | Use modifier prompts                               |
-| !*name*            | Use function prompt with the input of current cell |
-| !*name*>           | *«same as above»*                                  |
-| !*name*￨*param*... | Include parameters for prompts                     |
+| Spec               | Interpretation                                      |
+|:-------------------|:----------------------------------------------------|
+| @*name*            | Direct chat to a persona                            |
+| #*name*            | Use modifier prompts                                |
+| !*name*            | Use function prompt with the input of current cell  |
+| !*name*>           | *«same as above»*                                   |
+| !*name*^           | Use function prompt with previous chat message      |
+| !*name*^^          | Use function prompt with all previous chat messages |
+| !*name*￨*param*... | Include parameters for prompts                      |
 
 **Remark:** Prompt expansion make the usage of LLM-chatbooks much easier.
 See "Jupyter::Chatbook", [AAp3].
