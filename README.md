@@ -42,20 +42,20 @@ Show the record of the prompt named "FTFY":
 .say for |llm-prompt-data<FTFY>;
 ```
 ```
-# URL => https://resources.wolframcloud.com/PromptRepository/resources/FTFY
-# Keywords => [Spell check Grammar Check Text Assistance]
-# Arity => 1
-# PositionalArguments => {$a => }
-# Name => FTFY
-# Description => Use Fixed That For You to quickly correct spelling and grammar mistakes
-# ContributedBy => Wolfram Staff
-# Topics => (General Text Manipulation)
-# Categories => (Function Prompts)
 # PromptText => -> $a='' {"Find and correct grammar and spelling mistakes in the following text.
 # Response with the corrected text and nothing else.
 # Provide no context for the corrections, only correct the text.
 # $a"}
+# Categories => (Function Prompts)
+# ContributedBy => Wolfram Staff
+# Description => Use Fixed That For You to quickly correct spelling and grammar mistakes
+# PositionalArguments => {$a => }
+# URL => https://resources.wolframcloud.com/PromptRepository/resources/FTFY
+# Keywords => [Spell check Grammar Check Text Assistance]
+# Topics => (General Text Manipulation)
 # NamedArguments => []
+# Arity => 1
+# Name => FTFY
 ```
 
 Here is an example of retrieval of prompt data with a regex that is applied over the prompt names:
@@ -65,8 +65,8 @@ Here is an example of retrieval of prompt data with a regex that is applied over
 ```
 ```
 # NarrativeToScript => Rewrite a block of prose as a screenplay or stage play
-# ScriptToNarrative => Generate narrative text from a formatted screenplay or stage play
 # ScienceEnthusiast => A smarter today for a brighter tomorrow
+# ScriptToNarrative => Generate narrative text from a formatted screenplay or stage play
 ```
 
 More prompt retrieval examples are given in the section "Prompt data" below.
@@ -79,7 +79,7 @@ Make an LLM function from the prompt named "FTFY":
 my &f = llm-function(llm-prompt('FTFY'));
 ```
 ```
-# -> **@args, *%args { #`(Block|5983447082360) ... }
+# -> **@args, *%args { #`(Block|2310679639416) ... }
 ```
 
 Use the LLM function to correct the grammar of sentence:
@@ -97,21 +97,16 @@ Generate Raku code using the prompt "CodeWriter":
 llm-synthesize([llm-prompt('CodeWriter'), "Simulate a random walk."])
 ```
 ```perl6
-use v6;
+my @positions;
+my $n = 10;
 
-my @steps = <N S E W>;
-my ($x, $y) = (0, 0);
-
-for 1..100 {
-    my $dir = @steps.pick;
-    given $dir {
-        when 'N' { $y++ }
-        when 'S' { $y-- }
-        when 'E' { $x++ }
-        when 'W' { $x-- }
+for ^$n -> $i {
+    push @positions, (1, -1).pick;
     }
-    say "Moved $dir to ($x, $y)"
-}
+    
+@positions.unshift(0);
+my @positions_sum = @positions.cumulative;
+say @positions_sum;
 ```
 
 ### Prompt expansion
@@ -138,10 +133,10 @@ use Text::Utils :ALL;
         ==> join("\n") 
 ```
 ```
-# An internal combustion engine is a type of machine that uses small explosions
-# to make things move. It's like a mini explosion inside the engine that helps
-# power a car or other vehicle. The explosions happen inside the engine, which
-# is why it's called an "internal" combustion engine.
+# An internal combustion engine is a machine that uses burning fuel to make a
+# car or other machine go. It works like this: fuel is put in the engine, then
+# the engine uses spark plugs to light the fuel which makes a small explosion.
+# This explosion makes the engine parts move, which makes the car or machine go.
 ```
 
 Here is another example using a persona and two modifiers:
@@ -172,9 +167,9 @@ $prmt
         ==> join("\n") 
 ```
 ```
-# Oh, honey, the light travel distance to Mars is so far away it's unimaginable!
-# It would take an eternity to get there. I can't even begin to imagine what it
-# would be like. *sigh*
+# Well, little one, Mars is a bit far away, I'm afraid. I can only imagine how
+# hard it must be to be so far away from family and friends. It must be a lonely
+# journey.
 ```
 
 -----
@@ -254,11 +249,11 @@ Here is an example of retrieval of prompt data with a regex that is applied over
 .say for llm-prompt-data(/Em/, fields => <Description Categories>)
 ```
 ```
-# EmojiTranslated => (Get a response translated to emoji (Modifier Prompts))
+# EmailWriter => (Generate an email based on a given topic (Personas))
 # Emojify => (Replace key words in text with emojis (Function Prompts))
 # EmojiTranslate => (Translate text into an emoji representation (Function Prompts))
-# EmailWriter => (Generate an email based on a given topic (Personas))
 # Emojified => (Provide responses that include emojis within the text (Modifier Prompts))
+# EmojiTranslated => (Get a response translated to emoji (Modifier Prompts))
 ```
 
 In many cases it is better to have the prompt data -- or any data -- in long format.
@@ -314,7 +309,7 @@ llm-prompt-dataset():modifiers:compact ==> to-pretty-table(field-names => <Name 
 # | LimerickStyled        | Receive answers in the form of a limerick             | Modifier Prompts                  |
 # | Moodified             | Modify an answer to express a certain mood            | Modifier Prompts                  |
 # | NothingElse           | Give output in specified form, no other additions     | Modifier Prompts                  |
-# | ShortLineIt           | Format text to have shorter lines                     | Function Prompts Modifier Prompts |
+# | ShortLineIt           | Format text to have shorter lines                     | Modifier Prompts Function Prompts |
 # | TSV                   | Convert text to a tab-separated-value formatted table | Modifier Prompts                  |
 # | TargetAudience        | Word your response for a target audience              | Modifier Prompts                  |
 # | Translated            | Write the response in a specified language            | Modifier Prompts                  |
@@ -342,7 +337,7 @@ All prompts from WPR in the package have the corresponding contributors and URLs
 
 Example prompts from Google/Bard/PaLM and ~~OpenAI/ChatGPT~~ are added using the format of WPR. 
 
-### Extending prompt collection
+### Extending the prompt collection
 
 It is essential to have the ability to programmatically add new prompts.
 (Not implemented yet -- see the TODO section below.)

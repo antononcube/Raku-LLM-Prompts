@@ -220,7 +220,7 @@ All prompts from WPR in the package have the corresponding contributors and URLs
 
 Example prompts from Google/Bard/PaLM and ~~OpenAI/ChatGPT~~ are added using the format of WPR. 
 
-### Extending prompt collection
+### Extending the prompt collection
 
 It is essential to have the ability to programmatically add new prompts.
 (Not implemented yet -- see the TODO section below.)
