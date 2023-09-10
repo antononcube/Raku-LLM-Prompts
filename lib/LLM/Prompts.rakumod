@@ -177,11 +177,12 @@ my regex pmt-function { '!' $<name>=(<.alnum>+) '|' <pmt-list-of-params> '|'? }
 my regex pmt-function-cell { ^ \s* '!' $<name>=(<.alnum>+) [ [\h+ | '>']? $<cell-arg>=(.+)]? }
 
 #| Function over prior
-my regex pmt-function-prior { ^ \s* '!' $<name>=(<.alnum>+) $<pointer>=('^') \h* $}
+my regex pmt-function-prior { ^ \s* '!' $<name>=(<.alnum>+) $<pointer>=('^'+) \h* $ }
 
 #| Any prompt
 my regex pmt-any {
     || <pmt-persona>
+    || <pmt-function-prior>
     || <pmt-function>
     || <pmt-function-cell>
     || <pmt-modifier> }
@@ -195,9 +196,9 @@ sub to-unquoted(Str $ss is copy) {
 }
 
 #-----------------------------------------------------------
-sub prompt-function-spec($/) {
+sub prompt-function-spec($/, :@messages = Empty, Str :$sep = "\n") {
 
-    my $m = $<pmt-persona> // $<pmt-function-cell> // $<pmt-function> // $<pmt-modifier>;
+    my $m = $<pmt-persona> // $<pmt-function-prior> // $<pmt-function-cell> // $<pmt-function> // $<pmt-modifier>;
     my $p = llm-prompt($m<name>.Str);
 
     without $p {
@@ -215,6 +216,13 @@ sub prompt-function-spec($/) {
         @args = [$m<cell-arg>.Str,];
     }
 
+    with $m<pointer> {
+        given (@messages.elems > 0, $m<pointer>.Str) {
+            when (True, '^') { @args = @messages.tail; }
+            when (True, '^^') { @args = @messages.join($sep); }
+        }
+    }
+
     if $p ~~ Callable {
         if $p.count > @args.elems {
             @args.append('' xx ($p.arity - @args.elems));
@@ -227,10 +235,10 @@ sub prompt-function-spec($/) {
 }
 
 #-----------------------------------------------------------
-proto sub llm-prompt-expand(Str:D) is export {*}
+proto sub llm-prompt-expand(Str:D, :@messages = Empty, :$sep = "\n") is export {*}
 
-multi sub llm-prompt-expand(Str:D $input) {
-    return $input.subst(&pmt-any, &prompt-function-spec):g;
+multi sub llm-prompt-expand(Str:D $input, :@messages = Empty, :$sep = "\n") {
+    return $input.subst(&pmt-any, { prompt-function-spec($/, :@messages, :$sep) }):g;
 }
 
 

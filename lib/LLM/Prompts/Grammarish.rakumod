@@ -18,6 +18,9 @@ role LLM::Prompts::Grammarish {
     token prompt-function-cell-spec {
         ^ \s* '!' $<name>=(<.alnum>+) [ [\h+ | '>']? $<cell-arg>=(.+)]?
     }
+    token prompt-function-prior-spec {
+        ^ \s* '!' $<name>=(<.alnum>+) $<pointer>=('^'+) \h* $
+    }
     token prompt-modifier-spec {
         '#' $<name>=(<.alnum>+) <?{ so llm-prompt($<name>.Str) }> <prompt-param-list>?
     }

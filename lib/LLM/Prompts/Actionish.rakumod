@@ -3,6 +3,9 @@ use v6.d;
 use LLM::Prompts;
 
 role LLM::Prompts::Actionish {
+    has @.messages;
+    has Str $.sep;
+
     method prompt($/) {
         my @res;
 
@@ -38,6 +41,13 @@ role LLM::Prompts::Actionish {
             @args = [$<cell-arg>.Str,];
         }
 
+        with $<pointer> {
+            given (@!messages.elems > 0, $<pointer>.Str) {
+                when (True, '^') { @args = @!messages.tail; }
+                when (True, '^^') { @args = @!messages.join($!sep); }
+            }
+        }
+
         if $p ~~ Callable {
             if $p.count > @args.elems {
                 @args.append('' xx ($p.arity - @args.elems));
@@ -49,6 +59,9 @@ role LLM::Prompts::Actionish {
         }
     }
     method prompt-function-cell-spec($/) {
+        self.prompt-function-spec($/);
+    }
+    method prompt-function-prior-spec($/) {
         self.prompt-function-spec($/);
     }
     method prompt-modifier-spec($/) {

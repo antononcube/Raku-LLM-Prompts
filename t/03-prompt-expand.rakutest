@@ -75,4 +75,15 @@ is
         llm-prompt-expand("!FormalRephrase>$spec8"),
         llm-prompt('FormalRephrase')($spec8);
 
+## 12
+my @messages12 = <some1 some2>;
+is
+        llm-prompt-expand("!FormalRephrase^", messages => @messages12),
+        llm-prompt('FormalRephrase')('some2');
+
+## 13
+is
+        llm-prompt-expand("!FormalRephrase^^", messages => @messages12, sep => "\n;;\n"),
+        llm-prompt('FormalRephrase')(@messages12.join("\n;;\n"));
+
 done-testing;

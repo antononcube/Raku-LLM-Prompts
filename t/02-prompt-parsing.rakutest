@@ -38,4 +38,10 @@ is
         True,
         'Parsing function cell spec';
 
+## 9
+is
+        (so PromptLine.parse(' !Translated^ '){*;'prompt-function-prior-spec'}),
+        True,
+        'Parsing function prior spec';
+
 done-testing;
