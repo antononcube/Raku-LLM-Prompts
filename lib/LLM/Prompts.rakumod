@@ -56,7 +56,7 @@ multi sub llm-prompt-data(:$fields! is copy) {
     if $fields.isa(Whatever) { $fields = ['Description',]; }
     if $fields ~~ Str:D { $fields = [$fields,]; }
 
-    die "The argument \$fields is expected to be Whateever, one of the strings \"{@record-fields.join('", "')}\" or a list of those strings."
+    die "The argument \$fields is expected to be Whatever, one of the strings \"{@record-fields.join('", "')}\", or a list of those strings."
     unless $fields ~~ Iterable && ($fields (&) @record-fields).elems > 0;
 
     if $fields.elems == 1 {
