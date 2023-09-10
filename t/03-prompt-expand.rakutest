@@ -54,7 +54,7 @@ is
 
 ## 8
 is
-        llm-prompt-expand("!Translated|Russian $spec5"),
+        llm-prompt-expand("&Translated|Russian $spec5"),
         llm-prompt('Translated')('Russian') ~ ' ' ~ $spec5;
 
 
@@ -83,7 +83,7 @@ is
 
 ## 13
 is
-        llm-prompt-expand("!FormalRephrase^^", messages => @messages12, sep => "\n;;\n"),
+        llm-prompt-expand("&FormalRephrase^^", messages => @messages12, sep => "\n;;\n"),
         llm-prompt('FormalRephrase')(@messages12.join("\n;;\n"));
 
 done-testing;

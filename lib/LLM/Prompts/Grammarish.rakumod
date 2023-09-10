@@ -13,13 +13,13 @@ role LLM::Prompts::Grammarish {
         '@' $<name>=(<.alnum>+) <?{ so llm-prompt($<name>.Str) }>
     }
     token prompt-function-spec {
-        '!' $<name>=(<.alnum>+) <?{ so llm-prompt($<name>.Str) }> <prompt-param-list>?
+        ['!' | '&'] $<name>=(<.alnum>+) <?{ so llm-prompt($<name>.Str) }> <prompt-param-list>?
     }
     token prompt-function-cell-spec {
-        ^ \s* '!' $<name>=(<.alnum>+) [ [\h+ | '>']? $<cell-arg>=(.+)]?
+        ^ \s* ['!' | '&'] $<name>=(<.alnum>+) [ [\h+ | '>']? $<cell-arg>=(.+)]?
     }
     token prompt-function-prior-spec {
-        ^ \s* '!' $<name>=(<.alnum>+) $<pointer>=('^'+) \h* $
+        ^ \s* ['!' | '&'] $<name>=(<.alnum>+) $<pointer>=('^'+) \h* $
     }
     token prompt-modifier-spec {
         '#' $<name>=(<.alnum>+) <?{ so llm-prompt($<name>.Str) }> <prompt-param-list>?
