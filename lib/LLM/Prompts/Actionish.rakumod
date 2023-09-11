@@ -1,5 +1,3 @@
-use v6.d;
-
 use LLM::Prompts;
 
 role LLM::Prompts::Actionish {
@@ -30,6 +28,10 @@ role LLM::Prompts::Actionish {
     }
     method prompt-function-spec($/) {
         my $p = llm-prompt($<name>.Str);
+
+        without $p {
+            return $/.Str;
+        }
 
         my @args;
 

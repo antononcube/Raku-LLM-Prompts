@@ -1,5 +1,3 @@
-use v6.d;
-
 unit module LLM::Prompts;
 
 use JSON::Fast;
