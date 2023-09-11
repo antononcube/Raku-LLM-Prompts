@@ -59,34 +59,42 @@ is
 
 ## 9
 is
+        llm-prompt-expand("Generate a scary story. #ShortLineIt|50"),
+        'Generate a scary story. ' ~ llm-prompt('ShortLineIt')(50);
+
+## 10
+is
+        llm-prompt-expand("Generate a scary story. #ShortLineIt|50|text"),
+        'Generate a scary story. ' ~ llm-prompt('ShortLineIt')(50, 'text');
+
+## 11
+is
         llm-prompt-expand("&Translated|Russian $spec5"),
         llm-prompt('Translated')('Russian') ~ "\n " ~ $spec5;
 
-
-## 10
+## 12
 is
         llm-prompt-expand("!Translated|'High German' $spec5"),
         llm-prompt('Translated')('High German') ~ "\n " ~ $spec5;
 
-
-## 11
+## 13
 my $spec8 = 'The cat chased the mouse.';
 is
         llm-prompt-expand("!FormalRephrase $spec8"),
         llm-prompt('FormalRephrase')($spec8);
 
-## 12
+## 14
 is
         llm-prompt-expand("!FormalRephrase>$spec8"),
         llm-prompt('FormalRephrase')($spec8);
 
-## 13
+## 15
 my @messages12 = <some1 some2>;
 is
         llm-prompt-expand("!FormalRephrase^", messages => @messages12),
         llm-prompt('FormalRephrase')('some2');
 
-## 14
+## 16
 is
         llm-prompt-expand("&FormalRephrase^^", messages => @messages12, sep => "\n;;\n"),
         llm-prompt('FormalRephrase')(@messages12.join("\n;;\n"));
