@@ -165,13 +165,13 @@ my regex pmt-param { $<param>=(<pmt-param-qouted> || <pmt-param-simple>)  }
 my regex pmt-list-of-params { <pmt-param>+ % '|' }
 
 #| Persona
-my regex pmt-persona { ^ \s* '@' $<name>=(<.alnum>+) }
+my regex pmt-persona { ^ \s* '@' $<name>=(<.alnum>+) ['|' <pmt-list-of-params> '|'? ]? $<end>=(<?before $>)? }
 
 #| Modifier
-my regex pmt-modifier { '#' $<name>=(<.alnum>+) [ '|' <pmt-list-of-params> '|'? ]? }
+my regex pmt-modifier { '#' $<name>=(<.alnum>+) [ '|' <pmt-list-of-params> '|'? ]? $<end>=(<?before $>)? }
 
 #| Function with params
-my regex pmt-function { ['!' | '&'] $<name>=(<.alnum>+) '|' <pmt-list-of-params> '|'? }
+my regex pmt-function { ['!' | '&'] $<name>=(<.alnum>+) '|' <pmt-list-of-params> '|'? $<end>=(<?before $>)? }
 
 #| Function over cell
 my regex pmt-function-cell { ^ \s* ['!' | '&'] $<name>=(<.alnum>+) [ [\h+ | '>']? $<cell-arg>=(.+)]? }
@@ -201,6 +201,11 @@ sub prompt-function-spec($/, :@messages = Empty, Str :$sep = "\n") {
     my $m = $<pmt-persona> // $<pmt-function-prior> // $<pmt-function-cell> // $<pmt-function> // $<pmt-modifier>;
     my $p = llm-prompt($m<name>.Str);
 
+    my $end = $sep;
+    if $m<end> || $<pmt-function-prior> || $<pmt-function-cell> {
+        $end = '';
+    }
+
     without $p {
         return $/.Str;
     }
@@ -228,7 +233,7 @@ sub prompt-function-spec($/, :@messages = Empty, Str :$sep = "\n") {
             @args.append('' xx ($p.arity - @args.elems));
         }
         @args = @args.head($p.count);
-        return $p.(|@args);
+        return $p.(|@args) ~ $end;
     } else {
         return $p;
     }
@@ -238,7 +243,7 @@ sub prompt-function-spec($/, :@messages = Empty, Str :$sep = "\n") {
 proto sub llm-prompt-expand(Str:D, :@messages = Empty, :$sep = "\n") is export {*}
 
 multi sub llm-prompt-expand(Str:D $input, :@messages = Empty, :$sep = "\n") {
-    return $input.subst(&pmt-any, { prompt-function-spec($/, :@messages, :$sep) }):g;
+    return $input.subst(&pmt-any, { prompt-function-spec($/, :@messages, :$sep) }, :g).chomp;
 }
 
 

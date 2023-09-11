@@ -55,13 +55,13 @@ is
 ## 8
 is
         llm-prompt-expand("&Translated|Russian $spec5"),
-        llm-prompt('Translated')('Russian') ~ ' ' ~ $spec5;
+        llm-prompt('Translated')('Russian') ~ "\n " ~ $spec5;
 
 
 ## 9
 is
         llm-prompt-expand("!Translated|'High German' $spec5"),
-        llm-prompt('Translated')('High German') ~ ' ' ~ $spec5;
+        llm-prompt('Translated')('High German') ~ "\n " ~ $spec5;
 
 
 ## 10
