@@ -155,7 +155,7 @@ multi sub llm-prompt($name is copy, Bool :$warn = True) is export {
 #-----------------------------------------------------------
 
 #| Prompt parameters
-my regex pmt-param-simple { $<param-simple>=([<.alpha> | '.' | '_' | '-']+)  }
+my regex pmt-param-simple { $<param-simple>=(\S+)  }
 my regex pmt-param-qouted { $<param-quoted>=('"' ~ '"' <-["]>+ || '\'' ~ '\'' <-[']>+ )  }
 my regex pmt-param { $<param>=(<pmt-param-qouted> || <pmt-param-simple>)  }
 
@@ -166,7 +166,7 @@ my regex pmt-list-of-params { <pmt-param>+ % '|' }
 my regex pmt-persona { ^ \s* '@' $<name>=(<.alnum>+) ['|' <pmt-list-of-params> '|'? ]? $<end>=(<?before $>)? }
 
 #| Modifier
-my regex pmt-modifier { '#' $<name>=(<.alnum>+) [ '|' <pmt-list-of-params> '|'? ]? $<end>=(<?before $>)? }
+my regex pmt-modifier { '#' $<name>=(<.alnum>+) [ '|' <pmt-list-of-params> '|'? ]? $<end>=(<?before $>)?  }
 
 #| Function with params
 my regex pmt-function { ['!' | '&'] $<name>=(<.alnum>+) '|' <pmt-list-of-params> '|'? $<end>=(<?before $>)? }
