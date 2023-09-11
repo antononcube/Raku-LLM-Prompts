@@ -34,54 +34,59 @@ is
 ## 4
 is
         llm-prompt-expand('@Yoda The summer is gone.'),
-        llm-prompt('Yoda') ~ ' The summer is gone.';
+        llm-prompt('Yoda') ~ "\n The summer is gone.";
 
 ## 5
+is
+        llm-prompt-expand('@CodeWriterX|HTML Random table with 5 rows and 4 coolumns.'),
+        llm-prompt('CodeWriterX')('HTML') ~ "\n Random table with 5 rows and 4 coolumns.";
+
+## 6
 my $spec5 = 'The summer is gone, school is comming soon.';
 is
         llm-prompt-expand("$spec5 #HaikuStyled"),
         $spec5 ~ ' ' ~ llm-prompt('HaikuStyled');
 
-## 6
-is
-        llm-prompt-expand("$spec5 #HaikuStyled #Translated"),
-        $spec5 ~ ' ' ~ llm-prompt('HaikuStyled') ~ ' ' ~ llm-prompt('Translated').();
-
 ## 7
 is
-        llm-prompt-expand("$spec5 #HaikuStyled #Translated|German"),
-        $spec5 ~ ' ' ~ llm-prompt('HaikuStyled') ~ ' ' ~ llm-prompt('Translated')('German');
+        llm-prompt-expand("$spec5 #HaikuStyled #Translated"),
+        $spec5 ~ ' ' ~ llm-prompt('HaikuStyled') ~ "\n " ~ llm-prompt('Translated').();
 
 ## 8
+is
+        llm-prompt-expand("$spec5 #HaikuStyled #Translated|German"),
+        $spec5 ~ ' ' ~ llm-prompt('HaikuStyled') ~ "\n " ~ llm-prompt('Translated')('German');
+
+## 9
 is
         llm-prompt-expand("&Translated|Russian $spec5"),
         llm-prompt('Translated')('Russian') ~ "\n " ~ $spec5;
 
 
-## 9
+## 10
 is
         llm-prompt-expand("!Translated|'High German' $spec5"),
         llm-prompt('Translated')('High German') ~ "\n " ~ $spec5;
 
 
-## 10
+## 11
 my $spec8 = 'The cat chased the mouse.';
 is
         llm-prompt-expand("!FormalRephrase $spec8"),
         llm-prompt('FormalRephrase')($spec8);
 
-## 11
+## 12
 is
         llm-prompt-expand("!FormalRephrase>$spec8"),
         llm-prompt('FormalRephrase')($spec8);
 
-## 12
+## 13
 my @messages12 = <some1 some2>;
 is
         llm-prompt-expand("!FormalRephrase^", messages => @messages12),
         llm-prompt('FormalRephrase')('some2');
 
-## 13
+## 14
 is
         llm-prompt-expand("&FormalRephrase^^", messages => @messages12, sep => "\n;;\n"),
         llm-prompt('FormalRephrase')(@messages12.join("\n;;\n"));
