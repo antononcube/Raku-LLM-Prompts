@@ -155,7 +155,7 @@ multi sub llm-prompt($name is copy, Bool :$warn = True) is export {
 #-----------------------------------------------------------
 
 #| Prompt parameters
-my regex pmt-param-simple { $<param-simple>=(\S+)  }
+my regex pmt-param-simple { $<param-simple>=(<-[\s^|=]>*)  }
 my regex pmt-param-qouted { $<param-quoted>=('"' ~ '"' <-["]>+ || '\'' ~ '\'' <-[']>+ )  }
 my regex pmt-param { $<param>=(<pmt-param-qouted> || <pmt-param-simple>)  }
 
