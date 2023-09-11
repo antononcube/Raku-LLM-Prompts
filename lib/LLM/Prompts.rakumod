@@ -235,7 +235,7 @@ sub prompt-function-spec($/, :@messages = Empty, Str :$sep = "\n") {
         @args = @args.head($p.count);
         return $p.(|@args) ~ $end;
     } else {
-        return $p;
+        return $p ~ $end;
     }
 }
 
