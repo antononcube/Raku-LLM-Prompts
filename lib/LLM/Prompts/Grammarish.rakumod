@@ -1,7 +1,3 @@
-use v6.d;
-
-use LLM::Prompts;
-
 role LLM::Prompts::Grammarish {
     rule prompt { <prompt-persona-spec> <prompt-body>? || <prompt-function-cell-spec> || <prompt-body> }
     rule prompt-body { <prompt-body-elem>+ }
@@ -10,10 +6,10 @@ role LLM::Prompts::Grammarish {
         || <prompt-modifier-spec>
         || <prompt-word> }
     token prompt-persona-spec {
-        '@' $<name>=(<.alnum>+) <?{ so llm-prompt($<name>.Str) }>
+        '@' $<name>=(<.alnum>+) <prompt-param-list>?
     }
     token prompt-function-spec {
-        ['!' | '&'] $<name>=(<.alnum>+) <?{ so llm-prompt($<name>.Str) }> <prompt-param-list>?
+        ['!' | '&'] $<name>=(<.alnum>+) <prompt-param-list>?
     }
     token prompt-function-cell-spec {
         ^ \s* ['!' | '&'] $<name>=(<.alnum>+) [ [\h+ | '>']? $<cell-arg>=(.+)]?
@@ -22,7 +18,7 @@ role LLM::Prompts::Grammarish {
         ^ \s* ['!' | '&'] $<name>=(<.alnum>+) $<pointer>=('^'+) \h* $
     }
     token prompt-modifier-spec {
-        '#' $<name>=(<.alnum>+) <?{ so llm-prompt($<name>.Str) }> <prompt-param-list>?
+        '#' $<name>=(<.alnum>+) <prompt-param-list>?
     }
     token prompt-word { \S+ }
     token prompt-ws { \s+ }
