@@ -5816,7 +5816,7 @@
 	{
 		"Name":"SummarizeURLContent",
 		"Description":"Summarize the contents of a provided file or URL",
-		"PromptText":"-> $a='' {\"Please summarize the contents of the given URL or file.\n\n###PATH###\n$a\n\n###CONTENTS###\nCell[BoxData[TemplateBox[{RowBox[{StringTake, [, RowBox[{RowBox[{Import, [, RowBox[{RowBox[{TemplateSlot, [, 1, ]}], ,, \"Plaintext\"}], ]}], ,, RowBox[{UpTo, [, 10000, ]}]}], ]}], General, TextData}, NotebookTemplateExpression]]]\"}",
+		"PromptText":"-> $a='' { use HTTP::Tiny; my $ua = HTTP::Tiny.new; my $res = $ua.request('GET', $a.trim, content => Str); $res = do if $res<status> != 200 { $res<status> ~ $res<reason>;} else { $res<content>.decode;}; \"Please summarize the contents of the given URL or file.\n\n###PATH###\n$a\n\n###CONTENTS###\n$res\"}",
 		"PositionalArguments":{
 			"$a":""
 		},
