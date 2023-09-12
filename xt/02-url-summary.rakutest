@@ -1,0 +1,42 @@
+use v6.d;
+use Test;
+
+use lib '.';
+use lib './lib';
+
+use LLM::Functions;
+use LLM::Prompts;
+
+ingest-prompt-data;
+
+## 1
+my $url1 = 'https://raku.land/zef:raku-community-modules/File::Find';
+ok llm-prompt-expand("!SummarizeURLContent|$url1");
+
+## 2
+is
+        llm-prompt-expand("!SummarizeURLContent|$url1").chomp,
+        llm-prompt('SummarizeURLContent')($url1).chomp;
+
+## 3
+
+my $url3 = 'http://web.simmons.edu/~grabiner/comm244/weekone/naming-conventions.html';
+
+ok llm-prompt-expand("!SummarizeURLContent|$url3");
+
+## 4
+is
+        llm-prompt-expand("\n\n!SummarizeURLContent|$url3  \n\n").chomp,
+        llm-prompt('SummarizeURLContent')($url3).chomp;
+
+
+## 5
+#note llm-synthesize(llm-prompt('SummarizeURLContent')($url3), e => 'PaLM');
+isa-ok llm-synthesize(llm-prompt('SummarizeURLContent')($url3), e => 'PaLM'), Str;
+
+## 6
+is
+        llm-prompt-expand("\n\n!SummarizeURLContent> $url3  \n\n").subst(/\h*\v+\h*/ , "\n\n", :g).trim,
+        llm-prompt('SummarizeURLContent')($url3).subst(/\h*\v+\h*/, "\n\n", :g).trim;
+
+done-testing;
