@@ -12,7 +12,7 @@ role LLM::Prompts::Grammarish {
         ['!' | '&'] $<name>=(<.alnum>+) <prompt-param-list>?
     }
     token prompt-function-cell-spec {
-        ^ \s* ['!' | '&'] $<name>=(<.alnum>+) [ [\h+ | '>']? $<cell-arg>=(.+)]?
+        ^ \s* ['!' | '&'] $<name>=(<.alnum>+) <prompt-param-list>? [ [\h+ | '>']? $<cell-arg>=(.+)]?
     }
     token prompt-function-prior-spec {
         ^ \s* ['!' | '&'] $<name>=(<.alnum>+) $<pointer>=('^'+) \h* $

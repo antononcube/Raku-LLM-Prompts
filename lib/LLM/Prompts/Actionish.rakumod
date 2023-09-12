@@ -40,7 +40,7 @@ role LLM::Prompts::Actionish {
         }
 
         with $<cell-arg> {
-            @args = [$<cell-arg>.Str,];
+            @args.push($<cell-arg>.Str);
         }
 
         with $<pointer> {

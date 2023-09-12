@@ -172,10 +172,10 @@ my regex pmt-modifier { '#' $<name>=(<.alnum>+) [ '|' <pmt-list-of-params> '|'? 
 my regex pmt-function { ['!' | '&'] $<name>=(<.alnum>+) '|' <pmt-list-of-params> '|'? $<end>=(<?before $>)? }
 
 #| Function over cell
-my regex pmt-function-cell { ^ \s* ['!' | '&'] $<name>=(<.alnum>+) [ [\h+ | '>']? $<cell-arg>=(.+)]? }
+my regex pmt-function-cell { ^ \s* ['!' | '&'] $<name>=(<.alnum>+) [ '|' <pmt-list-of-params> '|'? ]? [ [\h+ | '>']? $<cell-arg>=(.+)]? }
 
 #| Function over prior
-my regex pmt-function-prior { ^ \s* ['!' | '&'] $<name>=(<.alnum>+) $<pointer>=('^'+) \h* $ }
+my regex pmt-function-prior { ^ \s* ['!' | '&'] $<name>=(<.alnum>+) $<pointer>=('^'+) \s* $ }
 
 #| Any prompt
 my regex pmt-any {
@@ -216,7 +216,7 @@ sub prompt-function-spec($/, :@messages = Empty, Str :$sep = "\n") {
     }
 
     with $m<cell-arg> {
-        @args = [$m<cell-arg>.Str,];
+        @args.push($m<cell-arg>.Str);
     }
 
     with $m<pointer> {
