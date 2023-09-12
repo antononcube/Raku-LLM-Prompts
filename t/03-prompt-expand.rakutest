@@ -99,4 +99,14 @@ is
         llm-prompt-expand("&FormalRephrase^^", messages => @messages12, sep => "\n;;\n"),
         llm-prompt('FormalRephrase')(@messages12.join("\n;;\n"));
 
+## 17
+is
+        llm-prompt-expand("\n\n!ShortLineIt>  40"),
+        llm-prompt('ShortLineIt')('  40');
+
+## 18
+is
+        llm-prompt-expand("\n\n!ShortLineIt|40 some long text"),
+        llm-prompt('ShortLineIt')(40, 'some long text');
+
 done-testing;
