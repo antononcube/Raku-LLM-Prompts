@@ -7,7 +7,9 @@
     "Anton Antonov"
   ],
   "auth": "zef:antononcube",
-  "depends": [],
+  "depends": [
+    "JSON::Fast:ver<0.19>"
+  ],
   "build-depends": [],
   "test-depends": [],
   "provides": {
