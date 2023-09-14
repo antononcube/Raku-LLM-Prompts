@@ -349,6 +349,76 @@ Having a grammar is most likely not needed, though, and it is better to use "pro
 
 Prompts can be "just expanded" using the sub `llm-prompt-expand`. 
 
+### Usage in chatbooks
+
+Here is a flowchart that summarizes prompt parsing and expansion in chat cells of Jupyter chatbooks, [AAp3]:
+
+```mermaid
+flowchart LR
+    OpenAI{{OpenAI}}
+    PaLM{{PaLM}}
+    LLMFunc[[LLM::Functions]]
+    LLMProm[[LLM::Prompts]]
+    CODB[(Chat objects)]
+    PDB[(Prompts)]
+    CCell[/Chat cell/]
+    CRCell[/Chat result cell/]
+    CIDQ{Chat ID<br>specified?}
+    CIDEQ{Chat ID<br>exists in DB?}
+    RECO[Retrieve existing<br>chat object]
+    COEval[Message<br>evaluation]
+    PromParse[Prompt<br>DSL spec parsing]
+    KPFQ{Known<br>prompts<br>found?}
+    PromExp[Prompt<br>expansion]
+    CNCO[Create new<br>chat object]
+    CIDNone["Assume chat ID<br>is 'NONE'"] 
+    subgraph Chatbook frontend    
+        CCell
+        CRCell
+    end
+    subgraph Chatbook backend
+        CIDQ
+        CIDEQ
+        CIDNone
+        RECO
+        CNCO
+        CODB
+    end
+    subgraph Prompt processing
+        PDB
+        LLMProm
+        PromParse
+        KPFQ
+        PromExp 
+    end
+    subgraph LLM interaction
+      COEval
+      LLMFunc
+      PaLM
+      OpenAI
+    end
+    CCell --> CIDQ
+    CIDQ --> |yes| CIDEQ
+    CIDEQ --> |yes| RECO
+    RECO --> PromParse
+    COEval --> CRCell
+    CIDEQ -.- CODB
+    CIDEQ --> |no| CNCO
+    LLMFunc -.- CNCO -.- CODB
+    CNCO --> PromParse --> KPFQ
+    KPFQ --> |yes| PromExp
+    KPFQ --> |no| COEval
+    PromParse -.- LLMProm 
+    PromExp -.- LLMProm
+    PromExp --> COEval 
+    LLMProm -.- PDB
+    CIDQ --> |no| CIDNone
+    CIDNone --> CIDEQ
+    COEval -.- LLMFunc
+    LLMFunc <-.-> OpenAI
+    LLMFunc <-.-> PaLM
+```
+
 -----
 
 ## TODO
@@ -357,7 +427,7 @@ Prompts can be "just expanded" using the sub `llm-prompt-expand`.
   - [X] DONE Prompt retrieval adverbs
   - [X] DONE Prompt DSL grammar and actions
   - [X] DONE Prompt spec expansion
-  - [ ] TODO Addition of user/local prompts 
+  - [ ] TODO Addition of user/local prompts
     - [ ] TODO Using XDG data directory.
     - [ ] TODO By modifying existing prompts.
     - [ ] TODO Automatic prompt template fill-in.
@@ -367,18 +437,14 @@ Prompts can be "just expanded" using the sub `llm-prompt-expand`.
 - [X] DONE Add more prompts
   - [X] DONE Google's Bard example prompts
   - [X] CANCELED OpenAI's ChatGPT example prompts
-- [ ] TODO Extensions
-  - [ ] TODO
 - [ ] TODO Documentation
   - [X] TODO Querying (ingested) prompts
+  - [X] DONE Prompt DSL
   - [ ] TODO Prompt format
-  - [ ] TODO Prompt DSL
   - [ ] TODO On hijacking prompts
   - [ ] TODO Diagrams
+    - [X] DONE Chatbook usage
     - [ ] Typical usage
-    - [ ] Chatbook usage 
-
-
 -----
 
 ## References
