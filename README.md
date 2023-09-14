@@ -2,7 +2,12 @@
 
 ## In brief
 
-This repository is for a Raku (data) package facilitating the creation, storage, retrieval, and curation of LLM prompts.
+This repository is for a Raku (data) package facilitating the creation, storage, retrieval, and curation of 
+[Large Language Models (LLM) prompts](https://en.wikipedia.org/wiki/Prompt_engineering).
+
+Here is an example of using the prompt Domain Specific Language (DSL) in Jupyter chatbook, [AA2, AAp2]:
+
+![](https://raw.githubusercontent.com/antononcube/Raku-LLM-Prompts/main/docs/Raku-LLM-Prompt-demo-Yoda-1.png)
 
 ----
 
@@ -42,20 +47,20 @@ Show the record of the prompt named "FTFY":
 .say for |llm-prompt-data<FTFY>;
 ```
 ```
+# Name => FTFY
+# NamedArguments => []
+# URL => https://resources.wolframcloud.com/PromptRepository/resources/FTFY
+# Description => Use Fixed That For You to quickly correct spelling and grammar mistakes
+# ContributedBy => Wolfram Staff
 # PromptText => -> $a='' {"Find and correct grammar and spelling mistakes in the following text.
 # Response with the corrected text and nothing else.
 # Provide no context for the corrections, only correct the text.
 # $a"}
-# Categories => (Function Prompts)
-# ContributedBy => Wolfram Staff
-# Description => Use Fixed That For You to quickly correct spelling and grammar mistakes
-# PositionalArguments => {$a => }
-# URL => https://resources.wolframcloud.com/PromptRepository/resources/FTFY
-# Keywords => [Spell check Grammar Check Text Assistance]
 # Topics => (General Text Manipulation)
-# NamedArguments => []
 # Arity => 1
-# Name => FTFY
+# Categories => (Function Prompts)
+# Keywords => [Spell check Grammar Check Text Assistance]
+# PositionalArguments => {$a => }
 ```
 
 Here is an example of retrieval of prompt data with a regex that is applied over the prompt names:
@@ -64,9 +69,9 @@ Here is an example of retrieval of prompt data with a regex that is applied over
 .say for llm-prompt-data(/Sc/)
 ```
 ```
+# ScriptToNarrative => Generate narrative text from a formatted screenplay or stage play
 # NarrativeToScript => Rewrite a block of prose as a screenplay or stage play
 # ScienceEnthusiast => A smarter today for a brighter tomorrow
-# ScriptToNarrative => Generate narrative text from a formatted screenplay or stage play
 ```
 
 More prompt retrieval examples are given in the section "Prompt data" below.
@@ -79,7 +84,7 @@ Make an LLM function from the prompt named "FTFY":
 my &f = llm-function(llm-prompt('FTFY'));
 ```
 ```
-# -> **@args, *%args { #`(Block|2310679639416) ... }
+# -> **@args, *%args { #`(Block|3837341459688) ... }
 ```
 
 Use the LLM function to correct the grammar of sentence:
@@ -97,16 +102,24 @@ Generate Raku code using the prompt "CodeWriter":
 llm-synthesize([llm-prompt('CodeWriter'), "Simulate a random walk."])
 ```
 ```perl6
-my @positions;
-my $n = 10;
+# Here is an example solution to simulate a random walk using Raku
+use v6;
 
-for ^$n -> $i {
-    push @positions, (1, -1).pick;
+my Int $x-coordinate = 0;
+my Int $y-coordinate = 0;
+ 
+loop {
+    my Int $random-num = floor(rand * 4);
+ 
+    given $random-num {
+        when 0 { $x-coordinate++ }
+        when 1 { $x-coordinate-- }
+        when 2 { $y-coordinate++ }
+        when 3 { $y-coordinate-- }
     }
-    
-@positions.unshift(0);
-my @positions_sum = @positions.cumulative;
-say @positions_sum;
+ 
+    say "x: {$x-coordinate}, y: {$y-coordinate}";
+}
 ```
 
 ### Prompt expansion
@@ -133,10 +146,10 @@ use Text::Utils :ALL;
         ==> join("\n") 
 ```
 ```
-# An internal combustion engine is a machine that uses burning fuel to make a
-# car or other machine go. It works like this: fuel is put in the engine, then
-# the engine uses spark plugs to light the fuel which makes a small explosion.
-# This explosion makes the engine parts move, which makes the car or machine go.
+# An internal combustion engine is a machine that uses fuel to turn energy into
+# motion. It works by burning fuel inside the engine, which makes tiny
+# explosions that move the pistons in the engine. The pistons move the
+# crankshaft, which turns the wheels of your car!
 ```
 
 Here is another example using a persona and two modifiers:
@@ -150,7 +163,9 @@ my $prmt = llm-prompt-expand("@SouthernBelleSpeak What is light travel distance 
 # Your personality is elegant and refined.
 # Only return responses as if you were a Southern Belle.
 # Never break the Southern Belle character.
-# You speak with a Southern drawl. What is light travel distance to Mars? Answer questions as if the listener is a five year old child. Modify your response to convey a sad mood.
+# You speak with a Southern drawl.
+#  What is light travel distance to Mars? Answer questions as if the listener is a five year old child.
+#  Modify your response to convey a sad mood.
 # Use language that conveys that emotion clearly.
 # Do answer the question clearly and truthfully.
 # Do not use language that is outside of the specified mood.
@@ -167,9 +182,9 @@ $prmt
         ==> join("\n") 
 ```
 ```
-# Well, little one, Mars is a bit far away, I'm afraid. I can only imagine how
-# hard it must be to be so far away from family and friends. It must be a lonely
-# journey.
+# Oh dear, I'm afraid I do not know the answer to that question. But I do know
+# that Mars is a long, long way away. It's so far that it would take us a very
+# long time to get there.
 ```
 
 -----
@@ -249,11 +264,11 @@ Here is an example of retrieval of prompt data with a regex that is applied over
 .say for llm-prompt-data(/Em/, fields => <Description Categories>)
 ```
 ```
-# EmailWriter => (Generate an email based on a given topic (Personas))
-# Emojify => (Replace key words in text with emojis (Function Prompts))
-# EmojiTranslate => (Translate text into an emoji representation (Function Prompts))
 # Emojified => (Provide responses that include emojis within the text (Modifier Prompts))
+# EmailWriter => (Generate an email based on a given topic (Personas))
+# EmojiTranslate => (Translate text into an emoji representation (Function Prompts))
 # EmojiTranslated => (Get a response translated to emoji (Modifier Prompts))
+# Emojify => (Replace key words in text with emojis (Function Prompts))
 ```
 
 In many cases it is better to have the prompt data -- or any data -- in long format.
@@ -267,8 +282,16 @@ llm-prompt-dataset.pick(6)
         ==> to-pretty-table(align => 'l', field-names => <Name Description Variable Value>)
 ```
 ```
-#ERROR: Too few positionals passed to '<anon>'; expected 2 arguments but got 1 in sub-signature
-# Nil
+# +-------------+------------------------------------------------------------------+------------+----------------------+
+# | Name        | Description                                                      | Variable   | Value                |
+# +-------------+------------------------------------------------------------------+------------+----------------------+
+# | PoemVersion | Rewrite text as a poem                                           | Keywords   | Poet                 |
+# | BuyItGenZ   | Create an exciting advertising copy for a product targeting GenZ | Keywords   | Product              |
+# | SeussGoose  | I am The SeussGoose, I speak for the bots                        | Keywords   | Persona              |
+# | TSV         | Convert text to a tab-separated-value formatted table            | Keywords   | tab separated values |
+# | Cheerleader | Give me an A, Give me an I                                       | Categories | Personas             |
+# | VerbTense   | Find the tenses of verbs and verb phrases in a given text        | Categories | Function Prompts     |
+# +-------------+------------------------------------------------------------------+------------+----------------------+
 ```
 
 Here is a breakdown of the prompts categories:
@@ -277,13 +300,13 @@ Here is a breakdown of the prompts categories:
 select-columns(llm-prompt-dataset, <Variable Value>).grep({ $_<Variable> eq 'Categories' }) ==> records-summary
 ```
 ```
-# +-------------------+------------------------+
-# | Variable          | Value                  |
-# +-------------------+------------------------+
-# | Categories => 154 | Function Prompts => 74 |
-# |                   | Personas         => 60 |
-# |                   | Modifier Prompts => 20 |
-# +-------------------+------------------------+
+# +------------------------+-------------------+
+# | Value                  | Variable          |
+# +------------------------+-------------------+
+# | Function Prompts => 74 | Categories => 154 |
+# | Personas         => 60 |                   |
+# | Modifier Prompts => 20 |                   |
+# +------------------------+-------------------+
 ```
 
 Here are obtained all modifier prompts in compact format:
@@ -419,6 +442,11 @@ flowchart LR
     LLMFunc <-.-> PaLM
 ```
 
+Here is an example of prompt expansion in a generic LLM chat cell and chat meta cell 
+showing the content of the corresponding chat object:
+
+![](https://raw.githubusercontent.com/antononcube/Raku-LLM-Prompts/main/docs/Raku-LLM-Prompt-demo-Yoda-2.png)
+
 -----
 
 ## TODO
@@ -427,7 +455,7 @@ flowchart LR
   - [X] DONE Prompt retrieval adverbs
   - [X] DONE Prompt DSL grammar and actions
   - [X] DONE Prompt spec expansion
-  - [ ] TODO Addition of user/local prompts
+  - [ ] TODO Addition of user/local prompts 
     - [ ] TODO Using XDG data directory.
     - [ ] TODO By modifying existing prompts.
     - [ ] TODO Automatic prompt template fill-in.
@@ -443,8 +471,10 @@ flowchart LR
   - [ ] TODO Prompt format
   - [ ] TODO On hijacking prompts
   - [ ] TODO Diagrams
-    - [X] DONE Chatbook usage
+    - [X] DONE Chatbook usage 
     - [ ] Typical usage
+
+
 -----
 
 ## References

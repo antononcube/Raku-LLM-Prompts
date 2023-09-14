@@ -2,7 +2,12 @@
 
 ## In brief
 
-This repository is for a Raku (data) package facilitating the creation, storage, retrieval, and curation of LLM prompts.
+This repository is for a Raku (data) package facilitating the creation, storage, retrieval, and curation of 
+[Large Language Models (LLM) prompts](https://en.wikipedia.org/wiki/Prompt_engineering).
+
+Here is an example of using the prompt Domain Specific Language (DSL) in Jupyter chatbook, [AA2, AAp2]:
+
+![](https://raw.githubusercontent.com/antononcube/Raku-LLM-Prompts/main/docs/Raku-LLM-Prompt-demo-Yoda-1.png)
 
 ----
 
@@ -301,6 +306,11 @@ flowchart LR
     LLMFunc <-.-> OpenAI
     LLMFunc <-.-> PaLM
 ```
+
+Here is an example of prompt expansion in a generic LLM chat cell and chat meta cell 
+showing the content of the corresponding chat object:
+
+![](https://raw.githubusercontent.com/antononcube/Raku-LLM-Prompts/main/docs/Raku-LLM-Prompt-demo-Yoda-2.png)
 
 -----
 
