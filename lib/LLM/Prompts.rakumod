@@ -48,6 +48,10 @@ multi sub llm-prompt-data(-->Hash) {
     return %resPrompts;
 }
 
+multi sub llm-prompt-data($name, $fields -->Hash) {
+    return llm-prompt-data($name, :$fields);
+}
+
 multi sub llm-prompt-data(:$fields! is copy) {
     my %res = llm-prompt-data;
 
@@ -63,7 +67,12 @@ multi sub llm-prompt-data(:$fields! is copy) {
     return %res.map({ $_.key => $_.value{|$fields} }).Hash;
 }
 
-multi sub llm-prompt-data(Regex $name, :$fields = 'Description') {
+multi sub llm-prompt-data(Str:D $name, :$fields = Whatever) {
+    my %res = llm-prompt-data(:$fields);
+    return %res.grep({ $_.key eq $name }).Hash;
+}
+
+multi sub llm-prompt-data(Regex $name, :$fields = Whatever) {
     my %res = llm-prompt-data(:$fields);
     return %res.grep({ $_.key ~~ $name }).Hash;
 }
@@ -175,7 +184,7 @@ my regex pmt-function { ['!' | '&'] $<name>=(<.alnum>+) '|' <pmt-list-of-params>
 my regex pmt-function-cell { ^ \s* ['!' | '&'] $<name>=(<.alnum>+) [ '|' <pmt-list-of-params> '|'? ]? [ [\h+ | '>']? $<cell-arg>=(.+)]? }
 
 #| Function over prior
-my regex pmt-function-prior { ^ \s* ['!' | '&'] $<name>=(<.alnum>+) $<pointer>=('^'+) \s* $ }
+my regex pmt-function-prior { ^ \s* ['!' | '&'] $<name>=(<.alnum>+) [ '|' <pmt-list-of-params> '|'? ]? $<pointer>=('^'+) \s* $ }
 
 #| Any prompt
 my regex pmt-any {
@@ -195,7 +204,6 @@ sub to-unquoted(Str $ss is copy) {
 
 #-----------------------------------------------------------
 sub prompt-function-spec($/, :@messages = Empty, Str :$sep = "\n") {
-
     my $m = $<pmt-persona> // $<pmt-function-prior> // $<pmt-function-cell> // $<pmt-function> // $<pmt-modifier>;
     my $p = llm-prompt($m<name>.Str);
 
@@ -221,8 +229,8 @@ sub prompt-function-spec($/, :@messages = Empty, Str :$sep = "\n") {
 
     with $m<pointer> {
         given (@messages.elems > 0, $m<pointer>.Str) {
-            when (True, '^') { @args = @messages.tail; }
-            when (True, '^^') { @args = @messages.join($sep); }
+            when (True, '^') { @args.push(@messages.tail); }
+            when (True, '^^') { @args.push(@messages.join($sep)); }
         }
     }
 
@@ -238,6 +246,10 @@ sub prompt-function-spec($/, :@messages = Empty, Str :$sep = "\n") {
 }
 
 #-----------------------------------------------------------
+#| Expand prompt DSL spec.
+#| C<$input> -- Input.
+#| C<:@messages> -- Messages to use in the expansion.
+#| C<:$sep> -- Separator between the prompts.
 proto sub llm-prompt-expand(Str:D, :@messages = Empty, :$sep = "\n") is export {*}
 
 multi sub llm-prompt-expand(Str:D $input, :@messages = Empty, :$sep = "\n") {
