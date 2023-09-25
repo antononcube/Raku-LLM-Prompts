@@ -64,4 +64,10 @@ is llm-prompt-data(/ Em /, fields => 'PromptText').values.all ~~ Str, True;
 ## 18
 dies-ok { llm-prompt-data(/ Em /, fields => 'BlahBlah') };
 
+## 19
+isa-ok llm-prompt-data('Translated'), Hash;
+
+## 20
+isa-ok llm-prompt-data('Translated', <Description PromptText>), Hash;
+
 done-testing;
