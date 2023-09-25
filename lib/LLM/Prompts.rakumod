@@ -40,6 +40,8 @@ sub llm-prompt-topics() is export {
 
 #-----------------------------------------------------------
 #| Get the prompts database as hash with the keys being the prompt titles.
+#| C<$name> -- Str:D or Regex used to retrieve the prompts by name.
+#| C<$fields> -- Fields to provide in the result.
 proto sub llm-prompt-data(| -->Hash) is export {*}
 
 multi sub llm-prompt-data(-->Hash) {
@@ -127,6 +129,8 @@ multi sub llm-prompt-dataset(:f(:$functions) is copy = Whatever,
 
 #-----------------------------------------------------------
 #| Create the prompt string or pure function for a given prompt name.
+#| C<$name> -- Name of the prompt.
+#| C<:$warn> -- Should a warning be issued if the prompt is not found or not?
 proto sub llm-prompt($name, Bool :$warn = True) is export {*}
 
 multi sub llm-prompt($name is copy, Bool :$warn = True) is export {
