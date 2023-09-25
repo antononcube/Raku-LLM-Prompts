@@ -91,7 +91,7 @@ is
 ## 15
 my @messages12 = <some1 some2>;
 is
-        llm-prompt-expand("!FormalRephrase^", messages => @messages12),
+        llm-prompt-expand("\n\n!FormalRephrase^\n\n", messages => @messages12),
         llm-prompt('FormalRephrase')('some2');
 
 ## 16
@@ -108,5 +108,12 @@ is
 is
         llm-prompt-expand("\n\n!ShortLineIt|40 some long text"),
         llm-prompt('ShortLineIt')(40, 'some long text');
+
+
+## 19
+my @messages19 = <tomorrow future>;
+is
+        llm-prompt-expand("\n\n!Translate|German^\n\n", messages => @messages19),
+        llm-prompt('Translate')('German', 'future');
 
 done-testing;
