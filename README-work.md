@@ -331,7 +331,7 @@ showing the content of the corresponding chat object:
   - [X] DONE Google's Bard example prompts
   - [X] CANCELED OpenAI's ChatGPT example prompts
 - [ ] TODO Documentation
-  - [X] TODO Querying (ingested) prompts
+  - [X] DONE Querying (ingested) prompts
   - [X] DONE Prompt DSL
   - [ ] TODO Prompt format
   - [ ] TODO On hijacking prompts
