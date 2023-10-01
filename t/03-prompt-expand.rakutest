@@ -38,11 +38,11 @@ is
 
 ## 5
 is
-        llm-prompt-expand('@CodeWriterX|HTML Random table with 5 rows and 4 coolumns.'),
-        llm-prompt('CodeWriterX')('HTML') ~ "\n Random table with 5 rows and 4 coolumns.";
+        llm-prompt-expand('@CodeWriterX|HTML Random table with 5 rows and 4 columns.'),
+        llm-prompt('CodeWriterX')('HTML') ~ "\n Random table with 5 rows and 4 columns.";
 
 ## 6
-my $spec5 = 'The summer is gone, school is comming soon.';
+my $spec5 = 'The summer is gone, school is coming soon.';
 is
         llm-prompt-expand("$spec5 #HaikuStyled"),
         $spec5 ~ ' ' ~ llm-prompt('HaikuStyled');
