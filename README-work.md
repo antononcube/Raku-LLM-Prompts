@@ -330,6 +330,8 @@ showing the content of the corresponding chat object:
 - [X] DONE Add more prompts
   - [X] DONE Google's Bard example prompts
   - [X] CANCELED OpenAI's ChatGPT example prompts
+  - [X] [ProfSynapse prompt](https://github.com/ProfSynapse/Synapse_CoR)
+  - [X] Google [OR-Tools](https://developers.google.com/optimization) prompt
 - [ ] TODO Documentation
   - [X] DONE Querying (ingested) prompts
   - [X] DONE Prompt DSL

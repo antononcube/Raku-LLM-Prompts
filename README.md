@@ -47,20 +47,20 @@ Show the record of the prompt named "FTFY":
 .say for |llm-prompt-data<FTFY>;
 ```
 ```
-# Name => FTFY
 # NamedArguments => []
-# URL => https://resources.wolframcloud.com/PromptRepository/resources/FTFY
-# Description => Use Fixed That For You to quickly correct spelling and grammar mistakes
+# Name => FTFY
 # ContributedBy => Wolfram Staff
 # PromptText => -> $a='' {"Find and correct grammar and spelling mistakes in the following text.
 # Response with the corrected text and nothing else.
 # Provide no context for the corrections, only correct the text.
 # $a"}
-# Topics => (General Text Manipulation)
-# Arity => 1
+# Description => Use Fixed That For You to quickly correct spelling and grammar mistakes
+# URL => https://resources.wolframcloud.com/PromptRepository/resources/FTFY
 # Categories => (Function Prompts)
-# Keywords => [Spell check Grammar Check Text Assistance]
+# Arity => 1
+# Topics => (General Text Manipulation)
 # PositionalArguments => {$a => }
+# Keywords => [Spell check Grammar Check Text Assistance]
 ```
 
 Here is an example of retrieval of prompt data with a regex that is applied over the prompt names:
@@ -70,8 +70,11 @@ Here is an example of retrieval of prompt data with a regex that is applied over
 ```
 ```
 # ScriptToNarrative => Generate narrative text from a formatted screenplay or stage play
+# ScientificDejargonize => Translate scientific jargon to plain language
 # NarrativeToScript => Rewrite a block of prose as a screenplay or stage play
 # ScienceEnthusiast => A smarter today for a brighter tomorrow
+# ScientificJargonized => Give output written in scientific jargon
+# ScientificJargonize => Add scientific jargon to plain text
 ```
 
 More prompt retrieval examples are given in the section "Prompt data" below.
@@ -84,7 +87,7 @@ Make an LLM function from the prompt named "FTFY":
 my &f = llm-function(llm-prompt('FTFY'));
 ```
 ```
-# -> **@args, *%args { #`(Block|3837341459688) ... }
+# -> **@args, *%args { #`(Block|2837388766160) ... }
 ```
 
 Use the LLM function to correct the grammar of sentence:
@@ -102,24 +105,13 @@ Generate Raku code using the prompt "CodeWriter":
 llm-synthesize([llm-prompt('CodeWriter'), "Simulate a random walk."])
 ```
 ```perl6
-# Here is an example solution to simulate a random walk using Raku
-use v6;
-
-my Int $x-coordinate = 0;
-my Int $y-coordinate = 0;
- 
-loop {
-    my Int $random-num = floor(rand * 4);
- 
-    given $random-num {
-        when 0 { $x-coordinate++ }
-        when 1 { $x-coordinate-- }
-        when 2 { $y-coordinate++ }
-        when 3 { $y-coordinate-- }
-    }
- 
-    say "x: {$x-coordinate}, y: {$y-coordinate}";
-}
+RandomWalk[steps_] := 
+ Module[{stepsRemaining = steps, position = {0, 0}}, 
+  While[stepsRemaining > 0, 
+   position = 
+    position + RandomChoice[{{-1, 0}, {1, 0}, {0, -1}, {0, 1}}]; 
+   stepsRemaining--]; 
+  position]
 ```
 
 ### Prompt expansion
@@ -146,10 +138,9 @@ use Text::Utils :ALL;
         ==> join("\n") 
 ```
 ```
-# An internal combustion engine is a machine that uses fuel to turn energy into
-# motion. It works by burning fuel inside the engine, which makes tiny
-# explosions that move the pistons in the engine. The pistons move the
-# crankshaft, which turns the wheels of your car!
+# An internal combustion engine is a kind of machine that uses fuel to make
+# energy. This energy makes the engine parts move and that makes cars, trucks,
+# and planes move!
 ```
 
 Here is another example using a persona and two modifiers:
@@ -182,9 +173,8 @@ $prmt
         ==> join("\n") 
 ```
 ```
-# Oh dear, I'm afraid I do not know the answer to that question. But I do know
-# that Mars is a long, long way away. It's so far that it would take us a very
-# long time to get there.
+# Oh my, that's a very long way indeed! It's so far away, I can't even imagine
+# it.
 ```
 
 -----
@@ -255,7 +245,7 @@ Here is how the prompt data can be obtained:
 llm-prompt-data.elems
 ```
 ```
-# 154
+# 220
 ```
 
 Here is an example of retrieval of prompt data with a regex that is applied over the prompt names:
@@ -265,10 +255,10 @@ Here is an example of retrieval of prompt data with a regex that is applied over
 ```
 ```
 # Emojified => (Provide responses that include emojis within the text (Modifier Prompts))
-# EmailWriter => (Generate an email based on a given topic (Personas))
+# Emojify => (Replace key words in text with emojis (Function Prompts))
 # EmojiTranslate => (Translate text into an emoji representation (Function Prompts))
 # EmojiTranslated => (Get a response translated to emoji (Modifier Prompts))
-# Emojify => (Replace key words in text with emojis (Function Prompts))
+# EmailWriter => (Generate an email based on a given topic (Personas))
 ```
 
 In many cases it is better to have the prompt data -- or any data -- in long format.
@@ -282,16 +272,8 @@ llm-prompt-dataset.pick(6)
         ==> to-pretty-table(align => 'l', field-names => <Name Description Variable Value>)
 ```
 ```
-# +-------------+------------------------------------------------------------------+------------+----------------------+
-# | Name        | Description                                                      | Variable   | Value                |
-# +-------------+------------------------------------------------------------------+------------+----------------------+
-# | PoemVersion | Rewrite text as a poem                                           | Keywords   | Poet                 |
-# | BuyItGenZ   | Create an exciting advertising copy for a product targeting GenZ | Keywords   | Product              |
-# | SeussGoose  | I am The SeussGoose, I speak for the bots                        | Keywords   | Persona              |
-# | TSV         | Convert text to a tab-separated-value formatted table            | Keywords   | tab separated values |
-# | Cheerleader | Give me an A, Give me an I                                       | Categories | Personas             |
-# | VerbTense   | Find the tenses of verbs and verb phrases in a given text        | Categories | Function Prompts     |
-# +-------------+------------------------------------------------------------------+------------+----------------------+
+#ERROR: Too few positionals passed to '<anon>'; expected 2 arguments but got 1 in sub-signature
+# Nil
 ```
 
 Here is a breakdown of the prompts categories:
@@ -300,13 +282,13 @@ Here is a breakdown of the prompts categories:
 select-columns(llm-prompt-dataset, <Variable Value>).grep({ $_<Variable> eq 'Categories' }) ==> records-summary
 ```
 ```
-# +------------------------+-------------------+
-# | Value                  | Variable          |
-# +------------------------+-------------------+
-# | Function Prompts => 74 | Categories => 154 |
-# | Personas         => 60 |                   |
-# | Modifier Prompts => 20 |                   |
-# +------------------------+-------------------+
+# +-------------------------+-------------------+
+# | Value                   | Variable          |
+# +-------------------------+-------------------+
+# | Function Prompts => 113 | Categories => 219 |
+# | Personas         => 65  |                   |
+# | Modifier Prompts => 41  |                   |
+# +-------------------------+-------------------+
 ```
 
 Here are obtained all modifier prompts in compact format:
@@ -315,30 +297,51 @@ Here are obtained all modifier prompts in compact format:
 llm-prompt-dataset():modifiers:compact ==> to-pretty-table(field-names => <Name Description Categories>, align => 'l')
 ```
 ```
-# +-----------------------+-------------------------------------------------------+-----------------------------------+
-# | Name                  | Description                                           | Categories                        |
-# +-----------------------+-------------------------------------------------------+-----------------------------------+
-# | AphorismStyled        | Write the response as an aphorism                     | Modifier Prompts                  |
-# | BadGrammar            | Provide answers using incorrect grammar               | Modifier Prompts                  |
-# | CompleteSentence      | Answer a question in one complete sentence            | Modifier Prompts                  |
-# | ComplexWordsPreferred | Modify text to use more complex words                 | Modifier Prompts                  |
-# | DatasetForm           | Convert text to a wolfram language Dataset            | Modifier Prompts                  |
-# | ELI5                  | Explain like I'm five                                 | Function Prompts Modifier Prompts |
-# | EmojiTranslated       | Get a response translated to emoji                    | Modifier Prompts                  |
-# | Emojified             | Provide responses that include emojis within the text | Modifier Prompts                  |
-# | FictionQuestioned     | Generate questions for a fictional paragraph          | Modifier Prompts                  |
-# | HaikuStyled           | Change responses to haiku form                        | Modifier Prompts                  |
-# | JSON                  | Respond with JavaScript Object Notation format        | Modifier Prompts                  |
-# | LimerickStyled        | Receive answers in the form of a limerick             | Modifier Prompts                  |
-# | Moodified             | Modify an answer to express a certain mood            | Modifier Prompts                  |
-# | NothingElse           | Give output in specified form, no other additions     | Modifier Prompts                  |
-# | ShortLineIt           | Format text to have shorter lines                     | Modifier Prompts Function Prompts |
-# | TSV                   | Convert text to a tab-separated-value formatted table | Modifier Prompts                  |
-# | TargetAudience        | Word your response for a target audience              | Modifier Prompts                  |
-# | Translated            | Write the response in a specified language            | Modifier Prompts                  |
-# | Unhedged              | Rewrite a sentence to be more assertive               | Modifier Prompts                  |
-# | YesNo                 | Responds with Yes or No exclusively                   | Modifier Prompts                  |
-# +-----------------------+-------------------------------------------------------+-----------------------------------+
+# +-----------------------+------------------------------------------------------------------------------+-----------------------------------+
+# | Name                  | Description                                                                  | Categories                        |
+# +-----------------------+------------------------------------------------------------------------------+-----------------------------------+
+# | AbstractStyled        | Get responses in the style of an academic abstract                           | Modifier Prompts                  |
+# | AlwaysAQuestion       | Modify output to always be inquisitive                                       | Modifier Prompts                  |
+# | AlwaysARiddle         | Riddle me this, riddle me that                                               | Modifier Prompts                  |
+# | AphorismStyled        | Write the response as an aphorism                                            | Modifier Prompts                  |
+# | BadGrammar            | Provide answers using incorrect grammar                                      | Modifier Prompts                  |
+# | CompleteSentence      | Answer a question in one complete sentence                                   | Modifier Prompts                  |
+# | ComplexWordsPreferred | Modify text to use more complex words                                        | Modifier Prompts                  |
+# | DatasetForm           | Convert text to a wolfram language Dataset                                   | Modifier Prompts                  |
+# | Disclaimered          | Modify responses in the form of a disclaimer                                 | Modifier Prompts                  |
+# | ELI5                  | Explain like I'm five                                                        | Function Prompts Modifier Prompts |
+# | ElevatorPitch         | Write the response as an elevator pitch                                      | Modifier Prompts                  |
+# | EmojiTranslated       | Get a response translated to emoji                                           | Modifier Prompts                  |
+# | Emojified             | Provide responses that include emojis within the text                        | Modifier Prompts                  |
+# | FictionQuestioned     | Generate questions for a fictional paragraph                                 | Modifier Prompts                  |
+# | Formal                | Rewrite text to sound more formal                                            | Modifier Prompts                  |
+# | GradeLevelSuited      | Respond with answers that the specified US grade level can understand        | Modifier Prompts                  |
+# | HaikuStyled           | Change responses to haiku form                                               | Modifier Prompts                  |
+# | Informal              | Write an informal invitation to an event                                     | Modifier Prompts                  |
+# | JSON                  | Respond with JavaScript Object Notation format                               | Modifier Prompts                  |
+# | KnowAboutMe           | Give the LLM an FYI                                                          | Modifier Prompts                  |
+# | LegalJargonized       | Provide answers using legal jargon                                           | Modifier Prompts                  |
+# | LimerickStyled        | Receive answers in the form of a limerick                                    | Modifier Prompts                  |
+# | MarketingJargonized   | Transforms replies to marketing                                              | Modifier Prompts                  |
+# | MedicalJargonized     | Transform replies into medial jargon                                         | Modifier Prompts                  |
+# | Moodified             | Modify an answer to express a certain mood                                   | Modifier Prompts                  |
+# | NothingElse           | Give output in specified form, no other additions                            | Modifier Prompts                  |
+# | NumericOnly           | Modify results to give numerical responses only                              | Modifier Prompts                  |
+# | OppositeDay           | It's not opposite day today, so everything will work just the way you expect | Modifier Prompts                  |
+# | Pitchified            | Give output as a sales pitch                                                 | Modifier Prompts                  |
+# | PoemStyled            | Receive answers as poetry                                                    | Modifier Prompts                  |
+# | SEOOptimized          | Modify output to only give highly searched terms                             | Modifier Prompts                  |
+# | ScientificJargonized  | Give output written in scientific jargon                                     | Modifier Prompts                  |
+# | Setting               | Modify an answer to establish a sense of place                               | Modifier Prompts                  |
+# | ShortLineIt           | Format text to have shorter lines                                            | Function Prompts Modifier Prompts |
+# | SimpleWordsPreferred  | Provide responses with simple words                                          | Modifier Prompts                  |
+# | SlideDeck             | Get responses as a slide presentation                                        | Modifier Prompts                  |
+# | TSV                   | Convert text to a tab-separated-value formatted table                        | Modifier Prompts                  |
+# | TargetAudience        | Word your response for a target audience                                     | Modifier Prompts                  |
+# | Translated            | Write the response in a specified language                                   | Modifier Prompts                  |
+# | Unhedged              | Rewrite a sentence to be more assertive                                      | Modifier Prompts                  |
+# | YesNo                 | Responds with Yes or No exclusively                                          | Modifier Prompts                  |
+# +-----------------------+------------------------------------------------------------------------------+-----------------------------------+
 ```
 
 **Remark:** The adverbs `:functions`, `:modifiers`, and `:personas` mean 
@@ -465,6 +468,8 @@ showing the content of the corresponding chat object:
 - [X] DONE Add more prompts
   - [X] DONE Google's Bard example prompts
   - [X] CANCELED OpenAI's ChatGPT example prompts
+  - [X] [ProfSynapse prompt](https://github.com/ProfSynapse/Synapse_CoR)
+  - [X] Google [OR-Tools](https://developers.google.com/optimization) prompt
 - [ ] TODO Documentation
   - [X] DONE Querying (ingested) prompts
   - [X] DONE Prompt DSL
