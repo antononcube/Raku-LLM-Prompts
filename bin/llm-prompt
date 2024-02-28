@@ -17,7 +17,6 @@ multi sub MAIN(Str $name,            #= Name of a prompt, or a regex.
     if $name ~~ / ^ rx '/' .* '/' $ / {
         use MONKEY;
         my $rxName = EVAL $name;
-        note $rxName.raku;
         $res = llm-prompt-data($rxName);
     } else {
         $res = llm-prompt($name);
