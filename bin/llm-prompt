@@ -1,0 +1,43 @@
+#!/usr/bin/env raku
+use v6.d;
+
+use LLM::Prompts;
+
+my %*SUB-MAIN-OPTS =
+        :named-anywhere,
+        # allow named variables at any location
+        ;
+
+#| Retrieves prompts text for given names or regexes.
+multi sub MAIN(Str $name,            #= Name of a prompt, or a regex.
+               *@args,               #= Arguments for the prompt (if applicable).
+               ) {
+    my $res;
+
+    if $name ~~ / ^ rx '/' .* '/' $ / {
+        use MONKEY;
+        my $rxName = EVAL $name;
+        note $rxName.raku;
+        $res = llm-prompt-data($rxName);
+    } else {
+        $res = llm-prompt($name);
+    }
+
+    given $res {
+        when Callable {
+            # It is assumed that that arguments of each prompt with arguments have default values
+            $res = $res.(|@args);
+            say $res;
+        }
+        when Hash {
+            .say for |$res.pairs.sort(*.key);
+        }
+        when $_.defined {
+            say $res;
+        }
+        default {
+            $res = llm-prompt-data().keys.sort;
+            say "To get all known prompt names use regex specification.";
+        }
+    }
+}
