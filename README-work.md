@@ -312,6 +312,33 @@ showing the content of the corresponding chat object:
 
 ![](https://raw.githubusercontent.com/antononcube/Raku-LLM-Prompts/main/docs/Raku-LLM-Prompt-demo-Yoda-2.png)
 
+
+-------
+
+## Command Line Interface
+
+### Playground access
+
+The package provides a Command Line Interface (CLI) script:
+
+```shell
+llm-prompt --help
+```
+
+Here is an example with a prompt name:
+
+```shell
+llm-prompt NothingElse RAKU
+```
+
+
+Here is an example with a regex:
+
+```shell
+llm-prompt 'rx/ ^ N .* /'
+```
+
+
 -----
 
 ## TODO
@@ -320,6 +347,8 @@ showing the content of the corresponding chat object:
   - [X] DONE Prompt retrieval adverbs
   - [X] DONE Prompt DSL grammar and actions
   - [X] DONE Prompt spec expansion
+  - [X] DONE CLI for prompt retrieval
+  - [ ] MAYBE CLI for prompt dataset
   - [ ] TODO Addition of user/local prompts 
     - [ ] TODO Using XDG data directory.
     - [ ] TODO By modifying existing prompts.

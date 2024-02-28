@@ -47,20 +47,20 @@ Show the record of the prompt named "FTFY":
 .say for |llm-prompt-data<FTFY>;
 ```
 ```
-# NamedArguments => []
-# Name => FTFY
-# ContributedBy => Wolfram Staff
+# PositionalArguments => {$a => }
+# Description => Use Fixed That For You to quickly correct spelling and grammar mistakes
+# Categories => (Function Prompts)
+# Topics => (General Text Manipulation)
+# URL => https://resources.wolframcloud.com/PromptRepository/resources/FTFY
+# Keywords => [Spell check Grammar Check Text Assistance]
 # PromptText => -> $a='' {"Find and correct grammar and spelling mistakes in the following text.
 # Response with the corrected text and nothing else.
 # Provide no context for the corrections, only correct the text.
 # $a"}
-# Description => Use Fixed That For You to quickly correct spelling and grammar mistakes
-# URL => https://resources.wolframcloud.com/PromptRepository/resources/FTFY
-# Categories => (Function Prompts)
+# ContributedBy => Wolfram Staff
+# NamedArguments => []
+# Name => FTFY
 # Arity => 1
-# Topics => (General Text Manipulation)
-# PositionalArguments => {$a => }
-# Keywords => [Spell check Grammar Check Text Assistance]
 ```
 
 Here is an example of retrieval of prompt data with a regex that is applied over the prompt names:
@@ -69,10 +69,10 @@ Here is an example of retrieval of prompt data with a regex that is applied over
 .say for llm-prompt-data(/Sc/)
 ```
 ```
-# ScriptToNarrative => Generate narrative text from a formatted screenplay or stage play
 # ScientificDejargonize => Translate scientific jargon to plain language
-# NarrativeToScript => Rewrite a block of prose as a screenplay or stage play
+# ScriptToNarrative => Generate narrative text from a formatted screenplay or stage play
 # ScienceEnthusiast => A smarter today for a brighter tomorrow
+# NarrativeToScript => Rewrite a block of prose as a screenplay or stage play
 # ScientificJargonized => Give output written in scientific jargon
 # ScientificJargonize => Add scientific jargon to plain text
 ```
@@ -87,7 +87,7 @@ Make an LLM function from the prompt named "FTFY":
 my &f = llm-function(llm-prompt('FTFY'));
 ```
 ```
-# -> **@args, *%args { #`(Block|2837388766160) ... }
+# -> **@args, *%args { #`(Block|6448071384320) ... }
 ```
 
 Use the LLM function to correct the grammar of sentence:
@@ -105,13 +105,8 @@ Generate Raku code using the prompt "CodeWriter":
 llm-synthesize([llm-prompt('CodeWriter'), "Simulate a random walk."])
 ```
 ```perl6
-RandomWalk[steps_] := 
- Module[{stepsRemaining = steps, position = {0, 0}}, 
-  While[stepsRemaining > 0, 
-   position = 
-    position + RandomChoice[{{-1, 0}, {1, 0}, {0, -1}, {0, 1}}]; 
-   stepsRemaining--]; 
-  position]
+RandomWalk[n_Integer] := Accumulate[RandomChoice[{-1, 1}, n]]
+ListLinePlot[RandomWalk[1000]]
 ```
 
 ### Prompt expansion
@@ -138,9 +133,15 @@ use Text::Utils :ALL;
         ==> join("\n") 
 ```
 ```
-# An internal combustion engine is a kind of machine that uses fuel to make
-# energy. This energy makes the engine parts move and that makes cars, trucks,
-# and planes move!
+#ERROR: Could not find Text::Utils in:
+#ERROR:     /Users/antonov/.raku
+#ERROR:     /Users/antonov/.rakubrew/versions/moar-2023.12/share/perl6/site
+#ERROR:     /Users/antonov/.rakubrew/versions/moar-2023.12/share/perl6/vendor
+#ERROR:     /Users/antonov/.rakubrew/versions/moar-2023.12/share/perl6/core
+#ERROR:     CompUnit::Repository::AbsolutePath<6448046369304>
+#ERROR:     CompUnit::Repository::NQP<6448035228144>
+#ERROR:     CompUnit::Repository::Perl5<6448035228184>
+# Nil
 ```
 
 Here is another example using a persona and two modifiers:
@@ -173,8 +174,9 @@ $prmt
         ==> join("\n") 
 ```
 ```
-# Oh my, that's a very long way indeed! It's so far away, I can't even imagine
-# it.
+#ERROR: Undeclared routine:
+#ERROR:     wrap-paragraph used at line 5
+# Nil
 ```
 
 -----
@@ -254,11 +256,11 @@ Here is an example of retrieval of prompt data with a regex that is applied over
 .say for llm-prompt-data(/Em/, fields => <Description Categories>)
 ```
 ```
-# Emojified => (Provide responses that include emojis within the text (Modifier Prompts))
-# Emojify => (Replace key words in text with emojis (Function Prompts))
+# EmailWriter => (Generate an email based on a given topic (Personas))
 # EmojiTranslate => (Translate text into an emoji representation (Function Prompts))
 # EmojiTranslated => (Get a response translated to emoji (Modifier Prompts))
-# EmailWriter => (Generate an email based on a given topic (Personas))
+# Emojify => (Replace key words in text with emojis (Function Prompts))
+# Emojified => (Provide responses that include emojis within the text (Modifier Prompts))
 ```
 
 In many cases it is better to have the prompt data -- or any data -- in long format.
@@ -282,13 +284,13 @@ Here is a breakdown of the prompts categories:
 select-columns(llm-prompt-dataset, <Variable Value>).grep({ $_<Variable> eq 'Categories' }) ==> records-summary
 ```
 ```
-# +-------------------------+-------------------+
-# | Value                   | Variable          |
-# +-------------------------+-------------------+
-# | Function Prompts => 113 | Categories => 219 |
-# | Personas         => 65  |                   |
-# | Modifier Prompts => 41  |                   |
-# +-------------------------+-------------------+
+# +-------------------+-------------------------+
+# | Variable          | Value                   |
+# +-------------------+-------------------------+
+# | Categories => 219 | Function Prompts => 113 |
+# |                   | Personas         => 65  |
+# |                   | Modifier Prompts => 41  |
+# +-------------------+-------------------------+
 ```
 
 Here are obtained all modifier prompts in compact format:
@@ -309,7 +311,7 @@ llm-prompt-dataset():modifiers:compact ==> to-pretty-table(field-names => <Name 
 # | ComplexWordsPreferred | Modify text to use more complex words                                        | Modifier Prompts                  |
 # | DatasetForm           | Convert text to a wolfram language Dataset                                   | Modifier Prompts                  |
 # | Disclaimered          | Modify responses in the form of a disclaimer                                 | Modifier Prompts                  |
-# | ELI5                  | Explain like I'm five                                                        | Function Prompts Modifier Prompts |
+# | ELI5                  | Explain like I'm five                                                        | Modifier Prompts Function Prompts |
 # | ElevatorPitch         | Write the response as an elevator pitch                                      | Modifier Prompts                  |
 # | EmojiTranslated       | Get a response translated to emoji                                           | Modifier Prompts                  |
 # | Emojified             | Provide responses that include emojis within the text                        | Modifier Prompts                  |
@@ -333,7 +335,7 @@ llm-prompt-dataset():modifiers:compact ==> to-pretty-table(field-names => <Name 
 # | SEOOptimized          | Modify output to only give highly searched terms                             | Modifier Prompts                  |
 # | ScientificJargonized  | Give output written in scientific jargon                                     | Modifier Prompts                  |
 # | Setting               | Modify an answer to establish a sense of place                               | Modifier Prompts                  |
-# | ShortLineIt           | Format text to have shorter lines                                            | Function Prompts Modifier Prompts |
+# | ShortLineIt           | Format text to have shorter lines                                            | Modifier Prompts Function Prompts |
 # | SimpleWordsPreferred  | Provide responses with simple words                                          | Modifier Prompts                  |
 # | SlideDeck             | Get responses as a slide presentation                                        | Modifier Prompts                  |
 # | TSV                   | Convert text to a tab-separated-value formatted table                        | Modifier Prompts                  |
@@ -450,6 +452,60 @@ showing the content of the corresponding chat object:
 
 ![](https://raw.githubusercontent.com/antononcube/Raku-LLM-Prompts/main/docs/Raku-LLM-Prompt-demo-Yoda-2.png)
 
+
+-------
+
+## Command Line Interface
+
+### Playground access
+
+The package provides a Command Line Interface (CLI) script:
+
+```shell
+llm-prompt --help
+```
+```
+# Usage:
+#   llm-prompt <name> [<args> ...] -- Retrieves prompts text for given names or regexes.
+#   
+#     <name>          Name of a prompt, or a regex.
+#     [<args> ...]    Arguments for the prompt (if applicable).
+```
+
+Here is an example with a prompt name:
+
+```shell
+llm-prompt NothingElse RAKU
+```
+```
+# ONLY give output in the form of a RAKU.
+# Never explain, suggest, or converse. Only return output in the specified form.
+# If code is requested, give only code, no explanations or accompanying text.
+# If a table is requested, give only a table, no other explanations or accompanying text.
+# Do not describe your output. 
+# Do not explain your output. 
+# Do not suggest anything. 
+# Do not respond with anything other than the singularly demanded output. 
+# Do not apologize if you are incorrect, simply try again, never apologize or add text.
+# Do not add anything to the output, give only the output as requested. Your outputs can take any form as long as requested.
+```
+
+
+Here is an example with a regex:
+
+```shell
+llm-prompt 'rx/ ^ N .* /'
+```
+```
+# NarrativeToResume => Rewrite narrative text as a resume
+# NarrativeToScript => Rewrite a block of prose as a screenplay or stage play
+# NerdSpeak => All the nerd, minus the pocket protector
+# NothingElse => Give output in specified form, no other additions
+# NumericOnly => Modify results to give numerical responses only
+# NutritionistBot => Personal nutrition advisor AI
+```
+
+
 -----
 
 ## TODO
@@ -458,6 +514,8 @@ showing the content of the corresponding chat object:
   - [X] DONE Prompt retrieval adverbs
   - [X] DONE Prompt DSL grammar and actions
   - [X] DONE Prompt spec expansion
+  - [X] DONE CLI for prompt retrieval
+  - [ ] MAYBE CLI for prompt dataset
   - [ ] TODO Addition of user/local prompts 
     - [ ] TODO Using XDG data directory.
     - [ ] TODO By modifying existing prompts.
