@@ -9,7 +9,7 @@ my %*SUB-MAIN-OPTS =
         ;
 
 #| Retrieves prompts text for given names or regexes.
-multi sub MAIN(Str $name,            #= Name of a prompt, or a regex.
+multi sub MAIN(Str $name,            #= Name of a prompt or a regex. (E.g. 'rx/ ^ Em .* /').
                *@args,               #= Arguments for the prompt (if applicable).
                ) {
     my $res;
