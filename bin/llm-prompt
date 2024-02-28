@@ -15,8 +15,11 @@ multi sub MAIN(Str $name,            #= Name of a prompt, or a regex.
     my $res;
 
     if $name ~~ / ^ rx '/' .* '/' $ / {
-        use MONKEY;
+        use MONKEY-SEE-NO-EVAL;
         my $rxName = EVAL $name;
+        if $rxName !~~ Regex {
+            die "The first argument is expected to be a string or a valid regex code."
+         }
         $res = llm-prompt-data($rxName);
     } else {
         $res = llm-prompt($name);
