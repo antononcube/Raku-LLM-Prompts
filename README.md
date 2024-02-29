@@ -47,20 +47,20 @@ Show the record of the prompt named "FTFY":
 .say for |llm-prompt-data<FTFY>;
 ```
 ```
-# Arity => 1
-# Categories => (Function Prompts)
-# PositionalArguments => {$a => }
-# Keywords => [Spell check Grammar Check Text Assistance]
-# Name => FTFY
-# URL => https://resources.wolframcloud.com/PromptRepository/resources/FTFY
-# NamedArguments => []
-# Description => Use Fixed That For You to quickly correct spelling and grammar mistakes
-# ContributedBy => Wolfram Staff
-# Topics => (General Text Manipulation)
 # PromptText => -> $a='' {"Find and correct grammar and spelling mistakes in the following text.
 # Response with the corrected text and nothing else.
 # Provide no context for the corrections, only correct the text.
 # $a"}
+# Topics => (General Text Manipulation)
+# Arity => 1
+# ContributedBy => Wolfram Staff
+# Categories => (Function Prompts)
+# Name => FTFY
+# NamedArguments => []
+# URL => https://resources.wolframcloud.com/PromptRepository/resources/FTFY
+# Description => Use Fixed That For You to quickly correct spelling and grammar mistakes
+# PositionalArguments => {$a => }
+# Keywords => [Spell check Grammar Check Text Assistance]
 ```
 
 Here is an example of retrieval of prompt data with a regex that is applied over the prompt names:
@@ -69,12 +69,12 @@ Here is an example of retrieval of prompt data with a regex that is applied over
 .say for llm-prompt-data(/Sc/)
 ```
 ```
-# ScientificJargonize => Add scientific jargon to plain text
 # ScientificJargonized => Give output written in scientific jargon
+# ScienceEnthusiast => A smarter today for a brighter tomorrow
+# NarrativeToScript => Rewrite a block of prose as a screenplay or stage play
 # ScriptToNarrative => Generate narrative text from a formatted screenplay or stage play
 # ScientificDejargonize => Translate scientific jargon to plain language
-# NarrativeToScript => Rewrite a block of prose as a screenplay or stage play
-# ScienceEnthusiast => A smarter today for a brighter tomorrow
+# ScientificJargonize => Add scientific jargon to plain text
 ```
 
 More prompt retrieval examples are given in the section "Prompt data" below.
@@ -87,7 +87,7 @@ Make an LLM function from the prompt named "FTFY":
 my &f = llm-function(llm-prompt('FTFY'));
 ```
 ```
-# -> **@args, *%args { #`(Block|4795401099520) ... }
+# -> **@args, *%args { #`(Block|3779233478984) ... }
 ```
 
 Use the LLM function to correct the grammar of sentence:
@@ -106,7 +106,8 @@ llm-synthesize([llm-prompt('CodeWriter'), "Simulate a random walk."])
 ```
 ```perl6
 RandomWalk[n_Integer] := Accumulate[RandomChoice[{-1, 1}, n]]
-ListLinePlot[RandomWalk[1000], PlotRange -> All]
+
+ListLinePlot[RandomWalk[1000], PlotLabel -> "Random Walk Simulation"]
 ```
 
 ### Prompt expansion
@@ -133,10 +134,9 @@ use Text::Utils :ALL;
         ==> join("\n") 
 ```
 ```
-# An internal combustion engine is like the heart of a car or a motorcycle. It
-# helps make the vehicle go by using tiny explosions inside to create power.
-# Just like how our heart pumps blood to make our body move, the internal
-# combustion engine makes the vehicle move by creating power.
+# An internal combustion engine is like the heart of a car or a truck. It uses a
+# special mix of fuel and air that makes tiny explosions inside to create power
+# and make the vehicle go vroom vroom!
 ```
 
 Here is another example using a persona and two modifiers:
@@ -169,12 +169,12 @@ $prmt
         ==> join("\n") 
 ```
 ```
-# Well, darlin', the distance to Mars can vary dependin' on where it is in its
-# orbit around the sun. On average, it's about 225 million kilometers away from
-# Earth. That's quite a long way to travel, honey. Oh, bless my heart, the light
-# travel distance to Mars is just so far, it makes my soul feel heavy. Just
-# thinkin' about the vastness of space and how distant Mars truly is fills me
-# with a sense of melancholy. It's a long journey indeed, my dear.
+# Oh my, darling child, the distance from Earth to Mars can vary depending on
+# their positions in their orbits. On average, Mars is about 225 million
+# kilometers away from Earth. That's quite a far piece, isn't it? Oh, sweet
+# child, the distance to Mars can make my heart heavy with sadness. It's a long
+# way to travel, and the thought of being so far from our beautiful Earth can
+# bring tears to my eyes.
 ```
 
 -----
@@ -254,11 +254,11 @@ Here is an example of retrieval of prompt data with a regex that is applied over
 .say for llm-prompt-data(/Em/, fields => <Description Categories>)
 ```
 ```
-# EmailWriter => (Generate an email based on a given topic (Personas))
-# EmojiTranslate => (Translate text into an emoji representation (Function Prompts))
-# Emojified => (Provide responses that include emojis within the text (Modifier Prompts))
 # Emojify => (Replace key words in text with emojis (Function Prompts))
+# Emojified => (Provide responses that include emojis within the text (Modifier Prompts))
 # EmojiTranslated => (Get a response translated to emoji (Modifier Prompts))
+# EmojiTranslate => (Translate text into an emoji representation (Function Prompts))
+# EmailWriter => (Generate an email based on a given topic (Personas))
 ```
 
 In many cases it is better to have the prompt data -- or any data -- in long format.
@@ -268,18 +268,10 @@ Prompt data in long format can be obtained with the function `llm-prompt-dataset
 use Data::Reshapers;
 use Data::Summarizers;
 
-llm-prompt-dataset.pick(6) 
-        ==> to-pretty-table(align => 'l', field-names => <Name Description Variable Value>)
+llm-prompt-dataset.pick(6).List ==> to-pretty-table(align => 'l', field-names => <Name Description Variable Value>)
 ```
 ```
-#ERROR: Could not find Data::Reshapers in:
-#ERROR:     /Users/antonov/.raku
-#ERROR:     /Users/antonov/.rakubrew/versions/moar-2024.01/share/perl6/site
-#ERROR:     /Users/antonov/.rakubrew/versions/moar-2024.01/share/perl6/vendor
-#ERROR:     /Users/antonov/.rakubrew/versions/moar-2024.01/share/perl6/core
-#ERROR:     CompUnit::Repository::AbsolutePath<4795392242864>
-#ERROR:     CompUnit::Repository::NQP<4795366457600>
-#ERROR:     CompUnit::Repository::Perl5<4795366457640>
+#ERROR: Too few positionals passed to '<anon>'; expected 2 arguments but got 1 in sub-signature
 # Nil
 ```
 
@@ -289,10 +281,13 @@ Here is a breakdown of the prompts categories:
 select-columns(llm-prompt-dataset, <Variable Value>).grep({ $_<Variable> eq 'Categories' }) ==> records-summary
 ```
 ```
-#ERROR: Undeclared routines:
-#ERROR:     records-summary used at line 2
-#ERROR:     select-columns used at line 2
-# Nil
+# +-------------------+-------------------------+
+# | Variable          | Value                   |
+# +-------------------+-------------------------+
+# | Categories => 219 | Function Prompts => 113 |
+# |                   | Personas         => 65  |
+# |                   | Modifier Prompts => 41  |
+# +-------------------+-------------------------+
 ```
 
 Here are obtained all modifier prompts in compact format:
@@ -301,9 +296,51 @@ Here are obtained all modifier prompts in compact format:
 llm-prompt-dataset():modifiers:compact ==> to-pretty-table(field-names => <Name Description Categories>, align => 'l')
 ```
 ```
-#ERROR: Undeclared routine:
-#ERROR:     to-pretty-table used at line 2
-# Nil
+# +-----------------------+------------------------------------------------------------------------------+-----------------------------------+
+# | Name                  | Description                                                                  | Categories                        |
+# +-----------------------+------------------------------------------------------------------------------+-----------------------------------+
+# | AbstractStyled        | Get responses in the style of an academic abstract                           | Modifier Prompts                  |
+# | AlwaysAQuestion       | Modify output to always be inquisitive                                       | Modifier Prompts                  |
+# | AlwaysARiddle         | Riddle me this, riddle me that                                               | Modifier Prompts                  |
+# | AphorismStyled        | Write the response as an aphorism                                            | Modifier Prompts                  |
+# | BadGrammar            | Provide answers using incorrect grammar                                      | Modifier Prompts                  |
+# | CompleteSentence      | Answer a question in one complete sentence                                   | Modifier Prompts                  |
+# | ComplexWordsPreferred | Modify text to use more complex words                                        | Modifier Prompts                  |
+# | DatasetForm           | Convert text to a wolfram language Dataset                                   | Modifier Prompts                  |
+# | Disclaimered          | Modify responses in the form of a disclaimer                                 | Modifier Prompts                  |
+# | ELI5                  | Explain like I'm five                                                        | Modifier Prompts Function Prompts |
+# | ElevatorPitch         | Write the response as an elevator pitch                                      | Modifier Prompts                  |
+# | EmojiTranslated       | Get a response translated to emoji                                           | Modifier Prompts                  |
+# | Emojified             | Provide responses that include emojis within the text                        | Modifier Prompts                  |
+# | FictionQuestioned     | Generate questions for a fictional paragraph                                 | Modifier Prompts                  |
+# | Formal                | Rewrite text to sound more formal                                            | Modifier Prompts                  |
+# | GradeLevelSuited      | Respond with answers that the specified US grade level can understand        | Modifier Prompts                  |
+# | HaikuStyled           | Change responses to haiku form                                               | Modifier Prompts                  |
+# | Informal              | Write an informal invitation to an event                                     | Modifier Prompts                  |
+# | JSON                  | Respond with JavaScript Object Notation format                               | Modifier Prompts                  |
+# | KnowAboutMe           | Give the LLM an FYI                                                          | Modifier Prompts                  |
+# | LegalJargonized       | Provide answers using legal jargon                                           | Modifier Prompts                  |
+# | LimerickStyled        | Receive answers in the form of a limerick                                    | Modifier Prompts                  |
+# | MarketingJargonized   | Transforms replies to marketing                                              | Modifier Prompts                  |
+# | MedicalJargonized     | Transform replies into medial jargon                                         | Modifier Prompts                  |
+# | Moodified             | Modify an answer to express a certain mood                                   | Modifier Prompts                  |
+# | NothingElse           | Give output in specified form, no other additions                            | Modifier Prompts                  |
+# | NumericOnly           | Modify results to give numerical responses only                              | Modifier Prompts                  |
+# | OppositeDay           | It's not opposite day today, so everything will work just the way you expect | Modifier Prompts                  |
+# | Pitchified            | Give output as a sales pitch                                                 | Modifier Prompts                  |
+# | PoemStyled            | Receive answers as poetry                                                    | Modifier Prompts                  |
+# | SEOOptimized          | Modify output to only give highly searched terms                             | Modifier Prompts                  |
+# | ScientificJargonized  | Give output written in scientific jargon                                     | Modifier Prompts                  |
+# | Setting               | Modify an answer to establish a sense of place                               | Modifier Prompts                  |
+# | ShortLineIt           | Format text to have shorter lines                                            | Modifier Prompts Function Prompts |
+# | SimpleWordsPreferred  | Provide responses with simple words                                          | Modifier Prompts                  |
+# | SlideDeck             | Get responses as a slide presentation                                        | Modifier Prompts                  |
+# | TSV                   | Convert text to a tab-separated-value formatted table                        | Modifier Prompts                  |
+# | TargetAudience        | Word your response for a target audience                                     | Modifier Prompts                  |
+# | Translated            | Write the response in a specified language                                   | Modifier Prompts                  |
+# | Unhedged              | Rewrite a sentence to be more assertive                                      | Modifier Prompts                  |
+# | YesNo                 | Responds with Yes or No exclusively                                          | Modifier Prompts                  |
+# +-----------------------+------------------------------------------------------------------------------+-----------------------------------+
 ```
 
 **Remark:** The adverbs `:functions`, `:modifiers`, and `:personas` mean 
@@ -426,7 +463,7 @@ llm-prompt --help
 ```
 ```
 # Usage:
-#   /Users/antonov/.rakubrew/versions/moar-2024.01/share/perl6/site/bin/llm-prompt <name> [<args> ...] -- Retrieves prompts text for given names or regexes.
+#   llm-prompt <name> [<args> ...] -- Retrieves prompts text for given names or regexes.
 #   
 #     <name>          Name of a prompt or a regex. (E.g. 'rx/ ^ Em .* /').
 #     [<args> ...]    Arguments for the prompt (if applicable).

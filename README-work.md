@@ -190,8 +190,7 @@ Prompt data in long format can be obtained with the function `llm-prompt-dataset
 use Data::Reshapers;
 use Data::Summarizers;
 
-llm-prompt-dataset.pick(6) 
-        ==> to-pretty-table(align => 'l', field-names => <Name Description Variable Value>)
+llm-prompt-dataset.pick(6).List ==> to-pretty-table(align => 'l', field-names => <Name Description Variable Value>)
 ```
 
 Here is a breakdown of the prompts categories:
