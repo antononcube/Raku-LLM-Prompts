@@ -47,20 +47,20 @@ Show the record of the prompt named "FTFY":
 .say for |llm-prompt-data<FTFY>;
 ```
 ```
-# ContributedBy => Wolfram Staff
-# Arity => 1
-# Name => FTFY
-# PositionalArguments => {$a => }
-# URL => https://resources.wolframcloud.com/PromptRepository/resources/FTFY
-# Categories => (Function Prompts)
-# Description => Use Fixed That For You to quickly correct spelling and grammar mistakes
 # NamedArguments => []
-# Topics => (General Text Manipulation)
-# Keywords => [Spell check Grammar Check Text Assistance]
+# Description => Use Fixed That For You to quickly correct spelling and grammar mistakes
+# Categories => (Function Prompts)
+# PositionalArguments => {$a => }
 # PromptText => -> $a='' {"Find and correct grammar and spelling mistakes in the following text.
 # Response with the corrected text and nothing else.
 # Provide no context for the corrections, only correct the text.
 # $a"}
+# Topics => (General Text Manipulation)
+# URL => https://resources.wolframcloud.com/PromptRepository/resources/FTFY
+# Keywords => [Spell check Grammar Check Text Assistance]
+# Name => FTFY
+# ContributedBy => Wolfram Staff
+# Arity => 1
 ```
 
 Here is an example of retrieval of prompt data with a regex that is applied over the prompt names:
@@ -69,12 +69,12 @@ Here is an example of retrieval of prompt data with a regex that is applied over
 .say for llm-prompt-data(/Sc/)
 ```
 ```
-# NarrativeToScript => Rewrite a block of prose as a screenplay or stage play
-# ScriptToNarrative => Generate narrative text from a formatted screenplay or stage play
-# ScientificJargonize => Add scientific jargon to plain text
-# ScientificJargonized => Give output written in scientific jargon
 # ScientificDejargonize => Translate scientific jargon to plain language
+# ScriptToNarrative => Generate narrative text from a formatted screenplay or stage play
+# ScientificJargonized => Give output written in scientific jargon
 # ScienceEnthusiast => A smarter today for a brighter tomorrow
+# ScientificJargonize => Add scientific jargon to plain text
+# NarrativeToScript => Rewrite a block of prose as a screenplay or stage play
 ```
 
 More prompt retrieval examples are given in the section "Prompt data" below.
@@ -87,7 +87,7 @@ Make an LLM function from the prompt named "FTFY":
 my &f = llm-function(llm-prompt('FTFY'));
 ```
 ```
-# -> **@args, *%args { #`(Block|3881882497848) ... }
+# -> **@args, *%args { #`(Block|5411904228544) ... }
 ```
 
 Use the LLM function to correct the grammar of sentence:
@@ -105,10 +105,8 @@ Generate Raku code using the prompt "CodeWriter":
 llm-synthesize([llm-prompt('CodeWriter'), "Simulate a random walk."])
 ```
 ```perl6
-RandomWalk[n_Integer] := Accumulate[Prepend[RandomChoice[{-1, 1}, n], 0]
-
-n = 1000;
-ListLinePlot[RandomWalk[n], PlotRange -> All]
+RandomWalk[n_] := Accumulate[RandomChoice[{-1, 1}, n]]
+ListLinePlot[RandomWalk[1000]]
 ```
 
 ### Prompt expansion
@@ -135,10 +133,8 @@ use Text::Utils :ALL;
         ==> join("\n") 
 ```
 ```
-# An internal combustion engine is like a big, powerful machine that helps make
-# things move. It works by creating tiny explosions inside it that push pistons
-# up and down, which then turn a shaft that makes things go vroom vroom! It's
-# kind of like magic, but it's actually science!
+# An internal combustion engine is like a big machine that uses tiny explosions
+# inside to make things go vroom vroom, like in cars and trucks!
 ```
 
 Here is another example using a persona and two modifiers:
@@ -171,12 +167,11 @@ $prmt
         ==> join("\n") 
 ```
 ```
-# Well, darlin', the light travel distance to Mars is approximately 225 million
-# kilometers. It's quite a ways away, but with the right technology, we can make
-# the journey. Bless your heart for bein' curious about such things. Oh, sugar,
-# the light travel distance to Mars is so far away, it breaks my heart to think
-# about it. It's a distant place that feels so out of reach. But we mustn't lose
-# hope, for one day we may be able to explore its mysteries.
+# Oh, bless your heart, darlin'. The distance from Earth to Mars can vary
+# depending on their positions in orbit, but on average it's about 225 million
+# kilometers. Isn't that just plum fascinating? Oh, sweet child, the distance to
+# Mars weighs heavy on my heart. It's a long journey, full of loneliness and
+# longing. But we must endure, for the sake of discovery and wonder.
 ```
 
 -----
@@ -247,7 +242,7 @@ Here is how the prompt data can be obtained:
 llm-prompt-data.elems
 ```
 ```
-# 220
+# 222
 ```
 
 Here is an example of retrieval of prompt data with a regex that is applied over the prompt names:
@@ -256,11 +251,11 @@ Here is an example of retrieval of prompt data with a regex that is applied over
 .say for llm-prompt-data(/Em/, fields => <Description Categories>)
 ```
 ```
-# EmojiTranslated => (Get a response translated to emoji (Modifier Prompts))
-# Emojify => (Replace key words in text with emojis (Function Prompts))
-# EmojiTranslate => (Translate text into an emoji representation (Function Prompts))
-# Emojified => (Provide responses that include emojis within the text (Modifier Prompts))
 # EmailWriter => (Generate an email based on a given topic (Personas))
+# EmojiTranslate => (Translate text into an emoji representation (Function Prompts))
+# EmojiTranslated => (Get a response translated to emoji (Modifier Prompts))
+# Emojified => (Provide responses that include emojis within the text (Modifier Prompts))
+# Emojify => (Replace key words in text with emojis (Function Prompts))
 ```
 
 In many cases it is better to have the prompt data -- or any data -- in long format.
@@ -274,16 +269,16 @@ llm-prompt-dataset.pick(6)
         ==> to-pretty-table(align => 'l', field-names => <Name Description Variable Value>)
 ```
 ```
-# +-------------------+--------------------------------------------+------------+--------------+
-# | Name              | Description                                | Variable   | Value        |
-# +-------------------+--------------------------------------------+------------+--------------+
-# | EmojiTranslated   | Get a response translated to emoji         | Topics     | Text Styling |
-# | Moodified         | Modify an answer to express a certain mood | Keywords   | personality  |
-# | WilliamPlaywright | An AI, by any other name, still thinks     | Categories | Personas     |
-# | CodeWriter        | AI code generation without the chatter     | Topics     | AI Guidance  |
-# | Rephrase          | Rewrite text                               | Keywords   | paraphrase   |
-# | LimerickStyled    | Receive answers in the form of a limerick  | Keywords   | Literature   |
-# +-------------------+--------------------------------------------+------------+--------------+
+# +-------------------+-----------------------------------------------------------------------------------------------------------------------------+----------+------------------+
+# | Name              | Description                                                                                                                 | Variable | Value            |
+# +-------------------+-----------------------------------------------------------------------------------------------------------------------------+----------+------------------+
+# | ShortLineIt       | Format text to have shorter lines                                                                                           | Keywords | Automatic breaks |
+# | Rick              | A chatbot that will never let you down                                                                                      | Topics   | Chats            |
+# | HarlequinWriter   | A sensual AI for the romantics                                                                                              | Keywords | Romantic         |
+# | Informal          | Write an informal invitation to an event                                                                                    | Keywords | Unceremoniously  |
+# | TravelAdvisor     | Navigate your journey effortlessly with Travel Advisor, your digital companion for personalized travel planning and booking | Keywords | Vacation         |
+# | NarrativeToScript | Rewrite a block of prose as a screenplay or stage play                                                                      | Topics   | Text Generation  |
+# +-------------------+-----------------------------------------------------------------------------------------------------------------------------+----------+------------------+
 ```
 
 Here is a breakdown of the prompts categories:
@@ -292,13 +287,12 @@ Here is a breakdown of the prompts categories:
 select-columns(llm-prompt-dataset, <Variable Value>).grep({ $_<Variable> eq 'Categories' }) ==> records-summary
 ```
 ```
-# +-------------------------+-------------------+
-# | Value                   | Variable          |
-# +-------------------------+-------------------+
-# | Function Prompts => 113 | Categories => 219 |
-# | Personas         => 65  |                   |
-# | Modifier Prompts => 41  |                   |
-# +-------------------------+-------------------+
+#ERROR: Do not know how to summarize the argument.
+# +-------------------+-------+
+# | Variable          | Value |
+# +-------------------+-------+
+# | Categories => 225 |       |
+# +-------------------+-------+
 ```
 
 Here are obtained all modifier prompts in compact format:
@@ -319,7 +313,7 @@ llm-prompt-dataset():modifiers:compact ==> to-pretty-table(field-names => <Name 
 # | ComplexWordsPreferred | Modify text to use more complex words                                        | Modifier Prompts                  |
 # | DatasetForm           | Convert text to a wolfram language Dataset                                   | Modifier Prompts                  |
 # | Disclaimered          | Modify responses in the form of a disclaimer                                 | Modifier Prompts                  |
-# | ELI5                  | Explain like I'm five                                                        | Function Prompts Modifier Prompts |
+# | ELI5                  | Explain like I'm five                                                        | Modifier Prompts Function Prompts |
 # | ElevatorPitch         | Write the response as an elevator pitch                                      | Modifier Prompts                  |
 # | EmojiTranslated       | Get a response translated to emoji                                           | Modifier Prompts                  |
 # | Emojified             | Provide responses that include emojis within the text                        | Modifier Prompts                  |
@@ -343,7 +337,7 @@ llm-prompt-dataset():modifiers:compact ==> to-pretty-table(field-names => <Name 
 # | SEOOptimized          | Modify output to only give highly searched terms                             | Modifier Prompts                  |
 # | ScientificJargonized  | Give output written in scientific jargon                                     | Modifier Prompts                  |
 # | Setting               | Modify an answer to establish a sense of place                               | Modifier Prompts                  |
-# | ShortLineIt           | Format text to have shorter lines                                            | Function Prompts Modifier Prompts |
+# | ShortLineIt           | Format text to have shorter lines                                            | Modifier Prompts Function Prompts |
 # | SimpleWordsPreferred  | Provide responses with simple words                                          | Modifier Prompts                  |
 # | SlideDeck             | Get responses as a slide presentation                                        | Modifier Prompts                  |
 # | TSV                   | Convert text to a tab-separated-value formatted table                        | Modifier Prompts                  |
@@ -525,7 +519,9 @@ llm-prompt 'rx/ ^ N .* /'
   - [X] DONE CLI for prompt retrieval
   - [ ] MAYBE CLI for prompt dataset
   - [ ] TODO Addition of user/local prompts 
-    - [ ] TODO Using XDG data directory.
+    - [X] DONE Using XDG data directory.
+    - [X] DONE Prompt stencil
+    - [X] DONE User prompt ingestion and addition to the main prompts
     - [ ] TODO By modifying existing prompts.
     - [ ] TODO Automatic prompt template fill-in.
     - [ ] TODO Guided template fill-in.
@@ -539,6 +535,7 @@ llm-prompt 'rx/ ^ N .* /'
 - [ ] TODO Documentation
   - [X] DONE Querying (ingested) prompts
   - [X] DONE Prompt DSL
+  - [X] DONE Daily joke via CLI
   - [ ] TODO Prompt format
   - [ ] TODO On hijacking prompts
   - [ ] TODO Diagrams

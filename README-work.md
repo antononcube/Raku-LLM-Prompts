@@ -350,7 +350,9 @@ llm-prompt 'rx/ ^ N .* /'
   - [X] DONE CLI for prompt retrieval
   - [ ] MAYBE CLI for prompt dataset
   - [ ] TODO Addition of user/local prompts 
-    - [ ] TODO Using XDG data directory.
+    - [X] DONE Using XDG data directory.
+    - [X] DONE Prompt stencil
+    - [X] DONE User prompt ingestion and addition to the main prompts
     - [ ] TODO By modifying existing prompts.
     - [ ] TODO Automatic prompt template fill-in.
     - [ ] TODO Guided template fill-in.
@@ -364,6 +366,7 @@ llm-prompt 'rx/ ^ N .* /'
 - [ ] TODO Documentation
   - [X] DONE Querying (ingested) prompts
   - [X] DONE Prompt DSL
+  - [X] DONE Daily joke via CLI
   - [ ] TODO Prompt format
   - [ ] TODO On hijacking prompts
   - [ ] TODO Diagrams
