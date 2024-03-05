@@ -1,6 +1,7 @@
 unit module LLM::Prompts;
 
 use JSON::Fast;
+use XDG::BaseDirectory :terms;
 
 #-----------------------------------------------------------
 my @records;
@@ -9,14 +10,56 @@ my @topics;
 my @categories;
 
 #-----------------------------------------------------------
-#| Ingest the prompts database.
-sub ingest-prompt-data() is export {
-    # It is expected that resource file "prompts.json" is an array of hashes.
-    @records = from-json(slurp(%?RESOURCES<prompts.json>)).List;
+my %promptStencil;
 
-    @record-fields = @records.map({ $_.keys }).flat.unique.sort;
-    @categories = @records.map({ $_<Categories>.keys }).flat.unique.sort;
-    @topics = @records.map({ $_<Topics>.keys }).flat.unique.sort;
+#| Ingests the prompt stencil.
+sub ingest-prompt-stencil() is export {
+    %promptStencil = from-json(slurp(%?RESOURCES<prompt-stencil.json>));
+    return %promptStencil;
+}
+
+#-----------------------------------------------------------
+#| Gives the prompt stencil.
+sub llm-prompt-stencil(-->Hash) is export {
+    return %promptStencil.clone>>.clone.Hash;
+}
+
+#-----------------------------------------------------------
+#| Verifies is the argument a valid prompt.
+sub llm-prompt-verify(%prompt) is export {
+
+#    note %prompt.keys.sort;
+#    note llm-prompt-stencil.keys.sort;
+#    note [keys => (%prompt.keys ⊆ llm-prompt-stencil.keys),
+#          Name =>(%prompt<Name> ~~ Str),
+#          Description => (%prompt<Description> ~~ Str),
+#          PromptText => (%prompt<PromptText> ~~ Str),
+#          PositionalArguments => (%prompt<PositionalArguments> ~~ Hash),
+#          Categories => (%prompt<Categories> ~~ Hash),
+#          Topics => (%prompt<Topics> ~~ Hash) ,
+#          Keywords => (%prompt<Keywords> ~~ Iterable)];
+
+    return (%prompt.keys ⊆ llm-prompt-stencil.keys) &&
+            (%prompt<Name> ~~ Str) &&
+            (%prompt<Description> ~~ Str) &&
+            (%prompt<PromptText> ~~ Str) &&
+            (%prompt<PositionalArguments> ~~ Hash) &&
+            (%prompt<Categories> ~~ Hash) &&
+            (%prompt<Topics> ~~ Hash) &&
+            (%prompt<Keywords> ~~ Iterable);
+}
+
+#-----------------------------------------------------------
+#| Ingest the prompts database.
+proto sub ingest-prompt-data(|) is export {*}
+
+multi sub ingest-prompt-data($fileName) {
+    # It is expected that resource file "prompts.json" is an array of hashes.
+    my @records = from-json(slurp($fileName)).List;
+
+    my @record-fields = @records.map({ $_.keys }).flat.unique.sort;
+    my @categories = @records.map({ $_<Categories>.keys }).flat.unique.sort;
+    my @topics = @records.map({ $_<Topics>.keys }).flat.unique.sort;
 
     @records .= map({
         $_<Categories> = $_<Categories>.grep(*.value)>>.key.List;
@@ -24,9 +67,49 @@ sub ingest-prompt-data() is export {
         $_
     });
 
-    return %(:@records, :@categories, :@topics);
+    return %(:@records, :@record-fields, :@categories, :@topics);
 }
 
+multi sub ingest-prompt-data('module') {
+    my %prompts = ingest-prompt-data(%?RESOURCES<prompts.json>);
+    @records = |%prompts<records>;
+    @record-fields = |%prompts<record-fields>;
+    @topics = %prompts<topics>;
+    @categories = %prompts<categories>;
+
+    return %prompts;
+}
+
+multi sub ingest-prompt-data('user') {
+
+    my $dirName = data-home.Str ~ '/raku/LLM/Prompts';
+
+    my @userPrompts;
+    if $dirName.IO.d {
+        my @fnames = dir($dirName).grep({ $_.parts.Hash<basename> ~~ / '.json' $ / });
+        for @fnames -> $fname {
+            my %prompt = from-json(slurp($fname));
+            if llm-prompt-verify(%prompt) {
+                @userPrompts.push(%prompt);
+            } else {
+                warn "The file $fname is not valid LLM prompt.";
+            }
+        }
+    }
+
+    return %( records => @userPrompts, :@record-fields, :@categories, :@topics);
+}
+
+multi sub ingest-prompt-data() {
+
+    ingest-prompt-data('module');
+
+    my %res = ingest-prompt-data('user');
+
+    @records.append(|%res<records>);
+
+    return %(:@records, :@record-fields, :@categories, :@topics);
+}
 
 #-----------------------------------------------------------
 sub llm-prompt-categories() is export {
@@ -36,6 +119,47 @@ sub llm-prompt-categories() is export {
 #-----------------------------------------------------------
 sub llm-prompt-topics() is export {
     return @topics;
+}
+
+#-----------------------------------------------------------
+#| Adds an user prompt.
+sub llm-prompt-add(%prompt, Bool :$replace = False, :$keep = False) is export {
+    if !llm-prompt-verify(%prompt) {
+        die "Invalid prompt.";
+    }
+
+    if $keep {
+        my $dirName = data-home.Str ~ '/raku/LLM/Prompts';
+        my $fname = $dirName ~ '/' ~ %prompt<Name> ~ '.json';
+
+        if not $dirName.IO.e {
+            my $path = IO::Path.new($dirName);
+            if not mkdir($path) {
+                die "Cannot create the directory: $dirName."
+            }
+        }
+
+        if $fname.IO.e {
+            note "An LLM prompt file with the name {$fname.IO.parts.Hash<basename>} already exists.";
+        }
+
+        # Write to a JOSN file in the resources directory
+        spurt($fname, to-json(%prompt));
+    }
+
+    if %prompt<Name> ∉ @records.map(*<Name>) {
+        @records.append([%prompt,]);
+    } else {
+        if $replace {
+            note "Replacing an existing prompt with name ⎡{%prompt<Name>}⎦.";
+            @records.append([%prompt, ]);
+        } else {
+            note "A prompt with the name, ⎡{%prompt<Name>}⎦, already exists.";
+            return False;
+        }
+    }
+
+    return True;
 }
 
 #-----------------------------------------------------------
@@ -265,5 +389,6 @@ multi sub llm-prompt-expand(Str:D $input, :@messages = Empty, :$sep = "\n") {
 # Optimization
 #============================================================
 BEGIN {
-    ingest-prompt-data()
+    ingest-prompt-stencil();
+    ingest-prompt-data();
 }
