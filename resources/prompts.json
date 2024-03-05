@@ -10975,7 +10975,7 @@
 			"Text Generation":false,
 			"Writers":false,
 			"AI Guidance":false,
-			"Computable Output":false,
+			"Computable Output":true,
 			"Entertainment":true,
 			"General Text Manipulation":false,
 			"Output Formatting":false,
