@@ -11,39 +11,51 @@ say llm-prompt-data(/^Ex/);
 
 my %st = llm-prompt-stencil;
 
-#my $url = 'https://raw.githubusercontent.com/danielmiessler/fabric/main/patterns/extract_wisdom';
-my $url = 'https://raw.githubusercontent.com/danielmiessler/fabric/main/patterns/find_hidden_message';
-my $promptText1 = HTTP::Tiny.new.get($url ~ '/system.md')<content>.decode;
+my @specs = [
+    { URL => 'https://raw.githubusercontent.com/danielmiessler/fabric/main/patterns/extract_wisdom',
+      Name => "ExtractArticleWisdom",
+      Description => 'Extracts wisdom from any text' }
+    { URL => 'https://raw.githubusercontent.com/danielmiessler/fabric/main/patterns/find_hidden_message',
+      Name =>"FindHiddenMessage",
+      Description => 'Finds hidden (propaganda) in texts'
+    }
+];
 
-my $res2 = HTTP::Tiny.new.get($url ~ '/user.md');
+for @specs -> %spec {
+    my $url = %spec<URL>;
+    my $promptText1 = HTTP::Tiny.new.get($url ~ '/system.md')<content>.decode;
 
-my $promptText2 = '';
-if $res2<status> == 200 { $res2.<content>.decode; }
+    my $res2 = HTTP::Tiny.new.get($url ~ '/user.md');
 
-my $promptText = $promptText1 ~ "\n" ~ $promptText2;
+    my $promptText2 = '';
+    if $res2<status> == 200 { $res2.<content>.decode; }
 
-my %prompt = %st;
-#%prompt<Name> = "ExtractArticleWisdom";
-#%prompt<Description> = 'Extracts wisdom from any text';
-%prompt<Name> = "FindHiddenMessage";
-%prompt<Description> = 'Finds propaganda in texts';
+    my $promptText = $promptText1 ~ "\n" ~ $promptText2;
 
-if $promptText.trim ~~ / ':' $ / {
-    %prompt<PromptText> = "-> \$a='' \{\"" ~ $promptText ~ " \$a\"\}";
-    %prompt<Arity> = 1;
-} else {
-    %prompt<PromptText> = $promptText;
-    %prompt<Arity> = 0;
+    my %prompt = %st;
+    %prompt<Name> = %spec<Name>;
+    %prompt<Description> = %spec<Description>;
+
+    if $promptText.trim ~~ / ':' $ / {
+        %prompt<PromptText> = "-> \$a='' \{\"" ~ $promptText ~ " \$a\"\}";
+        %prompt<Arity> = 1;
+        %prompt<PositionalArguments> = %('$a' => '');
+        %prompt<Categories>{'Function Prompts'} = True;
+    } else {
+        %prompt<PromptText> = $promptText;
+        %prompt<Arity> = 0;
+        %prompt<PositionalArguments> = %();
+        %prompt<Categories>{'Personas'} = True;
+    }
+
+    %prompt<ContributedBy> = 'Anton Antonov';
+    %prompt<URL> = $url;
+    %prompt<Keywords> = ['text', 'summary', 'quotes', 'extract'];
+    %prompt<Topics>{'Text Analysis'} = True;
+    %prompt<Topics>{'Content Derived from Text'} = True;
+
+    say "Adding prompt:", llm-prompt-add(%prompt):replace:keep;
 }
-
-%prompt<ContributedBy> = 'Anton Antonov';
-%prompt<URL> = $url;
-%prompt<Keywords> = ['text', 'summary', 'quotes', 'extract'];
-%prompt<Categories>{'Function Prompts'} = True;
-%prompt<Topics>{'Text Analysis'} = True;
-%prompt<Topics>{'Content Derived from Text'} = True;
-
-say "Adding prompt:", llm-prompt-add(%prompt):replace:keep;
 
 say llm-prompt-data(/^Ex/);
 say llm-prompt-data(/^Find/);
