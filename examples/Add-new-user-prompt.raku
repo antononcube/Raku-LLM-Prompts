@@ -30,11 +30,12 @@ my %prompt = %st;
 
 if $promptText.trim ~~ / ':' $ / {
     %prompt<PromptText> = "-> \$a='' \{\"" ~ $promptText ~ " \$a\"\}";
+    %prompt<Arity> = 1;
 } else {
     %prompt<PromptText> = $promptText;
+    %prompt<Arity> = 0;
 }
 
-%prompt<Arity> = 1;
 %prompt<ContributedBy> = 'Anton Antonov';
 %prompt<URL> = $url;
 %prompt<Keywords> = ['text', 'summary', 'quotes', 'extract'];
@@ -45,3 +46,4 @@ if $promptText.trim ~~ / ':' $ / {
 say "Adding prompt:", llm-prompt-add(%prompt):replace:keep;
 
 say llm-prompt-data(/^Ex/);
+say llm-prompt-data(/^Find/);
