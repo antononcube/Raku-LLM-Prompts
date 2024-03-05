@@ -74,8 +74,8 @@ multi sub ingest-prompt-data('module') {
     my %prompts = ingest-prompt-data(%?RESOURCES<prompts.json>);
     @records = |%prompts<records>;
     @record-fields = |%prompts<record-fields>;
-    @topics = %prompts<topics>;
-    @categories = %prompts<categories>;
+    @topics = |%prompts<topics>;
+    @categories = |%prompts<categories>;
 
     return %prompts;
 }
