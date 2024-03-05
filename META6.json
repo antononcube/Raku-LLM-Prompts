@@ -1,14 +1,15 @@
 {
   "name": "LLM::Prompts",
   "description": "Facilitating the creation, storage, retrieval, and curation of LLM prompts.",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "perl": "6.d",
   "authors": [
     "Anton Antonov"
   ],
   "auth": "zef:antononcube",
   "depends": [
-    "JSON::Fast:ver<0.19>"
+    "JSON::Fast:ver<0.19+>",
+    "XDG::BaseDirectory:ver<0.0.13+>:auth<zef:jonathanstowe>:api<1.0+>"
   ],
   "build-depends": [],
   "test-depends": [],
@@ -19,7 +20,8 @@
     "LLM::Prompts::Grammarish": "lib/LLM/Prompts/Grammarish.rakumod"
   },
   "resources": [
-    "prompts.json"
+    "prompts.json",
+    "prompt-stencil.json"
   ],
   "license": "Artistic-2.0",
   "tags": [
