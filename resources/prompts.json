@@ -10958,7 +10958,7 @@
 			"$a": "ABC"
 		},
 		"NamedArguments":[],
-		"Arity":0,
+		"Arity":1,
 		"Categories":{
 			"Function Prompts":false,
 			"Modifier Prompts":false,
@@ -10995,7 +10995,7 @@
 		"Keywords":[
 			"music", "composition", "music theory", "composer", "bach"
 		],
-		"ContributedBy":"Author Name",
+		"ContributedBy":"Anton Antonov",
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/Bach"
 	},
 	{
