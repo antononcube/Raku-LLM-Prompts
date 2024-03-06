@@ -9300,6 +9300,59 @@
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/TechSupportBot"
 	},
 	{
+		"Name":"ThemeTableJSON",
+		"Description":"Tabulates in JSON themes found in text",
+		"PromptText":"-> $text, $type = 'text' {\"Split the following $type into thematic parts:\\n\\n $text \\n\\nReturn the parts as a JSON array. Represent each thematic part with a theme-content pair.\"}",
+		"PositionalArguments":{
+			"$text":"",
+			"$type":"text"
+		},
+		"NamedArguments":[],
+		"Arity":2,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":true,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":true,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":true,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":true,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"Theme",
+			"Topic",
+			"JSON",
+			"Table",
+			"Text"
+		],
+		"ContributedBy":"Anton Antonov",
+		"URL":"None"
+	},
+	{
 		"Name":"Thesaurize",
 		"Description":"Gives synonyms for words",
 		"PromptText":"-> $a='' {\"Write a numbered list of words that are listed in the Thesaurus alongside: \n$a\"}",
