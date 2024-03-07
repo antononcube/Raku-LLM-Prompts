@@ -80,7 +80,7 @@ multi sub ingest-prompt-data('module') {
     return %prompts;
 }
 
-multi sub ingest-prompt-data('user') {
+multi sub ingest-prompt-data('user', Bool :a(:$append) = False) {
 
     my $dirName = data-home.Str ~ '/raku/LLM/Prompts';
 
@@ -96,6 +96,8 @@ multi sub ingest-prompt-data('user') {
             }
         }
     }
+
+    if $append { @records.append(@userPrompts); }
 
     return %( records => @userPrompts, :@record-fields, :@categories, :@topics);
 }
@@ -123,6 +125,8 @@ sub llm-prompt-topics() is export {
 
 #-----------------------------------------------------------
 #| Adds an user prompt.
+#| C<:$keep> -- if True a JSON file corresponding to the prompt is put in the local prompt directory.
+#| C<:$replace> -- If True if an existing prompt has the same name then it is replaced.
 sub llm-prompt-add(%prompt, Bool :$replace = False, :$keep = False) is export {
     if !llm-prompt-verify(%prompt) {
         die "Invalid prompt.";
@@ -143,7 +147,7 @@ sub llm-prompt-add(%prompt, Bool :$replace = False, :$keep = False) is export {
             note "An LLM prompt file with the name {$fname.IO.parts.Hash<basename>} already exists.";
         }
 
-        # Write to a JOSN file in the resources directory
+        # Write to a JSON file in the local resources directory
         spurt($fname, to-json(%prompt));
     }
 
