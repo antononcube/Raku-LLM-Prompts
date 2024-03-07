@@ -3,8 +3,12 @@ use v6.d;
 
 #`[
 
-In this script we form a list of _two_ specifications for the prompts "ExtractArticleWisdom" and "FindHiddenMessage",
-and then we ingest and file them using a loop.
+In this script:
+
+ 1. We form a list of _three_ specifications for the prompts from [DMr1]:
+    "ExtractArticleWisdom", "FindHiddenMessage", and "CheckAgreement"
+ 2. We ingest and file the prompts using a loop
+
 The procedure is general -- the rest of prompts (or patterns) in [DMr1] can be ingested and filed with the same code.
 
 [DMr1] Daniel Miessler,
@@ -35,6 +39,10 @@ my @specs = [
     { URL => 'https://raw.githubusercontent.com/danielmiessler/fabric/main/patterns/find_hidden_message',
       Name =>"FindHiddenMessage",
       Description => 'Finds hidden (propaganda) messages in texts'
+    },
+    { URL => 'https://raw.githubusercontent.com/danielmiessler/fabric/main/patterns/check_agreement',
+      Name => 'CheckAgreement',
+      Description => 'Analyzes agreements and looks for gotchas'
     }
 ];
 
@@ -53,8 +61,11 @@ for @specs -> %spec {
     # Initialize an empty string
     my $promptText2 = '';
 
-    # If the status of the GET request is 200, decode the content
-    if $res2<status> == 200 { $res2.<content>.decode; }
+    # If the status of the GET request is 200, decode the content (if it is defined)
+    note (:$res2);
+    if $res2<status> == 200 && $res2<content>.defined {
+        $promptText2 = $res2<content>.decode;
+    }
 
     # Concatenate the two decoded contents
     my $promptText = $promptText1 ~ "\n" ~ $promptText2;
@@ -94,3 +105,4 @@ for @specs -> %spec {
 
 say llm-prompt-data(/^Ex/);
 say llm-prompt-data(/^Find/);
+say llm-prompt-data(/^Check/);
