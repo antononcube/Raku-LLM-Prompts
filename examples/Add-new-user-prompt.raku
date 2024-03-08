@@ -62,7 +62,6 @@ for @specs -> %spec {
     my $promptText2 = '';
 
     # If the status of the GET request is 200, decode the content (if it is defined)
-    note (:$res2);
     if $res2<status> == 200 && $res2<content>.defined {
         $promptText2 = $res2<content>.decode;
     }
