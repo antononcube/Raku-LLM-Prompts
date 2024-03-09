@@ -9302,7 +9302,7 @@
 	{
 		"Name":"ThemeTableJSON",
 		"Description":"Tabulates in JSON themes found in text",
-		"PromptText":"-> $text, $type = 'text' {\"Split the following $type into thematic parts:\\n\\n $text \\n\\nReturn the parts as a JSON array. Represent each thematic part with a theme-content pair.\"}",
+		"PromptText":"-> $text, $type = 'text', UInt $n = 100 {\"Split the following $type into thematic parts:\\n\\n $text \\n\\nReturn the parts as a JSON array. Represent each thematic part with a theme-content pair. Make sure each of the content descriptions has no more than $n words.\"}",
 		"PositionalArguments":{
 			"$text":"",
 			"$type":"text"
