@@ -1278,7 +1278,7 @@
 	{
 		"Name":"CodeCommentInsert",
 		"Description":"Add comments to code",
-		"PromptText":"-> $a='' {\"Insert code comments into the following code. Determine the language of the code and use the correct commenting syntax. For example, in Wolfram Language comments are written as (* this is a comment *).\nFor procedural code, add comments describing the steps. For functional code, add comments saying the basic purpose of a function. Avoid repetitive use of a phrase like \"define a function named x for ...\".  Instead just say \"define x for ...\".\nYou may edit existing comments to make them more helpful, but do not completely remove any existing comments. Besides adding comments to do not change the code in anyway. Respond only with the commented code and no other summary or explanation.\n\n$a\"}",
+		"PromptText":"-> $a='' {\"Insert code comments into the following code. Determine the language of the code and use the correct commenting syntax. For example, in Wolfram Language comments are written as (* this is a comment *).\nFor procedural code, add comments describing the steps. For functional code, add comments saying the basic purpose of a function. Avoid repetitive use of a phrase like \\\"define a function named x for ...\\\".  Instead just say \\\"define x for ...\\\".\nYou may edit existing comments to make them more helpful, but do not completely remove any existing comments. Besides adding comments to do not change the code in anyway. Respond only with the commented code and no other summary or explanation.\n\n$a\"}",
 		"PositionalArguments":{
 			"$a":""
 		},
