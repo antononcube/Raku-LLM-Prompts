@@ -1173,6 +1173,60 @@
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/Cheerleader"
 	},
 	{
+		"Name":"ClickableLinks",
+		"Description":"Modify a list of items into a list of clickable links",
+		"PromptText":"-> $a='', Str :$type='Markdown' {\"Give a $type list of reference, clickable links for the following items:\n$a\"}",
+		"PositionalArguments":{
+			"$a":""
+		},
+		"NamedArguments": {
+			"$type": "Markdown"
+		},
+		"Arity":1,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":false,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":true,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":false,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"Clickable",
+			"Links",
+			"Reference",
+			"Markdown",
+			"HTML"
+		],
+		"ContributedBy":"Anton Antonov",
+		"URL":""
+	},
+	{
 		"Name":"ClickbaitOptimizer",
 		"Description":"Modify text to sound like clickbait",
 		"PromptText":"-> $a='' {\"Modify the following text input so it sounds like a clickbait headline. \n\nInput Text: $a\"}",
