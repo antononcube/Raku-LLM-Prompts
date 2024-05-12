@@ -3615,9 +3615,9 @@
 	{
 		"Name":"GradeLevelSuited",
 		"Description":"Respond with answers that the specified US grade level can understand",
-		"PromptText":"-> $a='RowBox[{first,  , grade}]' {\"Respond with answers that this United States grade level can understand: $a\nUse only words that can be understood by that grade level.\nEnsure than sentence length and structure are appropriate for that grade level.\"}",
+		"PromptText":"-> $a='first grade' {\"Respond with answers that this United States grade level can understand: $a\nUse only words that can be understood by that grade level.\nEnsure than sentence length and structure are appropriate for that grade level.\"}",
 		"PositionalArguments":{
-			"$a":"RowBox[{first,  , grade}]"
+			"$a":"first grade"
 		},
 		"NamedArguments":[],
 		"Arity":1,
@@ -4014,10 +4014,10 @@
 	{
 		"Name":"HistoricalRephrase",
 		"Description":"Rephrase text in the voice of a historical era",
-		"PromptText":"-> $a='', $b='RowBox[{Ancient,  , Rome}]' {\"Rewrite the following text to match the written style and cultural context of the $b historical era. Try to include references that would be familiar to a person living in the specified historical place and time period:\n\n$a\"}",
+		"PromptText":"-> $a='', $b='Ancient Rome' {\"Rewrite the following text to match the written style and cultural context of the $b historical era. Try to include references that would be familiar to a person living in the specified historical place and time period:\n\n$a\"}",
 		"PositionalArguments":{
 			"$a":"",
-			"$b":"RowBox[{Ancient,  , Rome}]"
+			"$b":"Ancient Rome"
 		},
 		"NamedArguments":[],
 		"Arity":2,
