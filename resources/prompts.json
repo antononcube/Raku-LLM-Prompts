@@ -1384,11 +1384,13 @@
 	{
 		"Name":"CodeReformat",
 		"Description":"Reformat code so that is more human readable",
-		"PromptText":"-> $a='1' {\"Reformat the following Wolfram Language code by adding only spaces and new lines to make it more readable.\n\nDo not add characters other than new lines or spaces.\nOnly include the formatted code.\n\n===\n$a\"}",
+		"PromptText":"-> $a='1', :$lang = 'Raku' {\"Reformat the following $lang code by adding only spaces and new lines to make it more readable.\n\nDo not add characters other than new lines or spaces.\nOnly include the formatted code.\n\n===\n$a\"}",
 		"PositionalArguments":{
 			"$a":"1"
 		},
-		"NamedArguments":[],
+		"NamedArguments":{
+			"$lang":"Raku"
+		},
 		"Arity":1,
 		"Categories":{
 			"Function Prompts":true,
