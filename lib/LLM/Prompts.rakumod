@@ -172,17 +172,20 @@ sub llm-prompt-add(%prompt, Bool :$replace = False, :$keep = False) is export {
 #| C<$fields> -- Fields to provide in the result.
 proto sub llm-prompt-data(| -->Hash) is export {*}
 
-multi sub llm-prompt-data(-->Hash) {
+multi sub llm-prompt-data(Bool:D :p(:$pairs) = True -->Hash) {
     if ! @records { ingest-prompt-data; }
+    if !$pairs {
+        note 'Calling &llm-prompt-data without fields spec always returns a map of maps.'
+    }
     my %resPrompts = @records.map({ $_<Name> => $_.clone }).Hash;
     return %resPrompts;
 }
 
-multi sub llm-prompt-data($name, $fields -->Hash) {
-    return llm-prompt-data($name, :$fields);
+multi sub llm-prompt-data($name, $fields, Bool:D :p(:$pairs) = False -->Hash) {
+    return llm-prompt-data($name, :$fields, :$pairs);
 }
 
-multi sub llm-prompt-data(:$fields! is copy) {
+multi sub llm-prompt-data(:$fields! is copy, Bool:D :p(:$pairs) = False) {
     my %res = llm-prompt-data;
 
     if $fields.isa(Whatever) { $fields = ['Description',]; }
@@ -194,16 +197,20 @@ multi sub llm-prompt-data(:$fields! is copy) {
     if $fields.elems == 1 {
         return %res.map({ $_.key => $_.value{$fields.head} }).Hash;
     }
-    return %res.map({ $_.key => $_.value{|$fields} }).Hash;
+    return do if $pairs {
+        %res.map({ $_.key => ( $fields.Array Z=> $_.value{|$fields} ).Hash }).Hash;
+    } else {
+        %res.map({ $_.key => $_.value{|$fields} }).Hash;
+    }
 }
 
-multi sub llm-prompt-data(Str:D $name, :$fields = Whatever) {
-    my %res = llm-prompt-data(:$fields);
+multi sub llm-prompt-data(Str:D $name, :$fields = Whatever, Bool:D :p(:$pairs) = False) {
+    my %res = llm-prompt-data(:$fields, :$pairs);
     return %res.grep({ $_.key eq $name }).Hash;
 }
 
-multi sub llm-prompt-data(Regex $name, :$fields = Whatever) {
-    my %res = llm-prompt-data(:$fields);
+multi sub llm-prompt-data(Regex $name, :$fields = Whatever, Bool:D :p(:$pairs) = False) {
+    my %res = llm-prompt-data(:$fields, :$pairs);
     return %res.grep({ $_.key ~~ $name }).Hash;
 }
 
