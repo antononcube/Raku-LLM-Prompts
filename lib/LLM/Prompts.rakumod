@@ -174,10 +174,11 @@ proto sub llm-prompt-data(| -->Hash) is export {*}
 
 multi sub llm-prompt-data(Bool:D :p(:$pairs) = True -->Hash) {
     if ! @records { ingest-prompt-data; }
-    if !$pairs {
-        note 'Calling &llm-prompt-data without fields spec always returns a map of maps.'
+    my %resPrompts = do if $pairs {
+        @records.map({ $_<Name> => $_.clone });
+    } else {
+        @records.map({ $_<Name> => $_{|@record-fields} });
     }
-    my %resPrompts = @records.map({ $_<Name> => $_.clone }).Hash;
     return %resPrompts;
 }
 

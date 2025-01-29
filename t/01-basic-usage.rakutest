@@ -74,6 +74,9 @@ isa-ok llm-prompt-data('Translated', <Description PromptText>), Hash;
 isa-ok llm-prompt-data(:pairs), Hash;
 
 ## 22
+isa-ok llm-prompt-data(:!pairs), Hash;
+
+## 23
 isa-ok llm-prompt-data(fields => <Description URL>, :pairs), Hash;
 
 done-testing;
