@@ -197,7 +197,8 @@ llm-prompt-dataset.pick(6)
 Here is a breakdown of the prompts categories:
 
 ```perl6
-select-columns(llm-prompt-dataset, <Variable Value>).grep({ $_<Variable> eq 'Categories' }) ==> records-summary
+select-columns(llm-prompt-dataset, <Variable Value>).grep({ $_<Variable> eq 'Categories' })».deepmap(*.Str)
+==> records-summary
 ```
 
 Here are obtained all modifier prompts in compact format:
