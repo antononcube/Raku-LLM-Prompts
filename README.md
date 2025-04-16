@@ -47,20 +47,20 @@ Show the record of the prompt named "FTFY":
 .say for |llm-prompt-data<FTFY>;
 ```
 ```
-# NamedArguments => []
-# Keywords => [Spell check Grammar Check Text Assistance]
-# Topics => (General Text Manipulation)
-# Name => FTFY
-# Description => Use Fixed That For You to quickly correct spelling and grammar mistakes
-# URL => https://resources.wolframcloud.com/PromptRepository/resources/FTFY
-# ContributedBy => Wolfram Staff
-# Arity => 1
-# Categories => (Function Prompts)
 # PromptText => -> $a='' {"Find and correct grammar and spelling mistakes in the following text.
 # Response with the corrected text and nothing else.
 # Provide no context for the corrections, only correct the text.
 # $a"}
+# NamedArguments => []
+# Keywords => [Spell check Grammar Check Text Assistance]
+# Topics => (General Text Manipulation)
+# Arity => 1
+# Name => FTFY
+# Description => Use Fixed That For You to quickly correct spelling and grammar mistakes
+# ContributedBy => Wolfram Staff
 # PositionalArguments => {$a => }
+# URL => https://resources.wolframcloud.com/PromptRepository/resources/FTFY
+# Categories => (Function Prompts)
 ```
 
 Here is an example of retrieval of prompt data with a regex that is applied over the prompt names:
@@ -69,12 +69,12 @@ Here is an example of retrieval of prompt data with a regex that is applied over
 .say for llm-prompt-data(/Sc/)
 ```
 ```
-# ScriptToNarrative => Generate narrative text from a formatted screenplay or stage play
 # ScienceEnthusiast => A smarter today for a brighter tomorrow
-# NarrativeToScript => Rewrite a block of prose as a screenplay or stage play
 # ScientificJargonize => Add scientific jargon to plain text
 # ScientificDejargonize => Translate scientific jargon to plain language
+# ScriptToNarrative => Generate narrative text from a formatted screenplay or stage play
 # ScientificJargonized => Give output written in scientific jargon
+# NarrativeToScript => Rewrite a block of prose as a screenplay or stage play
 ```
 
 More prompt retrieval examples are given in the section "Prompt data" below.
@@ -87,7 +87,7 @@ Make an LLM function from the prompt named "FTFY":
 my &f = llm-function(llm-prompt('FTFY'));
 ```
 ```
-# -> **@args, *%args { #`(Block|2431326976200) ... }
+# -> **@args, *%args { #`(Block|3384574002968) ... }
 ```
 
 Use the LLM function to correct the grammar of sentence:
@@ -134,9 +134,10 @@ use Text::Utils :ALL;
         ==> join("\n") 
 ```
 ```
-# An internal combustion engine is like a machine that makes cars go vroom
-# vroom! It has tiny explosions inside that make the wheels turn and move the
-# car forward. It's like magic but it's really science.
+# An internal combustion engine is like a big, powerful machine that makes
+# things move by burning fuel inside it. Just like when you blow on a pinwheel
+# to make it spin, the engine uses the fuel to create energy that makes a car or
+# a motorcycle go vroom vroom!
 ```
 
 Here is another example using a persona and two modifiers:
@@ -169,9 +170,12 @@ $prmt
         ==> join("\n") 
 ```
 ```
-# Well, sugar, the light travel distance to Mars is about 3 minutes and 2
-# seconds at the speed of light. Bless your heart, it's quite a journey to our
-# neighboring planet.
+# Well, darlin', the light travel distance to Mars is about 12.5 light minutes
+# away. That means it takes 12.5 minutes for light to travel from Earth to the
+# Red Planet. It's quite a long journey, but oh so fascinating! Oh, sugar, it
+# just breaks my heart to think about the distance between us and Mars. The
+# vastness of space can feel so lonely and isolating. But we must remember to
+# appreciate the beauty and wonder of the universe, even in moments of sadness.
 ```
 
 -----
@@ -251,10 +255,10 @@ Here is an example of retrieval of prompt data with a regex that is applied over
 .say for llm-prompt-data(/Em/, fields => <Description Categories>)
 ```
 ```
+# EmojiTranslated => (Get a response translated to emoji (Modifier Prompts))
+# EmojiTranslate => (Translate text into an emoji representation (Function Prompts))
 # EmailWriter => (Generate an email based on a given topic (Personas))
 # Emojify => (Replace key words in text with emojis (Function Prompts))
-# EmojiTranslate => (Translate text into an emoji representation (Function Prompts))
-# EmojiTranslated => (Get a response translated to emoji (Modifier Prompts))
 # Emojified => (Provide responses that include emojis within the text (Modifier Prompts))
 ```
 
@@ -269,16 +273,16 @@ llm-prompt-dataset.pick(6)
         ==> to-pretty-table(align => 'l', field-names => <Name Description Variable Value>)
 ```
 ```
-# +----------------------+---------------------------------------------------+----------+-------------------+
-# | Name                 | Description                                       | Variable | Value             |
-# +----------------------+---------------------------------------------------+----------+-------------------+
-# | SEOMetaDescription   | Generate an SEO Meta description from text or URL | Keywords | metatags          |
-# | ComicBookWriter      | Friendly Neighborhood AI                          | Keywords | Style             |
-# | ProductNameSuggest   | Create a product name                             | Keywords | Products          |
-# | SimpleWordsPreferred | Provide responses with simple words               | Keywords | Write             |
-# | CodeWriterX          | AI code generation without the chatter            | Keywords | Raku              |
-# | TaglineSuggest       | Generate various tag lines given a piece of text  | Keywords | tagline suggester |
-# +----------------------+---------------------------------------------------+----------+-------------------+
+# +-----------------------+-----------------------------------------------+------------+---------------------------+
+# | Name                  | Description                                   | Variable   | Value                     |
+# +-----------------------+-----------------------------------------------+------------+---------------------------+
+# | EmailWriter           | Generate an email based on a given topic      | Topics     | Purpose Based             |
+# | TechDejargonize       | Convert Tech Industry jargon into plain speak | Keywords   | Alter                     |
+# | SommelierBot          | Wine Pairings for Any Meal                    | Keywords   | Wine                      |
+# | CheckAgreement        | Analyzes agreements and looks for gotchas     | Categories | Function Prompts          |
+# | Bach                  | Compositions stream like a brook              | Topics     | Entertainment             |
+# | FindPropagandaMessage | Finds hidden (propaganda) messages in texts   | Topics     | Content Derived from Text |
+# +-----------------------+-----------------------------------------------+------------+---------------------------+
 ```
 
 Here is a breakdown of the prompts categories:
@@ -288,17 +292,13 @@ select-columns(llm-prompt-dataset, <Variable Value>).grep({ $_<Variable> eq 'Cat
 ==> records-summary
 ```
 ```
-# +-------------------------------+-------------------+
-# | Value                         | Variable          |
-# +-------------------------------+-------------------+
-# | Function Prompts       => 115 | Categories => 236 |
-# | Personas               => 65  |                   |
-# | Modifier Prompts       => 41  |                   |
-# | Function Prompts	True  => 5   |                   |
-# | Modifier Prompts	False => 5   |                   |
-# | Personas	True          => 3   |                   |
-# | Personas	False         => 2   |                   |
-# +-------------------------------+-------------------+
+# +-------------------------+-------------------+
+# | Value                   | Variable          |
+# +-------------------------+-------------------+
+# | Function Prompts => 120 | Categories => 229 |
+# | Personas         => 68  |                   |
+# | Modifier Prompts => 41  |                   |
+# +-------------------------+-------------------+
 ```
 
 Here are obtained all modifier prompts in compact format:
