@@ -253,7 +253,11 @@ multi sub llm-prompt-dataset(:f(:$functions) is copy = Whatever,
     for @recs -> %record {
         my %coreRec = %record.grep({ $_.key ∈ $idCols });
         for @pivotCols -> $pc {
-            for |%record{$pc} -> $val {
+            my $pvalues = %record{$pc};
+            if $pvalues ~~ Map:D && $pvalues.values.all ~~ Bool:D {
+                $pvalues = $pvalues.grep({ $_.value })».key;
+            }
+            for |$pvalues -> $val {
                 my %h = %coreRec , %(Variable => $pc, Value => $val);
                 @res.push(%h);
             }
