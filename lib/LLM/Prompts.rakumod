@@ -273,7 +273,7 @@ multi sub llm-prompt-dataset(:f(:$functions) is copy = Whatever,
 #| C<:$warn> -- Should a warning be issued if the prompt is not found or not?
 proto sub llm-prompt($name, Bool :$warn = True) is export {*}
 
-multi sub llm-prompt($name is copy, Bool :$warn = True) is export {
+multi sub llm-prompt($name is copy, Bool :$warn = True) {
 
     my %ps = llm-prompt-data;
 
