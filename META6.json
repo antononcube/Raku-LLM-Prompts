@@ -1,39 +1,37 @@
 {
-  "name": "LLM::Prompts",
-  "description": "Facilitating the creation, storage, retrieval, and curation of LLM prompts.",
-  "version": "0.2.5",
-  "perl": "6.d",
-  "authors": [
-    "Anton Antonov"
-  ],
-  "auth": "zef:antononcube",
-  "depends": [
-    "JSON::Fast:ver<0.19+>",
-    "XDG::BaseDirectory:ver<0.0.13+>:auth<zef:jonathanstowe>:api<1.0+>"
-  ],
-  "build-depends": [],
-  "test-depends": [],
-  "provides": {
-    "LLM::Prompts": "lib/LLM/Prompts.rakumod",
-    "LLM::Prompts::Actionish": "lib/LLM/Prompts/Actionish.rakumod",
-    "LLM::Prompts::DSL": "lib/LLM/Prompts/DSL.rakumod",
-    "LLM::Prompts::Grammarish": "lib/LLM/Prompts/Grammarish.rakumod"
-  },
-  "resources": [
-    "prompts.json",
-    "prompt-stencil.json"
-  ],
-  "license": "Artistic-2.0",
-  "tags": [
-    "chatgpt",
-    "database",
-    "large language model",
-    "llm",
-    "openai",
-    "palm",
-    "prompt",
-    "repository"
-  ],
-  "api": "1",
-  "source-url": "https://github.com/antononcube/Raku-LLM-Prompts.git"
+    "name": "LLM::Prompts",
+    "description": "Facilitating the creation, storage, retrieval, and curation of LLM prompts.",
+    "version": "0.2.6",
+    "authors": [
+        "Anton Antonov"
+    ],
+    "auth": "zef:antononcube",
+    "depends": [
+        "JSON::Fast:ver<0.19+>",
+        "XDG::BaseDirectory:ver<0.0.13+>:auth<zef:jonathanstowe>:api<1.0+>"
+    ],
+    "build-depends": [],
+    "provides": {
+        "LLM::Prompts": "lib/LLM/Prompts.rakumod",
+        "LLM::Prompts::Actionish": "lib/LLM/Prompts/Actionish.rakumod",
+        "LLM::Prompts::DSL": "lib/LLM/Prompts/DSL.rakumod",
+        "LLM::Prompts::Grammarish": "lib/LLM/Prompts/Grammarish.rakumod"
+    },
+    "resources": [
+        "prompts.json",
+        "prompt-stencil.json"
+    ],
+    "license": "Artistic-2.0",
+    "tags": [
+        "chatgpt",
+        "database",
+        "large language model",
+        "llm",
+        "openai",
+        "palm",
+        "prompt",
+        "repository"
+    ],
+    "api": "1",
+    "source-url": "https://github.com/antononcube/Raku-LLM-Prompts.git"
 }
