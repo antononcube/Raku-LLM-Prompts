@@ -9361,10 +9361,11 @@
 		"PromptText":"-> $text, $type = 'text', UInt $n = 100 {\"Split the following $type into thematic parts:\\n\\n $text \\n\\nReturn the parts as a JSON array. Represent each thematic part with a theme-content pair. Make sure each of the content descriptions has no more than $n words.\"}",
 		"PositionalArguments":{
 			"$text":"",
-			"$type":"text"
+			"$type":"text",
+			"$n":100
 		},
 		"NamedArguments":[],
-		"Arity":2,
+		"Arity":3,
 		"Categories":{
 			"Function Prompts":true,
 			"Modifier Prompts":false,
@@ -11418,8 +11419,9 @@
 			"$format": "JSON",
 			"$txt": ""
 		},
-		"NamedArguments": [
-		],
+		"NamedArguments": {
+			"$ideas": true
+		},
 		"Arity": 2,
 		"Categories": {
 			"Function Prompts": true,
