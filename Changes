@@ -1,0 +1,6 @@
+Revision history for "LLM::Prompts"
+
+0.2.6 2024-08-19
+    - Added the prompt "ThinkingHatsFeedback".
+        - A version of "SophisticatedFeedback" -- just the hats table without the summary.
+    - Minor prompt data and prompt ingestion refactoring.
