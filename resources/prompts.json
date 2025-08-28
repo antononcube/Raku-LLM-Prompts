@@ -11482,7 +11482,8 @@
 			"$txt": ""
 		},
 		"NamedArguments": {
-			"$ideas": true
+			"$ideas": true,
+			"@hats": []
 		},
 		"Arity": 2,
 		"Categories": {
