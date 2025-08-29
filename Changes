@@ -2,8 +2,9 @@ Revision history for "LLM::Prompts"
 
 0.2.7 2025-08-28
     - Added option :@hats to the prompt "ThinkingHatsFeedback".
-        -  llm-prompt("ThinkingHatsFeedback")($txt, hats => <yellow grey>)
+        - llm-prompt("ThinkingHatsFeedback")($txt, hats => <yellow gray>)
     - Added the prompt "MermaidDiagram".
+        - Makes mind-maps by default.
 
 0.2.6 2025-08-19
     - Added the prompt "ThinkingHatsFeedback".
