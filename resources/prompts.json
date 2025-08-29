@@ -11534,5 +11534,60 @@
 		],
 		"ContributedBy": "Anton Antonov",
 		"URL": "https://resources.wolframcloud.com/PromptRepository/resources/ThinkingHatsFeedback/"
+	},
+	{
+		"Name": "MermaidDiagram",
+		"Description": "Gives Mermaid-JS diagram code over text",
+		"PromptText": "-> $txt = '', $type = 'mind-map' { \"Create a concise mermaid-js $type for the text:\n\n$txt\n\nAll node messages should be in quotes.\nDo not use special symbols inside the messages like parenthesis, square brackets, or slashes.\n{llm-prompt('NothingElse')('correct mermaid-js')}\"}\n",
+		"PositionalArguments": {
+			"$type": "mind-map",
+			"$txt": ""
+		},
+		"NamedArguments": {
+		},
+		"Arity": 2,
+		"Categories": {
+			"Function Prompts": true,
+			"Modifier Prompts": false,
+			"Personas": false
+		},
+		"Topics": {
+			"AI Guidance": false,
+			"Advisor Bots": false,
+			"Character Types": false,
+			"Chats": false,
+			"Computable Output": false,
+			"Content Derived from Text": true,
+			"Education": false,
+			"Entertainment": false,
+			"Fictional Characters": false,
+			"For Fun": false,
+			"General Text Manipulation": false,
+			"Historical Figures": false,
+			"Linguistics": false,
+			"Output Formatting": false,
+			"Personalization": false,
+			"Prompt Engineering": false,
+			"Purpose Based": false,
+			"Real-World Actions": false,
+			"Roles": false,
+			"Special-Purpose Text Manipulation": false,
+			"Text Analysis": true,
+			"Text Generation": false,
+			"Text Styling": false,
+			"Wolfram Language": false,
+			"Writers": false,
+			"Writing Genres": false
+		},
+		"Keywords": [
+			"diagram",
+			"flowchart",
+			"mermaid",
+			"mermaid-js",
+			"mind-map",
+			"text"
+		],
+		"ContributedBy": "Anton Antonov",
+		"URL": "https://resources.wolframcloud.com/PromptRepository/resources/MermaidDiagram/"
 	}
 ]
