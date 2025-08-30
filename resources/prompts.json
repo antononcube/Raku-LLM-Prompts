@@ -3515,6 +3515,57 @@
 		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/GothicWriter"
 	},
 	{
+		"Name":"GradeEssay",
+		"Description":"Get a mock grade for submitted essay",
+		"PromptText":"-> $txt='' {\"The following essay is being submitted for a mock grade.\nGrade based on these factors: Content, Organization & Development, Clarity and Mechanics.\nContent: An essay with a good grade should have strong and focused thesis, good supporting evidence, relevant information, and accurate facts.\nOrganization: An essay with a good grade should have logical flow of information, proper structure, optimal development.\nClarity: An essay with a good grade should be concise where necessary and keep to specific topic.\nMechanics: An essay with a good grade should use proper grammar, spelling and punctuation.\n\nEvaluate the above factors, give an in-depth review of each, and deliver a grade based on this assessment. Do not grade each factor individually.\n\nBelow is the essay to be graded:\n$txt\"}",
+		"PositionalArguments":{
+			"$txt":""
+		},
+		"NamedArguments":[],
+		"Arity":1,
+		"Categories":{
+			"Function Prompts":true,
+			"Modifier Prompts":false,
+			"Personas":false
+		},
+		"Topics":{
+			"Advisor Bots":false,
+			"Chats":false,
+			"Education":true,
+			"For Fun":false,
+			"Linguistics":false,
+			"Prompt Engineering":false,
+			"Roles":false,
+			"Text Generation":false,
+			"Writers":false,
+			"AI Guidance":false,
+			"Computable Output":false,
+			"Entertainment":false,
+			"General Text Manipulation":false,
+			"Output Formatting":false,
+			"Purpose Based":false,
+			"Special-Purpose Text Manipulation":false,
+			"Text Styling":false,
+			"Writing Genres":false,
+			"Character Types":false,
+			"Content Derived from Text":false,
+			"Fictional Characters":false,
+			"Historical Figures":false,
+			"Personalization":false,
+			"Real-World Actions":false,
+			"Text Analysis":true,
+			"Wolfram Language":false
+		},
+		"Keywords":[
+			"Language",
+			"Literature",
+			"Text Analysis",
+			"Education"
+		],
+		"ContributedBy":"Wolfram Staff",
+		"URL":"https://resources.wolframcloud.com/PromptRepository/resources/GradeEssay/"
+	},
+	{
 		"Name":"GradeLevelEstimate",
 		"Description":"Estimate the grade level difficulty of a piece of text",
 		"PromptText":"-> $a='' {\"Determine the grade level of the following text using the Flesch-Kincaid Grade Level Formula. The specific mathematical formula is:\n\nFKRA = (0.39 x ASL) + (11.8 x ASW) - 15.59\n\nWhere,\nFKRA = Flesch-Kincaid Reading Age\nASL = Average Sentence Length (i.e., the number of words divided by the number of sentences)\nASW = Average number of Syllable per Word (i.e., the number of syllables divided by the number of words)\n$a\"}",
@@ -11538,7 +11589,7 @@
 	{
 		"Name": "MermaidDiagram",
 		"Description": "Gives Mermaid-JS diagram code over text",
-		"PromptText": "-> $txt = '', $type = 'mind-map' { \"Create a concise mermaid-js $type for the text:\n\n$txt\n\nAll node messages should be in quotes.\nDo not use special symbols inside the messages like parenthesis, square brackets, or slashes.\n{llm-prompt('NothingElse')('correct mermaid-js')}\"}\n",
+		"PromptText": "-> $txt = '', $type = 'concise mind-map' { \"Create a mermaid.js $type for the text:\n\n$txt\n\nAll Mermaid node messages should be in quotes.\nDo not use special symbols inside the messages like parenthesis, square brackets, or slashes.\n{llm-prompt('NothingElse')('correct mermaid.js')}\"}\n",
 		"PositionalArguments": {
 			"$type": "mind-map",
 			"$txt": ""
