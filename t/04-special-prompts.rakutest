@@ -1,0 +1,34 @@
+use v6.d;
+use Test;
+use LLM::Prompts;
+
+## 1
+sub focus-hats-ending($hats) {
+    my $prefix = "\n\nThis time give output for the ";
+    my $one-hat-q = ($hats ~~ Str:D && $hats !~~ /<[\s,;]>/) || ($hats ~~ (Array:D | List:D | Seq:D) && $hats.elems == 1);
+
+    given $hats {
+        when $_.isa(Whatever) || $_ ~~ Str:D && $_.lc ∈ <all automatic whatever> { '' }
+        when $one-hat-q && $_ ~~ (Array:D | List:D | Seq:D) { $prefix ~ $_.head.Str.tc ~ ' hat only.' }
+        when $one-hat-q && $_ ~~ Str:D { $prefix ~ $_.tc ~ ' hat only.' }
+        when $_ ~~ (Array:D | List:D | Seq:D) {
+            $prefix ~ $_».Str».tc.join(", ").subst(/', ' <?before \w+ $>  /, ' and ') ~ ' hats only.'
+        }
+        default { $prefix ~ $_.Str ~ ' hats only.' }
+    }
+}
+
+subtest {
+    is llm-prompt('ThinkingHatsFeedback')('TEXT', 'red').contains('Red hat only'), True, 'focus on single hat';
+
+    is llm-prompt('ThinkingHatsFeedback')('TEXT', <red yellow>).contains('Red and Yellow hats only'), True, 'focus on two hats';
+
+    is llm-prompt('ThinkingHatsFeedback')('TEXT', Whatever) !~~ /'hat' . ' only'/, True, 'No focus hats 1';
+
+    is
+            llm-prompt('ThinkingHatsFeedback')('TEXT', 'automatic').trim.ends-with('Just give the table, do not comment, or put preambles, or use section heads.'),
+            True,
+            'No focus hats 2';
+}, 'Thinking hats feedback';
+
+done-testing;
