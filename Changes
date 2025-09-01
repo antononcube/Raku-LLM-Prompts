@@ -3,6 +3,9 @@ Revision history for "LLM::Prompts"
 0.2.8 2025-08-30
     - Better "MermaidDiagram" prompt.
     - Added the prompt "GradeEssay".
+    - Refactored "ThinkingHats" to have more robust ending.
+        - Signature change!
+        - llm-prompt("ThinkingHatsFeedback")($txt, <yellow gray>, format => 'HTML', :!ideas)
 
 0.2.7 2025-08-28
     - Added option :@hats to the prompt "ThinkingHatsFeedback".
