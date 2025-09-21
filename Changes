@@ -1,5 +1,8 @@
 Revision history for "LLM::Prompts"
 
+0.2.9 2025-09-21
+    - New prompt: "DocMarkuper".
+
 0.2.8 2025-08-30
     - Better "MermaidDiagram" prompt.
     - Added the prompt "GradeEssay".
