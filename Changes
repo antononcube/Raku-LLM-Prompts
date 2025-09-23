@@ -1,5 +1,8 @@
 Revision history for "LLM::Prompts"
 
+0.2.10 2025-09-23
+    - Renamed the prompt "DocMarkuper" into "CodeDocAnnotator".
+
 0.2.9 2025-09-21
     - New prompt: "DocMarkuper".
 
