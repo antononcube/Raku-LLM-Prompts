@@ -11648,6 +11648,64 @@
 			"code comments generation"
 		],
 		"ContributedBy": "Anton Antonov",
-		"URL": "https://resources.wolframcloud.com/PromptRepository/resources/DocMarkuper/"
+		"URL": "https://resources.wolframcloud.com/PromptRepository/resources/CodeDocAnnotator/"
+	},
+	{
+		"Name": "CodeHighlighter",
+		"Description": "Highlight code in different formats",
+		"PromptText": "sub ($code, :l(:language(:$lang)) = 'Raku', :sp(:$indentation-spaces-count) = 4, :m(:$mode) = 'light mode', :f(:$format) = 'Markdown') {\"You are a professional code formatter. Your task is to apply standard syntax highlighting to the provided $lang code for better readability.\nInstructions:\n1. Identify the language as $lang.\n2. Format the code with appropriate color coding for keywords, variables, comments, and strings.\n3. Ensure consistent formatting and indentation (e.g., $indentation-spaces-count spaces for indentation).\n4. Highlight the code for displaying in $mode.\n5. Do not insert comments or otherwise change the code.\n6. Return only the highlighted formatted code {$format.lc eq 'markdown' ?? \"within a single $format code block, specifying $lang as the language identifier\" !! \"as $format\"}.\nCode:\n$code\"}",
+		"PositionalArguments": [],
+		"NamedArguments": {
+			"$lang": "Raku",
+			"$indentation-spaces-count": 4,
+			"$mode": "light mode",
+			"$format": "Markdown"
+		},
+		"Arity": 0,
+		"Categories": {
+			"Function Prompts": true,
+			"Modifier Prompts": false,
+			"Personas": false
+		},
+		"Topics": {
+			"AI Guidance": false,
+			"Advisor Bots": false,
+			"Character Types": false,
+			"Chats": false,
+			"Computable Output": false,
+			"Content Derived from Text": true,
+			"Education": false,
+			"Entertainment": false,
+			"Fictional Characters": false,
+			"For Fun": false,
+			"General Text Manipulation": false,
+			"Historical Figures": false,
+			"Linguistics": false,
+			"Output Formatting": true,
+			"Personalization": false,
+			"Prompt Engineering": false,
+			"Purpose Based": false,
+			"Real-World Actions": false,
+			"Roles": false,
+			"Special-Purpose Text Manipulation": false,
+			"Text Analysis": true,
+			"Text Generation": false,
+			"Text Styling": false,
+			"Wolfram Language": false,
+			"Writers": false,
+			"Writing Genres": false
+		},
+		"Keywords": [
+			"HTML",
+			"LaTeX",
+			"Markdown",
+			"code highlighting",
+			"documentation markup",
+			"formatting",
+			"highlight",
+			"highlighter"
+		],
+		"ContributedBy": "Anton Antonov",
+		"URL": "https://resources.wolframcloud.com/PromptRepository/resources/CodeHighlighter/"
 	}
 ]
