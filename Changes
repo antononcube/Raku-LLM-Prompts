@@ -1,5 +1,13 @@
 Revision history for "LLM::Prompts"
 
+0.2.11 2025-11-16
+    - More universal "FunctionNameSuggest" prompt.
+        - Takes :lang argument
+        - also, removed a redundant duplicate definition of the "FunctionNameSuggest" prompt.
+    - New prompt "CodeHighlighter".
+        - Generates good highlighting in HTML and LaTeX.
+        - Does not automatically de
+
 0.2.10 2025-09-23
     - Renamed the prompt "DocMarkuper" into "CodeDocAnnotator".
 
