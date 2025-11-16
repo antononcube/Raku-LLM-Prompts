@@ -3217,12 +3217,14 @@
 	{
 		"Name":"FunctionNameSuggest",
 		"Description":"Suggest an alternative name for a given function",
-		"PromptText":"-> $a='1', $b='' {\"Suggest a $b name for the following Wolfram Language (WL) function with the following rules: \n\n1. The function cannot start with a number.\n2. The function cannot have an underscore in the name.\n4. The first character of the function should be lower case.\n3. Do not use the currently given name of the function as any sort of prompt.\n\nFinally, reply ONLY with the function name and do not include a full stop.\n\n===\n$a\"}",
+		"PromptText":"-> $a='', $b='', :$lang = 'Raku' {\"Suggest a $b name for the following $lang function with the following rules: \n\n1. The function cannot start with a number.\n2. The function cannot have an underscore in the name.\n4. The first character of the function should be lower case.\n3. Do not use the currently given name of the function as any sort of prompt.\n\nFinally, reply ONLY with the function name and do not include a full stop.\n\n===\n$a\"}",
 		"PositionalArguments":{
-			"$a":"1",
+			"$a":"",
 			"$b":""
 		},
-		"NamedArguments":[],
+		"NamedArguments": {
+			"$lang": "Raku"
+		},
 		"Arity":2,
 		"Categories":{
 			"Function Prompts":true,
@@ -3263,58 +3265,7 @@
 			"Code Improvement"
 		],
 		"ContributedBy":"Anthony Zupnik (Wolfram Research)",
-		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/FunctionNameSuggest"
-	},
-	{
-		"Name":"FunctionNameSuggest",
-		"Description":"Suggest an alternative name for a given function",
-		"PromptText":"-> $a='1', $b='' {\"Suggest a $b name for the following Wolfram Language (WL) function with the following rules: \n\n1. The function cannot start with a number.\n2. The function cannot have an underscore in the name.\n4. The first character of the function should be lower case.\n3. Do not use the currently given name of the function as any sort of prompt.\n\nFinally, reply ONLY with the function name and do not include a full stop.\n\n===\n$a\"}",
-		"PositionalArguments":{
-			"$a":"1",
-			"$b":""
-		},
-		"NamedArguments":[],
-		"Arity":2,
-		"Categories":{
-			"Function Prompts":true,
-			"Modifier Prompts":false,
-			"Personas":false
-		},
-		"Topics":{
-			"Advisor Bots":false,
-			"Chats":false,
-			"Education":false,
-			"For Fun":false,
-			"Linguistics":false,
-			"Prompt Engineering":false,
-			"Roles":false,
-			"Text Generation":false,
-			"Writers":false,
-			"AI Guidance":false,
-			"Computable Output":false,
-			"Entertainment":false,
-			"General Text Manipulation":false,
-			"Output Formatting":false,
-			"Purpose Based":false,
-			"Special-Purpose Text Manipulation":false,
-			"Text Styling":false,
-			"Writing Genres":false,
-			"Character Types":false,
-			"Content Derived from Text":true,
-			"Fictional Characters":false,
-			"Historical Figures":false,
-			"Personalization":false,
-			"Real-World Actions":false,
-			"Text Analysis":false,
-			"Wolfram Language":true
-		},
-		"Keywords":[
-			"Coding",
-			"Function Definition",
-			"Code Improvement"
-		],
-		"ContributedBy":"Anthony Zupnik (Wolfram Research)",
-		"URL":"https:\/\/resources.wolframcloud.com\/PromptRepository\/resources\/FunctionNameSuggest"
+		"URL":"https://resources.wolframcloud.com/PromptRepository/resources/FunctionNameSuggest"
 	},
 	{
 		"Name":"GenZSpeak",
