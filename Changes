@@ -1,5 +1,8 @@
 Revision history for "LLM::Prompts"
 
+0.2.11 2025-12-20
+    - Better "CopyEdit" prompt -- made it a sub that also takes :$format argument.
+
 0.2.11 2025-11-16
     - More universal "FunctionNameSuggest" prompt.
         - Takes :lang argument
