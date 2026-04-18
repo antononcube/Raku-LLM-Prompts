@@ -170,6 +170,7 @@ sub llm-prompt-add(%prompt, Bool :$replace = False, :$keep = False) is export {
 #| Get the prompts database as hash with the keys being the prompt titles.
 #| C<$name> -- Str:D or Regex used to retrieve the prompts by name.
 #| C<$fields> -- Fields to provide in the result.
+#| C<$pairs> -- Whether the result to be with key-value pairs.
 proto sub llm-prompt-data(| -->Hash) is export {*}
 
 multi sub llm-prompt-data(Bool:D :p(:$pairs) = True -->Hash) {
