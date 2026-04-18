@@ -1783,7 +1783,7 @@
 	{
 		"Name":"CopyEdit",
 		"Description":"Edit text for grammar, spelling, punctuation and clarity",
-		"PromptText":"sub ($a='', :$format = '') {\"Perform basic copy editing on the following \\{$format ?? $format.trim ~ ' ' !! ''\\}text, correcting errors in grammar, spelling and punctuation; improvements to style and clarity may also be made, but do not make more significant changes to content or structure: \n$a\"}",
+		"PromptText":"sub ($a='', :$format = '') {\"Perform basic copy editing on the following \" ~ ($format ?? $format.trim ~ ' ' !! '') ~ \"text, correcting errors in grammar, spelling and punctuation; improvements to style and clarity may also be made, but do not make more significant changes to content or structure: \n$a\"}",
 		"PositionalArguments":{
 			"$a":""
 		},
