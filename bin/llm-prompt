@@ -9,8 +9,10 @@ my %*SUB-MAIN-OPTS =
         ;
 
 #| Retrieves prompts text for given names or regexes.
-multi sub MAIN(Str $name,            #= Name of a prompt or a regex. (E.g. 'rx/ ^ Em .* /').
-               *@args,               #= Arguments for the prompt (if applicable).
+multi sub MAIN(
+        Str $name, #= Name of a prompt or a regex. (E.g. 'rx/ ^ Em .* /'.)
+        *@args,    #= Positional arguments for the prompt (if applicable.)
+        *%args,    #= Named arguments for the prompt (if applicable.)
                ) {
     my $res;
 
@@ -19,8 +21,16 @@ multi sub MAIN(Str $name,            #= Name of a prompt or a regex. (E.g. 'rx/ 
         my $rxName = EVAL $name;
         if $rxName !~~ Regex {
             die "The first argument is expected to be a string or a valid regex code."
-         }
-        $res = llm-prompt-data($rxName);
+        }
+        my $fields = Whatever;
+        my $pairs = False;
+        if %args<fields>:exists {
+            $fields = %args<fields>.split(/',' | \s/, :skip-empty)».trim
+        }
+        if %args<pairs>:exists {
+            $pairs = so %args<pairs>
+        }
+        $res = llm-prompt-data($rxName, :$fields, :$pairs);
     } else {
         $res = llm-prompt($name);
     }
@@ -28,7 +38,7 @@ multi sub MAIN(Str $name,            #= Name of a prompt or a regex. (E.g. 'rx/ 
     given $res {
         when Callable {
             # It is assumed that that arguments of each prompt with arguments have default values
-            $res = $res.(|@args);
+            $res = $res.(|@args, |%args);
             say $res;
         }
         when Hash {
