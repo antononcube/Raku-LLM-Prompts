@@ -1,5 +1,14 @@
 Revision history for "LLM::Prompts"
 
+0.2.12 2026-04-18
+    - Made "CopyEdit" a sub and to have the argument :$format.
+    - Improved CLI: takes and passes named arguments to &llm-prompt-data and callable prompts.
+    - For example
+        - Prompts data:
+            - llm-prompt 'rx/:i code .*/' --fields='Name Description Keywords' --pairs
+        - Prompt text with arguments
+            - llm-prompt CopyEdit --format=HTML
+
 0.2.11 2025-12-20
     - Better "CopyEdit" prompt -- made it a sub that also takes :$format argument.
 
