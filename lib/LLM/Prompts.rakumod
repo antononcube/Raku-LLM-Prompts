@@ -191,6 +191,7 @@ multi sub llm-prompt-data(:$fields! is copy, Bool:D :p(:$pairs) = False) {
     my %res = llm-prompt-data;
 
     if $fields.isa(Whatever) { $fields = ['Description',]; }
+    if $fields ~~ Str:D && $fields.lc eq 'all' || $fields ~~ Positional:D && 'all' ∈ $fields».lc { $fields = @record-fields; }
     if $fields ~~ Str:D { $fields = [$fields,]; }
 
     die "The argument \$fields is expected to be Whatever, one of the strings \"{@record-fields.join('", "')}\", or a list of those strings."
