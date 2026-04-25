@@ -1,5 +1,10 @@
 Revision history for "LLM::Prompts"
 
+0.2.13 2026-04-24
+    - Made &llm-prompt-data handle the value "all" for its named argument "fields".
+    - Easier to use "MermaidDiagram" prompt.
+    - Correct positional arguments for "CodeHighlighter".
+
 0.2.12 2026-04-18
     - Made "CopyEdit" a sub and to have the argument :$format.
     - Improved CLI: takes and passes named arguments to &llm-prompt-data and callable prompts.
