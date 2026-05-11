@@ -11709,5 +11709,58 @@
 		],
 		"ContributedBy": "Anton Antonov",
 		"URL": "https://resources.wolframcloud.com/PromptRepository/resources/CodeHighlighter/"
+	},
+	{
+		"Name": "TextFocuser",
+		"Description": "Focus attention to given texts",
+		"PromptText": "sub ($txt = '', :$start-delimiter = ':: FOCUS TEXT START ::', :$end-delimiter = ':: FOCUS TEXT END ::') {\"Be prepared to answer questions and requests for the following focus text. When in doubt to which text or item to apply the user request use the focus text.\\n$start-delimiter\\n$txt\\n$end-delimiter\\n\"}",
+		"PositionalArguments": {
+			"$txt": ""
+		},
+		"NamedArguments": {
+			"$start-delimiter": ":: FOCUS TEXT START ::",
+			"$end-delimiter": ":: FOCUS TEXT END ::"
+		},
+		"Arity": 0,
+		"Categories": {
+			"Function Prompts": true,
+			"Modifier Prompts": false,
+			"Personas": false
+		},
+		"Topics": {
+			"AI Guidance": false,
+			"Advisor Bots": false,
+			"Character Types": false,
+			"Chats": false,
+			"Computable Output": false,
+			"Content Derived from Text": true,
+			"Education": false,
+			"Entertainment": false,
+			"Fictional Characters": false,
+			"For Fun": false,
+			"General Text Manipulation": false,
+			"Historical Figures": false,
+			"Linguistics": false,
+			"Output Formatting": true,
+			"Personalization": false,
+			"Prompt Engineering": false,
+			"Purpose Based": false,
+			"Real-World Actions": false,
+			"Roles": false,
+			"Special-Purpose Text Manipulation": false,
+			"Text Analysis": true,
+			"Text Generation": false,
+			"Text Styling": false,
+			"Wolfram Language": false,
+			"Writers": false,
+			"Writing Genres": false
+		},
+		"Keywords": [
+			"text",
+			"focus",
+			"text focus"
+		],
+		"ContributedBy": "Anton Antonov",
+		"URL": "https://resources.wolframcloud.com/PromptRepository/resources/TextFocuser/"
 	}
 ]
