@@ -1,5 +1,8 @@
 Revision history for "LLM::Prompts"
 
+0.2.14 2026-05-11
+    - New prompt: "TextFocuser".
+
 0.2.13 2026-04-24
     - Made &llm-prompt-data handle the value "all" for its named argument "fields".
     - Easier to use "MermaidDiagram" prompt.
