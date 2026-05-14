@@ -11713,7 +11713,7 @@
 	{
 		"Name": "TextFocuser",
 		"Description": "Focus attention to given texts",
-		"PromptText": "sub ($txt = '', :$start-delimiter = ':: FOCUS TEXT START ::', :$end-delimiter = ':: FOCUS TEXT END ::') {\"Be prepared to answer questions and requests for the following focus text. When in doubt to which text or item to apply the user request use the focus text.\\n$start-delimiter\\n$txt\\n$end-delimiter\\n\"}",
+		"PromptText": "sub ($txt = '', :$start-delimiter = ':: FOCUS TEXT START ::', :$end-delimiter = ':: FOCUS TEXT END ::', :$format = 'text') { \"Be prepared to answer questions and requests for the following focus text. { $format.lc (elem) <text plaintext> ?? '' !! 'The focus text is the content of a ' ~ $format ~ ' document or file.' } If in doubt to which text or item to apply the user request, then use the focus text.\\n$start-delimiter\\n$txt\\n$end-delimiter\\n\"}",
 		"PositionalArguments": {
 			"$txt": ""
 		},
