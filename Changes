@@ -1,6 +1,7 @@
 Revision history for "LLM::Prompts"
 
 0.2.15 2026-05-14
+    - Added the parameter :$format to "TextFocuser" (and related conditional prompt phrase.)
     - Fix: correct handling of prompt expansion using previous message(s) when there are none.
 
 0.2.14 2026-05-11
