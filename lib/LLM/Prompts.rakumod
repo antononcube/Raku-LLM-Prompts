@@ -377,6 +377,7 @@ sub prompt-function-spec($/, :@messages = Empty, Str :$sep = "\n") {
         given (@messages.elems > 0, $m<pointer>.Str) {
             when (True, '^') { @args.push(@messages.tail); }
             when (True, '^^') { @args.push(@messages.join($sep)); }
+            when $_.tail ∈ <^ ^^> { @args.push(''); }
         }
     }
 
